@@ -8,7 +8,7 @@ import { SEDE } from "@/lib/sitio";
 const RUTA = "/celebraciones-coruna/";
 
 export const metadata = meta({
-  titulo: "Jubilaciones, aniversarios y celebraciones en A Coruña · Los7pc",
+  titulo: "Fiestas de jubilación y celebraciones en A Coruña · Los7pc",
   descripcion: `Celebra una jubilación, un aniversario o un reencuentro en A Coruña con cena, show cómico y baile en el ${SEDE.nombre}. Cena conjunta o celebración a medida.`,
   ruta: RUTA,
   imagen: FOTOS.grupos.src,
@@ -32,6 +32,8 @@ export default function Celebraciones() {
           { t: "Aniversarios", d: "Bodas de plata, de oro o un aniversario de pareja con los amigos de siempre." },
           { t: "Reencuentros", d: "La promoción del instituto, la cuadrilla de la mili o los del equipo de fútbol, veinte años después." },
           { t: "Homenajes y fiestas de grupo", d: "Un premio, una oposición aprobada o simplemente juntarse. Si es una excusa para celebrar, encaja." },
+          { t: "¿Fiesta privada para tu grupo?", d: "Si buscas un formato solo para vosotros, pide propuesta a medida: según fecha y número de personas, te paso opciones y presupuesto." },
+          { t: "Cenas de grupo", d: "Grupos de amigos, peñas o asociaciones que quieren cenar juntos y acabar bailando." },
         ]}
       />
       <DosModalidades

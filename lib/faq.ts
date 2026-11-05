@@ -39,6 +39,7 @@ const directo: Pregunta = {
 export const FAQ_HOME: Pregunta[] = [precio, grupoPequeno, fechas, horario, copas, dietas, consulta, aparcamiento];
 
 export const FAQ_CUMPLE: Pregunta[] = [
+  { p: "¿Dónde celebrar un 50 cumpleaños en Coruña?", r: `Si quieres cena, risas y baile sin organizar nada, la cena baile del ${SEDE.nombre} está pensada para eso: mesa para tu grupo, show cómico y DJ hasta las 3. Si el cumpleaños es grande, se puede pedir un formato a medida.` },
   { p: "¿Se puede llevar tarta?", r: "Cuéntalo al hacer la consulta y lo vemos para tu fecha. Mejor avisarlo antes que aparecer con ella en la puerta." },
   { p: "¿Puedo invitar a gente que no se conoce entre sí?", r: "Es de lo más habitual. La cena, el show y el baile hacen que el grupo se mezcle sin que tengas que hacer de animador." },
   grupoPequeno,
@@ -64,7 +65,12 @@ export const FAQ_DESPEDIDA: Pregunta[] = [
   consulta,
 ];
 
-export const FAQ_CELEBRACIONES: Pregunta[] = [medida, grupoPequeno, precio, dietas, consulta];
+const fiestaPrivada: Pregunta = {
+  p: "¿Puedo hacer una fiesta privada solo con mi grupo?",
+  r: "Se puede pedir una celebración a medida. Si hay fecha disponible y el formato encaja, te paso propuesta y presupuesto personalizado. Depende del día y del número de personas, así que pregunta con tiempo.",
+};
+
+export const FAQ_CELEBRACIONES: Pregunta[] = [fiestaPrivada, medida, grupoPequeno, precio, dietas, consulta];
 
 export const FAQ_PRECIOS: Pregunta[] = [
   precio,

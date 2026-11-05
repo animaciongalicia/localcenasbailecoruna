@@ -7,7 +7,6 @@ export type TipoNoche = "confirmada" | "a-demanda";
 export type Noche = { fecha: string; etiqueta: string; tipo: TipoNoche; nota?: string; completa?: boolean };
 
 export const OTRA_FECHA = "otra";
-export const EVENTO_ELEGIR_NOCHE = "l7pc:elegir-noche";
 
 /** Una noche desaparece al día siguiente (la página se regenera cada hora). */
 const pasada = (f: Noche) => Date.now() > new Date(`${f.fecha}T23:00:00Z`).getTime();

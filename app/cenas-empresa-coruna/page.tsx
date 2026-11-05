@@ -9,7 +9,7 @@ import { OFERTAS, SEDE } from "@/lib/sitio";
 const RUTA = "/cenas-empresa-coruna/";
 
 export const metadata = meta({
-  titulo: "Cenas de empresa en A Coruña con show y baile · Los7pc",
+  titulo: "Cenas y comidas de empresa en A Coruña con show y baile · Los7pc",
   descripcion: `Cenas y comidas de empresa en A Coruña: cena, show cómico y DJ en el ${SEDE.nombre}. Cena conjunta o evento a medida con presupuesto personalizado.`,
   ruta: RUTA,
   imagen: FOTOS.salon.src,

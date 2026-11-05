@@ -8,8 +8,8 @@ import { OFERTAS, SEDE } from "@/lib/sitio";
 const T = OFERTAS.temporada;
 
 export const metadata = meta({
-  titulo: "Cenas con espectáculo y baile en A Coruña · Los7pc",
-  descripcion: `Cena baile con show cómico y DJ hasta las 3 en el ${SEDE.nombre}. Para cumpleaños, empresas, despedidas y grupos. ${T.precio} € por persona (IVA incluido), temporada ${T.temporada}.`,
+  titulo: "Cena baile en A Coruña con show y DJ hasta las 3 · Los7pc",
+  descripcion: `Restaurante de cenas baile para grupos: cena, show cómico y DJ hasta las 3 en el ${SEDE.nombre}. Para cumpleaños, empresas, despedidas y grupos. ${T.precio} € por persona (IVA incluido), temporada ${T.temporada}.`,
   ruta: "/",
   imagen: FOTOS.baile.src,
 });
@@ -19,7 +19,7 @@ export default function Inicio() {
     <>
       <Hero
         antetitulo={`A Coruña · ${SEDE.nombre}`}
-        titulo="Cenas con espectáculo y baile en A Coruña"
+        titulo="Cena baile con espectáculo en A Coruña"
         texto={`Celebra tu cumpleaños, reúne a tus compañeros o ven con tu grupo a una noche de cena, show cómico y DJ hasta las tres. En el ${SEDE.nombre}.`}
       />
       <Incluye />

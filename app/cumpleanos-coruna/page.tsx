@@ -8,8 +8,8 @@ import { OFERTAS, SEDE } from "@/lib/sitio";
 const RUTA = "/cumpleanos-coruna/";
 
 export const metadata = meta({
-  titulo: "Celebrar un cumpleaños en A Coruña con cena, show y baile · Los7pc",
-  descripcion: `Cumpleaños de adultos en A Coruña: cena, show cómico y DJ hasta las 3 en el ${SEDE.nombre}. Cena conjunta a ${OFERTAS.temporada.precio} €/persona o celebración a medida.`,
+  titulo: "Dónde celebrar un cumpleaños de adultos en A Coruña · Los7pc",
+  descripcion: `Sitio para celebrar tu cumpleaños (30, 40, 50…) en A Coruña: cena, show cómico y DJ hasta las 3 en el ${SEDE.nombre}. Cena conjunta a ${OFERTAS.temporada.precio} €/persona o celebración a medida.`,
   ruta: RUTA,
   imagen: FOTOS.celebrando.src,
 });
@@ -20,7 +20,7 @@ export default function Cumpleanos() {
       <Migas actual="Cumpleaños" />
       <Hero
         antetitulo="Cumpleaños en A Coruña"
-        titulo="Tu cumpleaños, con cena, show y baile hasta las tres"
+        titulo="Celebra tu cumpleaños en A Coruña con cena, show y baile"
         texto="Tú pones a la gente. La cena, las risas y la pista de baile ya están montadas. Sin cocinar, sin recoger y sin buscar dónde seguir la fiesta."
         foto={FOTOS.celebrando}
       />

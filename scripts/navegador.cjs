@@ -53,9 +53,10 @@ const ok = (c, m) => { if (!c) fallos++; console.log(c ? "✓" : "✗", m); };
 
   // Navidad: elegir noche desde la tarjeta y preparar el mensaje
   await m.goto(BASE + "/cenas-navidad-coruna/", { waitUntil: "networkidle" });
-  await m.getByRole("link", { name: "Consultar esta noche" }).first().click();
-  const elegida = await m.locator("#reserva-navidad select").inputValue();
-  ok(/^\d{4}-\d{2}-\d{2}$/.test(elegida), "Navidad: el botón de la fecha preselecciona la noche (" + elegida + ")");
+  ok((await m.getByRole("link", { name: "Consultar esta noche" }).count()) === 0, "Navidad: las fechas no llevan botones");
+  ok(await m.locator('a[data-ubicacion="navidad-fechas"][href^="mailto:"]').isVisible(), "Navidad: contacto por email bajo las fechas");
+  const primera = await m.locator("#reserva-navidad select option:not([value='']):not([disabled])").first().getAttribute("value");
+  await m.locator("#reserva-navidad select").selectOption(primera);
   await m.locator("#reserva-navidad").getByLabel(/Tu nombre/).fill("Ana, Óptica Peña");
   await m.locator("#reserva-navidad").getByLabel("Personas (aprox.)").fill("14");
   await m.locator("#reserva-navidad").getByRole("button", { name: /Preparar mi mensaje/ }).click();

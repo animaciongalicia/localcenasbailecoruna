@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { CtaFinal, Faq, Hero, LineaNoche, ListaMenu, Migas, Ocasiones, Seccion, Titulo } from "./Bloques";
-import BotonNoche from "./BotonNoche";
 import FormularioNavidad from "./FormularioNavidad";
-import { IconoTelefono, IconoWhatsapp } from "./Iconos";
+import { IconoMail, IconoTelefono, IconoWhatsapp } from "./Iconos";
 import { JsonLdFaq, JsonLdMigas, ORG_ID } from "./JsonLd";
 import { FOTOS } from "@/lib/fotos";
-import { OTRA_FECHA, getADemanda, getConfirmadas, getNoches } from "@/lib/navidad";
+import { getADemanda, getConfirmadas, getNoches } from "@/lib/navidad";
 import type { Pregunta } from "@/lib/faq";
 import { CONTACTO, MENU, OFERTAS, SEDE, SITE_URL } from "@/lib/sitio";
 import { COPY_NAVIDAD, type Variante } from "@/lib/variantes";
@@ -14,6 +13,21 @@ import { whatsappUrl } from "@/lib/whatsapp";
 export const RUTA_NAVIDAD = "/cenas-navidad-coruna/";
 const N = OFERTAS.navidad;
 const resto = N.precio - N.senal;
+const WA_NAVIDAD = `Hola, quiero consultar una cena de Navidad ${N.anio} en el ${SEDE.nombre}.\nNoche que nos interesa: \nPersonas: `;
+const MAIL_NAVIDAD = `mailto:${CONTACTO.email}?subject=${encodeURIComponent(`Cena de Navidad ${N.anio}`)}&body=${encodeURIComponent("Hola, queremos consultar una cena de Navidad.\nNoche: \nPersonas: \nNombre y teléfono: \n")}`;
+
+/** Bajo las fechas: los dos canales de consulta, sin botones por noche. */
+function ContactoNavidad() {
+  return (
+    <div className="mt-10 flex flex-col gap-4 rounded-2xl bg-white p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+      <p className="font-semibold">¿Te encaja alguna noche? Escribe con la fecha y cuántos sois.</p>
+      <div className="flex flex-col gap-3 sm:flex-row">
+        <a href={whatsappUrl(WA_NAVIDAD)} className="btn-wa" target="_blank" rel="noopener" data-ubicacion="navidad-fechas" data-campana={N.id}><IconoWhatsapp /> WhatsApp</a>
+        <a href={MAIL_NAVIDAD} className="btn-linea" data-ubicacion="navidad-fechas"><IconoMail /> Email</a>
+      </div>
+    </div>
+  );
+}
 
 export const FAQ_NAVIDAD: Pregunta[] = [
   { p: `¿Cuánto cuesta la cena de Navidad ${N.anio}?`, r: `${N.precio} € por persona: cena completa con bebida durante la cena, show cómico y DJ hasta las 3.` },
@@ -62,7 +76,7 @@ export default function NavidadLanding({ variante }: { variante: Variante }) {
   const aDemanda = getADemanda();
   const pasos = [
     "Eliges noche (o propones otra)",
-    "Escribes por WhatsApp o llamas",
+    "Escribes por WhatsApp o email",
     "Recibes la confirmación por escrito",
     `Pagáis ${N.senal} €/persona de señal. El resto, el día`,
   ];
@@ -98,27 +112,20 @@ export default function NavidadLanding({ variante }: { variante: Variante }) {
                     {f.nota && <span className="ml-1.5 rounded-full bg-acento/10 px-2 py-0.5 normal-case tracking-normal text-acento">{f.nota}</span>}
                   </p>
                   <h3 className="mt-1 font-serif text-xl font-semibold leading-tight sm:text-2xl">{resto.join(" ")}</h3>
-                  <p className={`mt-2 text-xs font-semibold ${f.completa ? "text-tinta-suave" : "text-acento"}`}>{f.completa ? "Completa" : "Noche confirmada"}</p>
-                  <div className="mt-auto pt-4">
-                    {f.completa ? (
-                      <a href={whatsappUrl(`Hola, quiero apuntarme a la lista de espera de la cena de Navidad del ${f.etiqueta.toLowerCase()}.`)} target="_blank" rel="noopener" data-ubicacion="lista-espera" data-campana={N.id} className="btn-linea min-h-[44px] w-full px-3 text-sm">Lista de espera</a>
-                    ) : (
-                      <BotonNoche fecha={f.fecha} />
-                    )}
-                  </div>
+                  <p className={`mt-2 text-xs font-semibold ${f.completa ? "text-tinta-suave" : "text-acento"}`}>{f.completa ? "Completa · lista de espera" : "Noche confirmada"}</p>
                 </li>
               );
             })}
             <li className="flex flex-col rounded-2xl border-2 border-dashed border-tinta/20 p-4 sm:p-5">
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-tinta-suave">¿Otro día?</p>
               <h3 className="mt-1 font-serif text-xl font-semibold leading-tight sm:text-2xl">Otras fechas o comidas</h3>
-              <p className="mt-2 text-xs text-tinta-suave">Empresas y grupos que necesitan otro día. Sin compromiso.</p>
-              <div className="mt-auto pt-4"><BotonNoche fecha={OTRA_FECHA} texto="Proponer día" linea /></div>
+              <p className="mt-2 text-xs text-tinta-suave">Empresas y grupos que necesitan otro día. Pregunta sin compromiso.</p>
             </li>
           </ul>
         ) : (
           <p className="tarjeta mt-8 p-6 text-tinta-suave">Ahora mismo no hay noches publicadas. Escribe con tu fecha y te digo qué hay.</p>
         )}
+        <ContactoNavidad />
         {aDemanda.length > 0 && (
           <div className="mt-10">
             <h3 className="font-serif text-2xl font-semibold">Se abren si se juntan grupos</h3>
@@ -127,10 +134,8 @@ export default function NavidadLanding({ variante }: { variante: Variante }) {
               {aDemanda.map((f) => (
                 <li key={f.fecha} className="flex flex-col rounded-2xl border border-linea bg-marfil p-4 sm:p-5">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-tinta-suave">{f.etiqueta.split(" ")[0]}</p>
-                  <h4 className="mt-1 font-serif text-xl font-semibold leading-tight">{f.etiqueta.replace(/^\S+\s+/, "")}</h4>
-                  <div className="mt-auto pt-4">
-                    {f.completa ? <p className="text-sm text-tinta-suave">Completa</p> : <BotonNoche fecha={f.fecha} texto="Apuntarme" linea />}
-                  </div>
+                  <h4 className="mt-1 font-serif text-xl font-semibold leading-tight sm:text-2xl">{f.etiqueta.replace(/^\S+\s+/, "")}</h4>
+                  <p className="mt-2 text-xs font-semibold text-tinta-suave">{f.completa ? "Completa" : "A demanda"}</p>
                 </li>
               ))}
             </ul>
@@ -170,7 +175,8 @@ export default function NavidadLanding({ variante }: { variante: Variante }) {
           <div>
             <Titulo ante="Reserva tu mesa" titulo="Un minuto aquí y tienes el WhatsApp escrito" texto="Elige noche, di cuántos sois y se prepara el mensaje. Lo envías tú y te respondo con la confirmación." />
             <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <a href={whatsappUrl(`Hola, quiero información sobre las cenas de Navidad ${N.anio} en el ${SEDE.nombre}.`)} className="btn-wa" target="_blank" rel="noopener" data-ubicacion="navidad" data-campana={N.id}><IconoWhatsapp /> WhatsApp directo</a>
+              <a href={whatsappUrl(WA_NAVIDAD)} className="btn-wa" target="_blank" rel="noopener" data-ubicacion="navidad" data-campana={N.id}><IconoWhatsapp /> WhatsApp directo</a>
+              <a href={MAIL_NAVIDAD} className="btn-linea"><IconoMail /> {CONTACTO.email}</a>
               <a href={CONTACTO.telefonoHref} className="btn-linea" data-ubicacion="navidad"><IconoTelefono /> {CONTACTO.telefono}</a>
             </div>
             <p className="mt-6 text-marfil/75">

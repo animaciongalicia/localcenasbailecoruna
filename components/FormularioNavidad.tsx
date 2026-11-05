@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { CONTACTO } from "@/lib/sitio";
 import { track } from "@/lib/tracking";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { EVENTO_ELEGIR_NOCHE, OTRA_FECHA, enFrase, type Noche } from "@/lib/navidad";
-import { IconoCopiar, IconoTelefono, IconoWhatsapp } from "./Iconos";
+import { OTRA_FECHA, enFrase, type Noche } from "@/lib/navidad";
+import { IconoCopiar, IconoMail, IconoTelefono, IconoWhatsapp } from "./Iconos";
 
 type Errores = Partial<Record<"nombre" | "noche" | "otra" | "personas", string>>;
 
@@ -30,16 +30,6 @@ export default function FormularioNavidad({ noches, campana, variante }: { noche
       track("consulta_abierta", { campana, celebracion: "navidad" });
     }
   };
-
-  // Los botones de cada fecha (BotonNoche) preseleccionan la noche.
-  useEffect(() => {
-    const elegir = (e: Event) => {
-      setNoche((e as CustomEvent<string>).detail);
-      setListo(null);
-    };
-    window.addEventListener(EVENTO_ELEGIR_NOCHE, elegir);
-    return () => window.removeEventListener(EVENTO_ELEGIR_NOCHE, elegir);
-  }, []);
 
   const enviar = (e: React.FormEvent) => {
     e.preventDefault();
@@ -122,7 +112,7 @@ export default function FormularioNavidad({ noches, campana, variante }: { noche
           </div>
         </div>
         <button type="submit" className="btn-principal mt-6 w-full sm:w-auto">Preparar mi mensaje de WhatsApp</button>
-        <p className="mt-3 text-sm text-tinta-suave">No se guarda nada en esta web. Se abre tu WhatsApp con el mensaje escrito: lo revisas y lo envías tú. Enviarlo es una consulta; la mesa queda reservada al pagar la señal.</p>
+        <p className="mt-3 text-sm text-tinta-suave">No se guarda nada en esta web. Se prepara el mensaje para WhatsApp o email: lo revisas y lo envías tú. Enviarlo es una consulta; la mesa queda reservada al pagar la señal.</p>
       </form>
 
       {listo && (
@@ -136,9 +126,10 @@ export default function FormularioNavidad({ noches, campana, variante }: { noche
             <button type="button" className="btn-linea" onClick={async () => { try { await navigator.clipboard.writeText(listo); setCopiado(true); } catch {} }}>
               <IconoCopiar /> {copiado ? "Copiado" : "Copiar mensaje"}
             </button>
+            <a className="btn-linea" href={`mailto:${CONTACTO.email}?subject=${encodeURIComponent("Cena de Navidad")}&body=${encodeURIComponent(listo)}`}><IconoMail /> Enviar por email</a>
           </div>
           <p className="mt-4 text-sm text-tinta-suave">
-            ¿No se abre? Envíalo al {CONTACTO.telefono} o llama: <a href={CONTACTO.telefonoHref} className="enlace" data-ubicacion="formulario-navidad"><IconoTelefono className="inline h-4 w-4" /> {CONTACTO.telefono}</a>.
+            ¿Prefieres email? <a className="enlace" href={`mailto:${CONTACTO.email}?subject=${encodeURIComponent("Cena de Navidad")}&body=${encodeURIComponent(listo)}`}>Enviar este mensaje a {CONTACTO.email}</a>. ¿No se abre WhatsApp? Llama al <a href={CONTACTO.telefonoHref} className="enlace" data-ubicacion="formulario-navidad"><IconoTelefono className="inline h-4 w-4" /> {CONTACTO.telefono}</a>.
           </p>
         </div>
       )}
