@@ -9,7 +9,7 @@ export const CELEBRACIONES_NAV: Enlace[] = [
   { href: "/cenas-despedidas-coruna/", texto: "Despedidas", descripcion: "Cena, show y fiesta para el grupo" },
   { href: "/celebraciones-coruna/", texto: "Jubilaciones y aniversarios", descripcion: "Despedidas de trabajo, bodas de plata, reencuentros" },
   { href: "/eventos-privados-coruna/", texto: "Eventos privados", descripcion: "En exclusiva, todo el año, donde quieras" },
-  { href: "/cenas-navidad-coruna/", texto: "Navidad", descripcion: "Cenas y comidas de noviembre y diciembre" },
+  { href: "/cenas-navidad-coruna/", texto: "Cenas de empresa de Navidad", descripcion: "Noviembre y diciembre, con guía para organizarla" },
 ];
 
 export const NAV: (Enlace & { hijos?: Enlace[] })[] = [
@@ -17,12 +17,13 @@ export const NAV: (Enlace & { hijos?: Enlace[] })[] = [
   { href: "/celebraciones-coruna/", texto: "Celebraciones", hijos: CELEBRACIONES_NAV },
   { href: "/menus-precios/", texto: "Menú y precios" },
   { href: "/club-nautico-oza/", texto: "El espacio" },
+  { href: "/noticias/", texto: "Noticias" },
 ];
 
 /** Tarjetas "¿Qué celebráis?". Navidad primero mientras esté destacada. */
 export const OCASIONES = [
   ...(OFERTAS.navidad.destacada
-    ? [{ href: "/cenas-navidad-coruna/", titulo: "Navidad", texto: "Cenas y comidas de empresa o de amigos en noviembre y diciembre." }]
+    ? [{ href: "/cenas-navidad-coruna/", titulo: "Navidad en la empresa", texto: "La cena de empresa de Navidad que el equipo sí quiere. Noviembre y diciembre." }]
     : []),
   { href: "/cumpleanos-coruna/", titulo: "Cumpleaños", texto: "Cena con tu gente y fiesta hasta las tres. Sin montar nada en casa." },
   { href: "/cenas-empresa-coruna/", titulo: "Empresas", texto: "Un plan que funciona para todo el equipo, de 6 a muchos más." },

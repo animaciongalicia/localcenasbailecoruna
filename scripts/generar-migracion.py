@@ -57,6 +57,9 @@ DESTINOS = {
     "/mas-informacion-sobre-las-cookies/": ("/cookies/", "Página legal equivalente.", ""),
 }
 
+# Rutas antiguas que vuelven a existir en la web nueva: ni 301 ni 410.
+REUTILIZADAS = {"/noticias/"}
+
 # Rutas sin equivalente vistas en Search Console que no están en el XML (se retiran con 410).
 EXTRA_RETIRADAS = [
     "/pub-puticlub-coruna-mas-de-10-anos-en-la-brecha/despedidas-puticlub-coruna-cenas-tematicas/",
@@ -93,7 +96,7 @@ def main(xml: str) -> None:
         redir.append((p, dest))
         tabla.append({"url_antigua": p, "codigo": 301, "destino": dest, "motivo": motivo, "validacion": val or "OK con XML y Search Console"})
     for p, r in sorted(publicas.items()):
-        if p == "/" or p in DESTINOS:
+        if p == "/" or p in DESTINOS or p in REUTILIZADAS or p.startswith("/noticias/"):
             continue
         retiradas.add(p)
         motivo = "Adjunto de WordPress (página de imagen) sin valor propio" if r["tipo"] == "attachment" else \

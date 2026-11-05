@@ -34,6 +34,7 @@ Documentación:
 | Menú de navegación y tarjetas de celebraciones | `lib/paginas.ts` |
 | Fotos | `public/fotos/` + `lib/fotos.ts` (solo fotos reales con derechos) |
 | Texto de cada página | `app/<ruta>/page.tsx` |
+| Noticias (artículos) | `lib/noticias.ts`: copia un artículo, cambia `slug`, título, fecha y bloques |
 
 Cambiar el precio en `OFERTAS.temporada.precio` lo actualiza en todas las páginas, en los datos estructurados
 y en la meta descripción. Navidad (`OFERTAS.navidad`) es independiente: no hereda el precio de temporada.
@@ -51,7 +52,13 @@ y en la meta descripción. Navidad (`OFERTAS.navidad`) es independiente: no here
 
 Haz commit y Vercel redespliega solo.
 
+## Noticias
+Cada artículo vive en `lib/noticias.ts` como una lista de bloques (párrafo, subtítulo, lista, cita y llamada a la acción).
+Aparece solo en `/noticias/`, en el sitemap y con datos `BlogPosting`. Para enlazarlo desde una página, añade su `slug`
+a `<PostsRelacionados slugs={[...]} />`. Nada de anécdotas de clientes inventadas ni precios en los artículos.
+
 ## Reglas que el código respeta (no romper)
+- **Los precios solo aparecen en `/menus-precios/`.** El resto de páginas enlaza allí. `scripts/verificar.mjs` falla si ve un "€" fuera.
 - Sin mínimos de personas, sin "aforo", sin plazas ni contadores inventados. Grupos desde 2 pueden consultar.
 - La consulta **no** es una reserva: nunca se muestra "reserva confirmada".
 - Datos estructurados: Los7pc como organizador (no propietario del club), sin valoraciones, sin `Event` sin fecha real.

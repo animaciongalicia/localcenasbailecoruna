@@ -1,4 +1,5 @@
-import { Argumentos, CtaFinal, Faq, Hero, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
+import { Ambiente, Argumentos, CtaFinal, Faq, Hero, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
+import { MejorPeor, Pasos, Prosa } from "@/components/Contenido";
 import { JsonLdFaq, JsonLdMigas, ORG_ID } from "@/components/JsonLd";
 import { FOTOS } from "@/lib/fotos";
 import type { Pregunta } from "@/lib/faq";
@@ -46,10 +47,15 @@ export default function EventosPrivados() {
         titulo="Tu fiesta privada, con cena, DJ y show solo para tu grupo"
         texto={`La noche que funciona en el ${SEDE.nombre} desde hace temporadas, en exclusiva para vosotros. ${EXCLUSIVO.cuando}: en Oza, en otro espacio o en vuestro propio local.`}
         foto={FOTOS.baile}
-        precio={false}
         ctaPrincipal={{ href: "/reservas/?modalidad=medida", texto: "Pedir propuesta" }}
         ctaSecundario={{ href: "#donde", texto: "Dónde se puede hacer" }}
       />
+
+      <Prosa ante="Fiestas privadas en A Coruña" titulo="Cuando la celebración es solo vuestra">
+        <p>Hay fiestas que piden la sala para vosotros: un cumpleaños redondo con cien invitados, la jubilación de alguien muy querido, la plantilla entera de la empresa o un aniversario que merece algo más que una comida.</p>
+        <p>Para esas, el formato que funciona en las cenas baile <strong>se monta solo para tu grupo</strong>: comida o cena, DJ, show cómico y fiesta. Y no depende de la temporada ni del sitio: <strong>cualquier día del año, en el {SEDE.nombre}, en otro espacio o en tu propio local</strong>, restaurante, empresa o finca.</p>
+        <p>El DJ y el show son propios, sin subcontratas. Por eso cada fecha depende de la agenda: cuanto antes preguntes, más opciones.</p>
+      </Prosa>
 
       <Seccion id="donde" arena>
         <Titulo ante="Tú eliges el sitio" titulo="Tres maneras de montarla" texto="El formato viaja: la comida o la cena, el DJ, el show y la fiesta van donde esté tu grupo." />
@@ -78,6 +84,32 @@ export default function EventosPrivados() {
         ]}
       />
 
+      <Pasos
+        ante="Cómo funciona"
+        titulo="De la idea a la fiesta, en cuatro pasos"
+        pasos={[
+          { t: "Me cuentas la idea", d: "Fecha (o fechas posibles), número de personas, comida o cena y dónde lo imagináis." },
+          { t: "Te paso propuesta", d: "Formato, lo que incluye y presupuesto cerrado, por escrito." },
+          { t: "Confirmas", d: "Con la confirmación se bloquea la fecha en la agenda del DJ y del show." },
+          { t: "Disfrutáis", d: "El día del evento solo tenéis que llegar. El resto está montado." },
+        ]}
+      />
+
+      <MejorPeor
+        titulo="Lo mejor y lo que debes saber"
+        mejor={[
+          "La sala, la música y el show solo para tu grupo.",
+          "Cualquier día del año, en comida o en cena.",
+          "En Oza, en otro espacio o en tu propio local.",
+          "Presupuesto cerrado antes de confirmar.",
+        ]}
+        peor={[
+          "Cada fecha depende de la agenda del DJ y del show: consulta con tiempo.",
+          "Si se celebra en otro espacio, el alquiler de ese espacio puede ir aparte; te lo detallo en la propuesta.",
+          "No es para bodas: el formato está pensado para fiestas, empresas y celebraciones.",
+        ]}
+      />
+
       <Seccion>
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
           <Titulo ante="Qué incluye" titulo="Lo que puedes tener" texto={EXCLUSIVO.agenda} />
@@ -87,6 +119,7 @@ export default function EventosPrivados() {
           </ul>
         </div>
       </Seccion>
+      <Ambiente />
       <Faq preguntas={FAQ_PRIVADOS} titulo="Dudas sobre eventos privados" />
       <Ocasiones excluir={RUTA} />
       <CtaFinal titulo="¿Tienes ya la fecha?" texto="Las fechas en exclusiva dependen de la agenda del DJ y del show. Pregunta con tiempo." />

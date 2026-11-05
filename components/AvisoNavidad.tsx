@@ -7,8 +7,8 @@ export default function AvisoNavidad() {
   return (
     <div className="bg-acento text-white">
       <p className="contenedor py-2 text-center text-sm">
-        Cenas y comidas de Navidad {OFERTAS.navidad.anio} en el Club Náutico de Oza.{" "}
-        <Link href="/cenas-navidad-coruna/" className="font-semibold underline underline-offset-2">Ver Navidad</Link>
+        Cenas de empresa de Navidad {OFERTAS.navidad.anio} en el Club Náutico de Oza.{" "}
+        <Link href="/cenas-navidad-coruna/" className="font-semibold underline underline-offset-2">Ver noches abiertas</Link>
       </p>
     </div>
   );

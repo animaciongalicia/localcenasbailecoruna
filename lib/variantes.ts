@@ -8,9 +8,9 @@ type Copy = { antetitulo: string; titular: string; bajada: string };
 
 export const COPY_NAVIDAD: Record<Variante, Copy> = {
   generica: {
-    antetitulo: "Cenas baile de Navidad · A Coruña",
-    titular: "Olvida la cena de Navidad de siempre",
-    bajada: "Aquí se cena, se ríe con el show y se baila hasta las 3 de la mañana. En el Club Náutico de Oza.",
+    antetitulo: "Cenas de empresa de Navidad · A Coruña",
+    titular: "Cena de empresa de Navidad en A Coruña, con show y baile",
+    bajada: "La cena de Navidad que el equipo sí quiere: cena con bebida, una hora de show cómico y DJ hasta las 3. Todo en el Club Náutico de Oza.",
   },
   empresas: {
     antetitulo: "Cena de empresa de Navidad · A Coruña",

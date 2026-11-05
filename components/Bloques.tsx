@@ -15,7 +15,6 @@ export function Hero({
   titulo,
   texto,
   foto = FOTOS.baile,
-  precio = true,
   ctaSecundario = { href: "/menus-precios/", texto: "Ver menú y precio" },
   ctaPrincipal = { href: "/reservas/", texto: "Consultar disponibilidad" },
   children,
@@ -24,7 +23,6 @@ export function Hero({
   titulo: string;
   texto: string;
   foto?: Foto;
-  precio?: boolean;
   ctaSecundario?: { href: string; texto: string } | null;
   ctaPrincipal?: { href: string; texto: string };
   children?: React.ReactNode;
@@ -36,15 +34,6 @@ export function Hero({
           <p className="antetitulo">{antetitulo}</p>
           <h1 className="mt-4 font-serif text-[2.35rem] font-semibold leading-[1.05] text-marfil sm:text-6xl">{titulo}</h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-marfil/85">{texto}</p>
-          {precio && (
-            <div className="mt-6 flex items-center gap-4 border-l-2 border-oro pl-4 text-marfil">
-              <span className="font-serif text-4xl font-semibold text-oro">{T.precio} €</span>
-              <span className="text-sm leading-snug text-marfil/80">
-                por persona, IVA incluido<br />
-                Cena baile conjunta · {T.temporadaCorta.toLowerCase()} {T.anio}
-              </span>
-            </div>
-          )}
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link href={ctaPrincipal.href} className="btn-principal">{ctaPrincipal.texto}</Link>
             {ctaSecundario && <Link href={ctaSecundario.href} className="btn-linea">{ctaSecundario.texto}</Link>}
@@ -101,19 +90,19 @@ export function Incluye({ id = "experiencia", titulo = "Una noche completa, sin 
 }
 
 /* ── Dos maneras de celebrar ─────────────────────────────────────────── */
-export function DosModalidades({ ejemploConjunta, ejemploMedida }: { ejemploConjunta?: string; ejemploMedida?: string }) {
+export function DosModalidades({ ejemploConjunta, ejemploMedida, anteConjunta }: { ejemploConjunta?: string; ejemploMedida?: string; anteConjunta?: string }) {
   return (
     <Seccion arena>
       <Titulo ante="Elige tu formato" titulo="Dos maneras de celebrar" />
       <div className="mt-10 grid gap-5 md:grid-cols-2">
         <article className="tarjeta flex flex-col p-6 sm:p-8">
-          <p className="antetitulo">Temporada {T.temporadaCorta.toLowerCase()}</p>
+          <p className="antetitulo">{anteConjunta ?? `Temporada ${T.temporadaCorta.toLowerCase()}`}</p>
           <h3 className="mt-2 font-serif text-3xl font-semibold">Con otros grupos</h3>
           <p className="mt-3 leading-relaxed text-tinta-suave">
             {ejemploConjunta ?? "Vienes con tu grupo, sea de 6 o de 30. Tenéis vuestra mesa y compartís la noche con otros grupos: más ambiente, más baile."}
           </p>
-          <p className="mt-5 font-serif text-4xl font-semibold text-acento">
-            {T.precio} € <span className="font-sans text-base font-medium text-tinta-suave">por persona · IVA incluido</span>
+          <p className="mt-5 font-semibold text-acento">
+            Precio cerrado por persona · <Link href="/menus-precios/" className="underline underline-offset-4">ver menú y precio</Link>
           </p>
           <ul className="lista-check mt-5 space-y-2">
             {T.incluye.map((i) => <li key={i}>{i}</li>)}
@@ -128,7 +117,7 @@ export function DosModalidades({ ejemploConjunta, ejemploMedida }: { ejemploConj
           <p className="mt-3 leading-relaxed text-tinta-suave">
             {ejemploMedida ?? "La misma noche, en exclusiva: en el Club Náutico de Oza, en otro espacio o en vuestro propio local. Cualquier día del año."}
           </p>
-          <p className="mt-5 font-serif text-3xl font-semibold">Presupuesto personalizado</p>
+          <p className="mt-5 font-semibold">Presupuesto personalizado</p>
           <ul className="lista-check mt-5 space-y-2">
             <li>Menú sentado o catering de pie</li>
             <li>DJ y show cómico propios</li>

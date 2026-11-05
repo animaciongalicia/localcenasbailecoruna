@@ -133,6 +133,9 @@ export default function Cabecera() {
             <li>
               <Link href="/club-nautico-oza/" className="block py-3 font-serif text-2xl font-semibold">El espacio</Link>
             </li>
+            <li>
+              <Link href="/noticias/" className="block py-3 font-serif text-2xl font-semibold">Noticias</Link>
+            </li>
           </ul>
           <Link href="/reservas/" className="btn-principal w-full">Consultar disponibilidad</Link>
         </div>

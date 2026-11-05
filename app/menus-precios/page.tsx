@@ -66,11 +66,14 @@ export default function MenusPrecios() {
             <Link href="/eventos-privados-coruna/" className="enlace mt-4 inline-block">Ver eventos privados</Link>
           </article>
           <article className="tarjeta p-6">
-            <h3 className="font-serif text-2xl font-semibold">Navidad {N.anio}</h3>
-            <p className="mt-2 leading-relaxed text-tinta-suave">
-              Campaña aparte, con sus propias fechas y condiciones: <strong className="text-tinta">{N.precio} € por persona</strong> en {N.anio}.
-            </p>
-            <Link href="/cenas-navidad-coruna/" className="enlace mt-4 inline-block">Ver cenas de Navidad</Link>
+            <h3 className="font-serif text-2xl font-semibold">Cenas de Navidad {N.anio}</h3>
+            <p className="mt-2 font-serif text-4xl font-semibold text-acento">{N.precio} € <span className="font-sans text-base font-medium text-tinta-suave">por persona</span></p>
+            <ul className="mt-4 space-y-2 leading-relaxed text-tinta-suave">
+              <li><strong className="text-tinta">Señal:</strong> {N.senal} € por persona para confirmar la mesa, por transferencia o en persona. No se devuelve.</li>
+              <li><strong className="text-tinta">Resto:</strong> {N.precio - N.senal} € por persona, el día del evento, a poder ser en efectivo.</li>
+              <li><strong className="text-tinta">Bajas:</strong> avisando con {N.horasCancelacion} h o más, esa persona no paga el resto; con menos, se paga la cena completa.</li>
+            </ul>
+            <Link href="/cenas-navidad-coruna/" className="enlace mt-4 inline-block">Ver cenas de empresa de Navidad</Link>
           </article>
         </div>
       </Seccion>
