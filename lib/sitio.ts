@@ -129,6 +129,11 @@ export const GRUPO = {
   marcas: [
     { nombre: "Despedidas Coruña", url: "https://despedidascoruna.es", tipo: "Despedidas en A Coruña", texto: "Actividades, alojamiento y packs completos para despedidas de soltero y soltera en A Coruña: lo que va antes y después de la cena." },
     { nombre: "Despedidas Vigo", url: "https://www.despedidas-vigo.es", tipo: "Cenas y despedidas en Vigo", texto: "El concepto de cena con fiesta para grupos, en Vigo." },
+    { nombre: "Despedidas Galicia", url: "https://despedidasgalicia.es", tipo: "Despedidas en Galicia", texto: "Ideas, planes y destinos para organizar una despedida en cualquier punto de Galicia." },
+    { nombre: "Despedidas Sanxenxo", url: "https://despedidassanxenxo.es", tipo: "Despedidas en Sanxenxo", texto: "Despedidas con playa, barco y fiesta en las Rías Baixas." },
+    { nombre: "Despedidas Ourense", url: "https://despedidasourense.com", tipo: "Despedidas en Ourense", texto: "Planes de despedida en Ourense y alrededores." },
+    { nombre: "Despedidas en Oporto", url: "https://despedidasenoporto.com", tipo: "Despedidas en Oporto", texto: "Despedidas al otro lado de la frontera: escapada, actividades y noche en Oporto." },
+    { nombre: "Monólogos Galicia", url: "https://monologosgalicia.com", tipo: "Humor y monólogos", texto: "Monólogos y humor en directo en Galicia." },
     { nombre: "Mil Eventos Galicia", url: "https://mileventosgalicia.com", tipo: "Eventos de empresa", texto: "Eventos de empresa y celebraciones a medida en toda Galicia." },
     { nombre: "SeaGalicia", url: "https://seagalicia.com", tipo: "Experiencias en el mar", texto: "Barcos, paseos y eventos en el mar por la costa gallega." },
     { nombre: "LuxeGalicia", url: "https://luxegalicia.com", tipo: "Traslados con chófer", texto: "Traslados con chófer para grupos: llegáis juntos y volvéis sin coche." },
