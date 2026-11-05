@@ -3,7 +3,7 @@ import { Faq, Hero, LineaNoche, ListaMenu, Migas, Ocasiones, Seccion, Titulo } f
 import { IconoMail, IconoTelefono, IconoWhatsapp } from "./Iconos";
 import { JsonLdFaq, JsonLdMigas, ORG_ID } from "./JsonLd";
 import { FOTOS } from "@/lib/fotos";
-import { getADemanda, getConfirmadas } from "@/lib/navidad";
+import { getADemanda, getConfirmadas, type Noche } from "@/lib/navidad";
 import type { Pregunta } from "@/lib/faq";
 import { CONTACTO, MENU, OFERTAS, SEDE, SITE_URL } from "@/lib/sitio";
 import { COPY_NAVIDAD, type Variante } from "@/lib/variantes";
@@ -14,6 +14,16 @@ const N = OFERTAS.navidad;
 const resto = N.precio - N.senal;
 const WA_NAVIDAD = `Hola, quiero consultar una cena de Navidad ${N.anio} en el ${SEDE.nombre}.\nNoche que nos interesa: \nPersonas: `;
 const MAIL_NAVIDAD = mailUrl(`Cena de Navidad ${N.anio}`, "Hola, queremos consultar una cena de Navidad.\nNoche: \nPersonas: \nNombre y teléfono: \n");
+
+/** Agrupa las noches por mes: [["noviembre", [...]], ["diciembre", [...]]]. */
+function porMes(noches: Noche[]): [string, Noche[]][] {
+  const grupos = new Map<string, Noche[]>();
+  for (const f of noches) {
+    const mes = f.etiqueta.split(" de ").pop() || "";
+    grupos.set(mes, [...(grupos.get(mes) || []), f]);
+  }
+  return [...grupos.entries()];
+}
 
 /** Bajo las fechas: los dos canales de consulta, sin botones por noche. */
 function ContactoNavidad() {
@@ -101,45 +111,45 @@ export default function NavidadLanding({ variante }: { variante: Variante }) {
       <Seccion id="fechas" arena>
         <Titulo ante={`Navidad ${N.anio} · ${SEDE.nombre}`} titulo="Noches de Navidad" texto="Cada grupo con su mesa y la noche compartida con otros grupos. Elige noche y te confirmo si hay hueco." />
         {confirmadas.length > 0 ? (
-          <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
-            {confirmadas.map((f) => {
-              const [dia, ...resto] = f.etiqueta.split(" ");
-              return (
-                <li key={f.fecha} className="tarjeta flex flex-col p-4 sm:p-5">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-tinta-suave">
-                    {dia}
-                    {f.nota && <span className="ml-1.5 rounded-full bg-acento/10 px-2 py-0.5 normal-case tracking-normal text-acento">{f.nota}</span>}
-                  </p>
-                  <h3 className="mt-1 font-serif text-xl font-semibold leading-tight sm:text-2xl">{resto.join(" ")}</h3>
-                  <p className={`mt-2 text-xs font-semibold ${f.completa ? "text-tinta-suave" : "text-acento"}`}>{f.completa ? "Completa · lista de espera" : "Noche confirmada"}</p>
-                </li>
-              );
-            })}
-            <li className="flex flex-col rounded-2xl border-2 border-dashed border-tinta/20 p-4 sm:p-5">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-tinta-suave">¿Otro día?</p>
-              <h3 className="mt-1 font-serif text-xl font-semibold leading-tight sm:text-2xl">Otras fechas o comidas</h3>
-              <p className="mt-2 text-xs text-tinta-suave">Empresas y grupos que necesitan otro día. Pregunta sin compromiso.</p>
-            </li>
-          </ul>
+          <div className="mt-10 space-y-8">
+            {porMes(confirmadas).map(([mes, noches]) => (
+              <div key={mes}>
+                <h3 className="font-serif text-2xl font-semibold capitalize">{mes}</h3>
+                <ul className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-6">
+                  {noches.map((f) => {
+                    const [dia, num] = f.etiqueta.split(" ");
+                    return (
+                      <li key={f.fecha} className={`tarjeta flex flex-col items-center px-3 py-4 text-center ${f.completa ? "opacity-60" : ""}`}>
+                        <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-tinta-suave">{dia}</span>
+                        <span className="mt-1 font-serif text-4xl font-semibold leading-none text-acento">{num}</span>
+                        <span className="mt-2 text-xs font-semibold text-tinta-suave">{f.completa ? "Completa" : f.nota ?? "Confirmada"}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
         ) : (
           <p className="tarjeta mt-8 p-6 text-tinta-suave">Ahora mismo no hay noches publicadas. Escribe con tu fecha y te digo qué hay.</p>
         )}
-        <ContactoNavidad />
         {aDemanda.length > 0 && (
           <div className="mt-10">
             <h3 className="font-serif text-2xl font-semibold">Se abren si se juntan grupos</h3>
             <p className="mt-1 max-w-prosa text-tinta-suave">Te apuntas sin compromiso. Si la noche sale, eres de los primeros en saberlo.</p>
-            <ul className="mt-5 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+            <ul className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
               {aDemanda.map((f) => (
-                <li key={f.fecha} className="flex flex-col rounded-2xl border border-linea bg-marfil p-4 sm:p-5">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-tinta-suave">{f.etiqueta.split(" ")[0]}</p>
-                  <h4 className="mt-1 font-serif text-xl font-semibold leading-tight sm:text-2xl">{f.etiqueta.replace(/^\S+\s+/, "")}</h4>
-                  <p className="mt-2 text-xs font-semibold text-tinta-suave">{f.completa ? "Completa" : "A demanda"}</p>
+                <li key={f.fecha} className="flex flex-col items-center rounded-2xl border border-linea bg-marfil px-3 py-4 text-center">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-tinta-suave">{f.etiqueta.split(" ")[0]}</span>
+                  <span className="mt-1 font-serif text-2xl font-semibold">{f.etiqueta.replace(/^\S+\s+/, "")}</span>
+                  <span className="mt-2 text-xs font-semibold text-tinta-suave">{f.completa ? "Completa" : "A demanda"}</span>
                 </li>
               ))}
             </ul>
           </div>
         )}
+        <p className="mt-8 text-tinta-suave">¿Otro día, o una comida de empresa? Pregunta sin compromiso: también se organiza en exclusiva para tu grupo.</p>
+        <ContactoNavidad />
       </Seccion>
 
       <Seccion>
