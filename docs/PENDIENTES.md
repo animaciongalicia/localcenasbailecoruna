@@ -24,3 +24,8 @@
 - Navidad: el antiguo formulario enviaba además un email (Resend) con nombre y teléfono. La versión integrada solo prepara WhatsApp, como el resto de la web. Si quieres recibir también el email, se puede añadir.
 - Navidad: IVA del precio de 50 € sin confirmar; no se menciona.
 - Navidad: las plazas y "¡Quedan pocas!" de la web antigua no se trasladan; solo "confirmada", "se abre si se juntan grupos" y "completa".
+
+## Decisiones confirmadas por Pablo (noviembre 2026)
+- Cena baile con otros grupos: abril a septiembre, 55 € IVA incluido.
+- En exclusiva para un grupo: cualquier día del año, comida o cena, en el Club Náutico de Oza, en otro espacio o en el local del cliente. DJ y show propios; la fecha depende de su agenda. Sin mínimos publicados (se hablan por WhatsApp). Página: /eventos-privados-coruna/.
+- CIF: B70319223.

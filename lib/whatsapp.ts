@@ -22,7 +22,7 @@ export type Celebracion = (typeof CELEBRACIONES)[number]["valor"];
 
 export const MODALIDADES = [
   { valor: "conjunta", etiqueta: "Cena baile conjunta", detalle: "Tu grupo, su mesa, la noche compartida con otros grupos", enMensaje: "la cena baile conjunta" },
-  { valor: "medida", etiqueta: "Celebración a medida", detalle: "Formato y presupuesto personalizados", enMensaje: "una celebración a medida" },
+  { valor: "medida", etiqueta: "En exclusiva para mi grupo", detalle: "Cualquier día, en Oza, en otro espacio o en el vuestro", enMensaje: "un evento en exclusiva para nuestro grupo" },
   { valor: "nose", etiqueta: "Aún no lo sé", detalle: "Te cuento la idea y me aconsejas", enMensaje: "que me aconsejéis la mejor opción" },
 ] as const;
 
@@ -35,6 +35,18 @@ export const EXTRAS_MEDIDA = [
   { valor: "show", etiqueta: "Show cómico" },
 ] as const;
 
+export const LUGARES = [
+  { valor: "oza", etiqueta: "Club Náutico de Oza", enMensaje: "en el Club Náutico de Oza" },
+  { valor: "otro", etiqueta: "Otro espacio", enMensaje: "en otro espacio que nos propongáis" },
+  { valor: "propio", etiqueta: "Nuestro propio local", enMensaje: "en nuestro propio local" },
+  { valor: "nose", etiqueta: "Aconsejadme", enMensaje: "donde nos aconsejéis" },
+] as const;
+
+export const MOMENTOS = [
+  { valor: "cena", etiqueta: "Cena" },
+  { valor: "comida", etiqueta: "Comida (mediodía)" },
+] as const;
+
 export type Consulta = {
   nombre: string;
   celebracion: Celebracion;
@@ -43,6 +55,8 @@ export type Consulta = {
   personas: number;
   modalidad: Modalidad;
   extras: string[];
+  lugar?: string;
+  momento?: string;
   comentario: string;
 };
 
@@ -65,6 +79,11 @@ export function mensajeConsulta(c: Consulta): string {
   const frase = `Quiero consultar una ${cel} para ${c.personas} personas${cuando}`;
   const punto = /[.?!]$/.test(frase) ? "" : ".";
   const lineas = [`Hola, soy ${c.nombre.trim()}. ${frase}${punto} Me interesa ${mod}. ¿Tenéis disponibilidad?`];
+  if (c.modalidad === "medida") {
+    const lugar = LUGARES.find((l) => l.valor === c.lugar)?.enMensaje;
+    const momento = c.momento === "comida" ? "como comida, al mediodía" : "como cena";
+    lineas.push(`Lo querríamos ${momento}${lugar ? `, ${lugar}` : ""}.`);
+  }
   if (c.modalidad === "medida" && c.extras.length) {
     const nombres = EXTRAS_MEDIDA.filter((e) => c.extras.includes(e.valor)).map((e) => e.etiqueta.toLowerCase());
     lineas.push(`Me gustaría incluir: ${nombres.join(", ")}.`);

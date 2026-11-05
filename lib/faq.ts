@@ -28,8 +28,8 @@ const horario: Pregunta = {
 };
 const aparcamiento: Pregunta = { p: "¿Dónde es y se puede aparcar?", r: `En el ${SEDE.nombre}, ${SEDE.direccion}, ${SEDE.ciudad}. ${SEDE.aparcamiento}` };
 const medida: Pregunta = {
-  p: "¿Y si queremos algo solo para nuestro grupo?",
-  r: "Se puede pedir una celebración a medida: menú sentado o catering de pie, con o sin DJ, con o sin show. Depende de la fecha, el número de personas y lo que queráis. Pide propuesta y te paso presupuesto personalizado.",
+  p: "¿Se puede hacer solo para nuestro grupo?",
+  r: "Sí. La misma noche (cena, DJ, show y baile) se puede organizar en exclusiva para tu grupo cualquier día del año, en comida o en cena: en el Club Náutico de Oza, en otro espacio o en vuestro propio local. Presupuesto según fecha, personas y formato. El DJ y el show son propios, así que la fecha depende de la agenda.",
 };
 const directo: Pregunta = {
   p: "¿Con quién reservo?",
@@ -66,8 +66,8 @@ export const FAQ_DESPEDIDA: Pregunta[] = [
 ];
 
 const fiestaPrivada: Pregunta = {
-  p: "¿Puedo hacer una fiesta privada solo con mi grupo?",
-  r: "Se puede pedir una celebración a medida. Si hay fecha disponible y el formato encaja, te paso propuesta y presupuesto personalizado. Depende del día y del número de personas, así que pregunta con tiempo.",
+  p: "¿Podemos montar la fiesta en nuestro propio local?",
+  r: "Sí. Si tenéis restaurante, finca o un espacio de empresa, se lleva el concepto completo: comida o cena, DJ, show cómico y baile. Cuéntame el sitio y el número de personas y te paso propuesta.",
 };
 
 export const FAQ_CELEBRACIONES: Pregunta[] = [fiestaPrivada, medida, grupoPequeno, precio, dietas, consulta];

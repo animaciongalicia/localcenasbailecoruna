@@ -109,7 +109,7 @@ export function DosModalidades({ ejemploConjunta, ejemploMedida }: { ejemploConj
       <div className="mt-10 grid gap-5 md:grid-cols-2">
         <article className="tarjeta flex flex-col p-6 sm:p-8">
           <p className="antetitulo">Temporada {T.temporadaCorta.toLowerCase()}</p>
-          <h3 className="mt-2 font-serif text-3xl font-semibold">Cena baile conjunta</h3>
+          <h3 className="mt-2 font-serif text-3xl font-semibold">Con otros grupos</h3>
           <p className="mt-3 leading-relaxed text-tinta-suave">
             {ejemploConjunta ?? "Vienes con tu grupo, sea de 6 o de 30. Tenéis vuestra mesa y compartís la noche con otros grupos: más ambiente, más baile."}
           </p>
@@ -124,19 +124,20 @@ export function DosModalidades({ ejemploConjunta, ejemploMedida }: { ejemploConj
           </div>
         </article>
         <article className="tarjeta flex flex-col p-6 sm:p-8">
-          <p className="antetitulo">Según fecha y grupo</p>
-          <h3 className="mt-2 font-serif text-3xl font-semibold">Celebración a medida</h3>
+          <p className="antetitulo">Todo el año · comida o cena</p>
+          <h3 className="mt-2 font-serif text-3xl font-semibold">Solo para tu grupo</h3>
           <p className="mt-3 leading-relaxed text-tinta-suave">
-            {ejemploMedida ?? "Para quien quiere un formato propio: menú sentado o catering de pie, con o sin DJ, con o sin show."}
+            {ejemploMedida ?? "La misma noche, en exclusiva: en el Club Náutico de Oza, en otro espacio o en vuestro propio local. Cualquier día del año."}
           </p>
           <p className="mt-5 font-serif text-3xl font-semibold">Presupuesto personalizado</p>
           <ul className="lista-check mt-5 space-y-2">
             <li>Menú sentado o catering de pie</li>
-            <li>DJ y show cómico, si los queréis</li>
+            <li>DJ y show cómico propios</li>
+            <li>En Oza, en otro espacio o en tu local</li>
             <li>Precio según fecha, asistentes y servicios</li>
           </ul>
           <div className="mt-auto pt-7">
-            <Link href="/reservas/?modalidad=medida" className="btn-linea w-full sm:w-auto">Pedir propuesta para mi celebración</Link>
+            <Link href="/eventos-privados-coruna/" className="btn-linea w-full sm:w-auto">Ver eventos en exclusiva</Link>
           </div>
         </article>
       </div>

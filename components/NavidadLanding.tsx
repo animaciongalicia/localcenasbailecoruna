@@ -37,7 +37,7 @@ export const FAQ_NAVIDAD: Pregunta[] = [
   { p: "¿Y si alguien no puede venir?", r: `Si avisas con ${N.horasCancelacion} horas o más, esa persona no paga el resto. Con menos de ${N.horasCancelacion} horas, se paga la cena completa.` },
   { p: "¿Las copas están incluidas?", r: `En la cena, la bebida sí. ${MENU.copas}` },
   { p: "¿Horarios?", r: "Llegada entre las 22:00 y las 22:30, cena con DJ, show cómico de 00:00 a 01:00 y baile hasta las 3 (se cierra entre las 2:30 y las 3:00)." },
-  { p: "¿Comidas de empresa o fechas que no están en la lista?", r: "Elige «Otra fecha» en el formulario o escribe por WhatsApp con el día y el número de personas. Se estudia una propuesta a medida." },
+  { p: "¿Comidas de empresa o fechas que no están en la lista?", r: "Sí. Elige «Otra fecha» o escribe por WhatsApp o email con el día y el número de personas. La comida o cena de empresa también se puede hacer en exclusiva: en Oza, en otro espacio o en vuestras instalaciones." },
   { p: "¿Hay menú vegetariano, vegano o para alergias?", r: MENU.dietas },
 ];
 

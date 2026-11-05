@@ -109,6 +109,18 @@ export const OFERTAS = {
   },
 } as const;
 
+/** Formato en exclusiva: la misma noche (o mediodía), solo para un grupo. Confirmado por Pablo (nov. 2026). */
+export const EXCLUSIVO = {
+  cuando: "Cualquier día del año, en comida o en cena",
+  donde: [
+    { valor: "oza", etiqueta: "En el Club Náutico de Oza", texto: "El mismo salón de las cenas baile, solo para tu grupo." },
+    { valor: "otro", etiqueta: "En otro espacio", texto: "Restaurante, finca o sala: se busca el sitio que encaje con el grupo." },
+    { valor: "propio", etiqueta: "En tu propio local", texto: "Tu restaurante, tu empresa o tu finca: se lleva el concepto completo hasta allí." },
+  ],
+  incluye: ["Comida o cena: menú sentado o catering de pie", "DJ propio", "Show cómico propio", "Fiesta y baile"],
+  agenda: "El DJ y el show son propios, así que cada fecha en exclusiva depende de la agenda: cuanto antes preguntes, más opciones.",
+} as const;
+
 export const PRECIO_TEXTO = `${OFERTAS.temporada.precio} €`;
 
 /** Webs del grupo para el pie. */

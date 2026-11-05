@@ -1,4 +1,5 @@
-import { Argumentos, BloqueConsulta, CtaFinal, DosModalidades, Faq, Hero, LineaNoche, Migas, Ocasiones } from "@/components/Bloques";
+import Link from "next/link";
+import { Argumentos, BloqueConsulta, CtaFinal, DosModalidades, Faq, Hero, LineaNoche, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
 import { JsonLdFaq, JsonLdMigas } from "@/components/JsonLd";
 import { FAQ_CUMPLE } from "@/lib/faq";
 import { FOTOS } from "@/lib/fotos";
@@ -35,9 +36,28 @@ export default function Cumpleanos() {
           { t: "Los 30, los 50 o los 70", d: "Música para distintas generaciones. Cada uno baila lo suyo (o mira desde la mesa)." },
         ]}
       />
+      <Seccion arena>
+        <Titulo ante="Cumpleaños redondos" titulo="30, 40, 50, 60… cada década se celebra distinto" />
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {[
+            { t: "Celebrar 40 años", d: "Amigos de siempre, pareja y algún compañero de trabajo. Cena tranquila, risas con el show y la pista hasta las tres, como a los veinte (o casi)." },
+            { t: "Celebrar 50 años", d: "Familia y amigos de toda la vida en la misma mesa. Música para distintas generaciones y un plan que no obliga a nadie a bailar… aunque más de uno acaba en la pista." },
+            { t: "Celebrar 30 años", d: "La cuadrilla al completo, cena sin complicaciones y fiesta sin cambiar de local a medianoche." },
+            { t: "Celebrar 60 o más", d: "Para quien quiere celebrarlo por todo lo alto con hijos, nietos y amigos. Si el grupo es grande, en exclusiva y a la hora que mejor os venga, también al mediodía." },
+          ].map((x) => (
+            <article key={x.t} className="tarjeta p-6">
+              <h3 className="font-serif text-2xl font-semibold">{x.t}</h3>
+              <p className="mt-2 leading-relaxed text-tinta-suave">{x.d}</p>
+            </article>
+          ))}
+        </div>
+        <p className="mt-8 max-w-prosa text-tinta-suave">
+          ¿Quieres el cumpleaños solo para tus invitados, cualquier día del año o en otro sitio? <Link href="/eventos-privados-coruna/" className="enlace">Mira los eventos privados en exclusiva</Link>.
+        </p>
+      </Seccion>
       <DosModalidades
         ejemploConjunta="Ideal si sois entre 6 y 20 amigos: vuestra mesa, vuestra tarta si la habéis pactado antes, y el resto de la sala también de celebración."
-        ejemploMedida="Para un cumpleaños grande o redondo: tu propio formato, con menú sentado o picoteo de pie, con DJ o con show. Precio según fecha y número de invitados."
+        ejemploMedida="Para un cumpleaños grande o redondo: solo tus invitados, cualquier día del año, en comida o en cena. En Oza, en otro espacio o en tu casa o finca. Precio según fecha y número de invitados."
       />
       <LineaNoche />
       <BloqueConsulta titulo="Cuéntame tu cumpleaños" celebracion="cumpleanos" />

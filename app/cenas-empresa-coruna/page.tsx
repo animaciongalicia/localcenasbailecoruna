@@ -31,6 +31,7 @@ export default function Empresas() {
         titulo="Menos gestiones, más equipo"
         texto="Si te ha tocado organizar la cena de la empresa, ya sabes lo que cuesta poner de acuerdo a todo el mundo. Aquí el plan ya viene completo."
         puntos={[
+          { t: "También en vuestras instalaciones", d: "Comida o cena de empresa con DJ y show en vuestro espacio, o en el sitio que elijáis. Cualquier día del año." },
           { t: "Un único interlocutor", d: "Fecha, número de personas, menú y cambios, con la misma persona por WhatsApp o teléfono." },
           { t: "Para equipos pequeños y grandes", d: "Un departamento de 8 personas puede unirse a una cena conjunta. Una plantilla entera puede pedir su formato." },
           { t: "Plan para todos los perfiles", d: "Quien quiere cenar y charlar, cena. Quien quiere bailar, baila hasta las 3. Nadie se siente obligado." },
@@ -39,7 +40,7 @@ export default function Empresas() {
       />
       <DosModalidades
         ejemploConjunta="Para equipos y departamentos que quieren un plan hecho: vuestra mesa, cena con bebida, show y baile compartidos con otros grupos."
-        ejemploMedida="Para cierres de temporada, aniversarios de empresa o eventos con clientes: menú sentado o catering de pie, con o sin DJ y show."
+        ejemploMedida="Para la plantilla entera, cierres de temporada o eventos con clientes, cualquier día del año: en Oza, en otro espacio o en vuestras instalaciones. Menú sentado o catering de pie, con o sin DJ y show."
       />
       <section className="contenedor pt-10">
         <p className="tarjeta p-5 text-tinta-suave">

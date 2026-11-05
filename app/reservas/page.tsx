@@ -32,7 +32,7 @@ export default function Reservas() {
           as="h1"
           ante={`Temporada ${OFERTAS.temporada.temporada} · consulta tu fecha`}
           titulo="Consultar disponibilidad"
-          texto="Cuéntame lo básico y te preparo la respuesta. Grupos pequeños y grandes, cena conjunta o celebración a medida."
+          texto="Cuéntame lo básico y te preparo la respuesta. Grupos pequeños y grandes: con otros grupos (abril a septiembre) o en exclusiva para el tuyo, cualquier día del año."
         />
         <div className="mt-10 grid gap-10 lg:grid-cols-[1.6fr_1fr]">
           <FormularioConsulta />

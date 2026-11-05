@@ -6,6 +6,8 @@ import { track } from "@/lib/tracking";
 import {
   CELEBRACIONES,
   EXTRAS_MEDIDA,
+  LUGARES,
+  MOMENTOS,
   MODALIDADES,
   mensajeConsulta,
   validarConsulta,
@@ -39,6 +41,8 @@ export default function FormularioConsulta({
     personas: NaN,
     modalidad: modalidadInicial,
     extras: [],
+    lugar: "oza",
+    momento: "cena",
     comentario: "",
   });
   const [errores, setErrores] = useState<Errores>({});
@@ -193,6 +197,33 @@ export default function FormularioConsulta({
               ))}
             </div>
           </fieldset>
+
+          {c.modalidad === "medida" && (
+            <>
+              <fieldset>
+                <legend className="etiqueta">¿Dónde?</legend>
+                <div className="flex flex-wrap gap-2">
+                  {LUGARES.map((l) => (
+                    <label key={l.valor} className={`flex min-h-[44px] cursor-pointer items-center gap-2 rounded-full border-2 px-4 ${c.lugar === l.valor ? "border-acento bg-acento/5" : "border-linea"}`}>
+                      <input type="radio" name={`${id}-lugar`} checked={c.lugar === l.valor} onChange={() => set("lugar", l.valor)} className="h-4 w-4 accent-[#B4441F]" />
+                      {l.etiqueta}
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend className="etiqueta">¿Comida o cena?</legend>
+                <div className="flex flex-wrap gap-2">
+                  {MOMENTOS.map((m) => (
+                    <label key={m.valor} className={`flex min-h-[44px] cursor-pointer items-center gap-2 rounded-full border-2 px-4 ${c.momento === m.valor ? "border-acento bg-acento/5" : "border-linea"}`}>
+                      <input type="radio" name={`${id}-momento`} checked={c.momento === m.valor} onChange={() => set("momento", m.valor)} className="h-4 w-4 accent-[#B4441F]" />
+                      {m.etiqueta}
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+            </>
+          )}
 
           {c.modalidad === "medida" && (
             <fieldset className="sm:col-span-2">

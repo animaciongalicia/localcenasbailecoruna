@@ -29,6 +29,7 @@ Documentación:
 | Sede, dirección, aparcamiento | `lib/sitio.ts` → `SEDE` |
 | Titular, CIF | `lib/sitio.ts` → `LEGAL` |
 | Horario de la noche | `lib/sitio.ts` → `NOCHE` |
+| Eventos privados en exclusiva (cuándo, dónde, qué incluye) | `lib/sitio.ts` → `EXCLUSIVO` |
 | Preguntas frecuentes | `lib/faq.ts` |
 | Menú de navegación y tarjetas de celebraciones | `lib/paginas.ts` |
 | Fotos | `public/fotos/` + `lib/fotos.ts` (solo fotos reales con derechos) |

@@ -2,7 +2,7 @@
 const { chromium } = require("playwright");
 const BASE = process.argv[2] || "http://localhost:3000";
 const OUT = process.argv[3] || ".";
-const PAGINAS = ["/", "/cenas-navidad-coruna/?g=empresas", "/cumpleanos-coruna/", "/cenas-empresa-coruna/", "/cenas-despedidas-coruna/", "/cenas-navidad-coruna/", "/celebraciones-coruna/", "/menus-precios/", "/club-nautico-oza/", "/reservas/", "/aviso-legal/"];
+const PAGINAS = ["/", "/cenas-navidad-coruna/?g=empresas", "/cumpleanos-coruna/", "/cenas-empresa-coruna/", "/cenas-despedidas-coruna/", "/cenas-navidad-coruna/", "/celebraciones-coruna/", "/eventos-privados-coruna/", "/menus-precios/", "/club-nautico-oza/", "/reservas/", "/aviso-legal/"];
 let fallos = 0;
 const ok = (c, m) => { if (!c) fallos++; console.log(c ? "✓" : "✗", m); };
 
@@ -48,8 +48,13 @@ const ok = (c, m) => { if (!c) fallos++; console.log(c ? "✓" : "✗", m); };
   await m.screenshot({ path: `${OUT}/reservas-390.png`, fullPage: true });
 
   // A medida: extras opcionales solo en ese formato
-  await m.getByRole("radio", { name: /Celebración a medida/ }).check();
-  ok(await m.getByText("¿Qué te gustaría incluir?").isVisible(), "extras visibles solo con 'a medida'");
+  await m.getByRole("radio", { name: /En exclusiva para mi grupo/ }).check();
+  ok(await m.getByText("¿Qué te gustaría incluir?").isVisible() && await m.getByText("¿Dónde?").isVisible(), "exclusiva: lugar, momento y extras visibles");
+  await m.getByRole("radio", { name: "Nuestro propio local" }).check();
+  await m.getByRole("radio", { name: "Comida (mediodía)" }).check();
+  await m.getByRole("button", { name: /Preparar mi mensaje/ }).click();
+  const txtE = decodeURIComponent(new URL(await m.getByRole("link", { name: /Abrir WhatsApp y enviar/ }).getAttribute("href")).searchParams.get("text"));
+  ok(txtE.includes("en exclusiva para nuestro grupo") && txtE.includes("como comida, al mediodía, en nuestro propio local"), "exclusiva: mensaje con lugar y momento: " + JSON.stringify(txtE));
 
   // Navidad: elegir noche desde la tarjeta y preparar el mensaje
   await m.goto(BASE + "/cenas-navidad-coruna/", { waitUntil: "networkidle" });

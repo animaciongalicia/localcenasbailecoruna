@@ -59,11 +59,11 @@ export default function MenusPrecios() {
         <Titulo ante="Otras opciones" titulo="Precios que van por separado" />
         <div className="mt-8 grid gap-5 md:grid-cols-2">
           <article className="tarjeta p-6">
-            <h3 className="font-serif text-2xl font-semibold">Celebración a medida</h3>
+            <h3 className="font-serif text-2xl font-semibold">Evento en exclusiva</h3>
             <p className="mt-2 leading-relaxed text-tinta-suave">
-              Menú sentado o catering de pie, con o sin DJ, con o sin show cómico. El precio depende de la fecha, el número de asistentes, la comida y los servicios: <strong className="text-tinta">presupuesto personalizado</strong>.
+              Solo para tu grupo, cualquier día del año, en comida o en cena: en Oza, en otro espacio o en tu local. Menú sentado o catering de pie, con DJ y show propios. <strong className="text-tinta">Presupuesto personalizado</strong> según fecha, asistentes y lugar.
             </p>
-            <Link href="/reservas/?modalidad=medida" className="enlace mt-4 inline-block">Pedir propuesta para mi celebración</Link>
+            <Link href="/eventos-privados-coruna/" className="enlace mt-4 inline-block">Ver eventos privados</Link>
           </article>
           <article className="tarjeta p-6">
             <h3 className="font-serif text-2xl font-semibold">Navidad {N.anio}</h3>

@@ -9,6 +9,7 @@ const RUTAS: [string, number][] = [
   ["/cenas-despedidas-coruna/", 0.8],
   ["/cenas-navidad-coruna/", 0.8],
   ["/celebraciones-coruna/", 0.7],
+  ["/eventos-privados-coruna/", 0.8],
   ["/menus-precios/", 0.8],
   ["/club-nautico-oza/", 0.7],
   ["/reservas/", 0.6],
