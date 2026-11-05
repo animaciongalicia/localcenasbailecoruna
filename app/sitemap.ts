@@ -13,6 +13,7 @@ const RUTAS: [string, number][] = [
   ["/menus-precios/", 0.8],
   ["/club-nautico-oza/", 0.7],
   ["/reservas/", 0.6],
+  ["/grupo-animacion-galicia/", 0.3],
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

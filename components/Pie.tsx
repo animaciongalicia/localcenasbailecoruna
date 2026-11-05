@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { CELEBRACIONES_NAV, LEGALES } from "@/lib/paginas";
-import { CONTACTO, LEGAL, MARCA, OFERTAS, OTROS_SERVICIOS, SEDE } from "@/lib/sitio";
+import { CONTACTO, LEGAL, MARCA, OFERTAS, GRUPO, SEDE } from "@/lib/sitio";
 import { whatsappUrl } from "@/lib/whatsapp";
 import BotonConfigCookies from "./BotonConfigCookies";
 
@@ -38,15 +38,9 @@ export default function Pie() {
           </ul>
         </nav>
         <div>
-          <p className="font-semibold text-marfil">Otros servicios del grupo</p>
-          <ul className="mt-3 space-y-3 text-sm">
-            {OTROS_SERVICIOS.map((s) => (
-              <li key={s.url}>
-                <a className="font-medium text-marfil/90 hover:text-marfil" href={s.url} rel="noopener">{s.nombre}</a>
-                <span className="block text-marfil/60">{s.texto}</span>
-              </li>
-            ))}
-          </ul>
+          <p className="font-semibold text-marfil">{GRUPO.nombre}</p>
+          <p className="mt-3 text-sm leading-relaxed">Los7pc forma parte de {GRUPO.nombre}: marcas para celebrar, viajar y moverse por Galicia.</p>
+          <Link className="enlace mt-3 inline-block text-sm" href="/grupo-animacion-galicia/">Conocer el grupo</Link>
         </div>
       </div>
       <div className="border-t border-white/10">

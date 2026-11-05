@@ -123,13 +123,17 @@ export const EXCLUSIVO = {
 
 export const PRECIO_TEXTO = `${OFERTAS.temporada.precio} €`;
 
-/** Webs del grupo para el pie. */
-export const OTROS_SERVICIOS = [
-  { nombre: "Despedidas Coruña", texto: "Actividades, alojamiento y packs para despedidas.", url: "https://despedidascoruna.es" },
-  { nombre: "Mil Eventos Galicia", texto: "Eventos de empresa y celebraciones a medida.", url: "https://mileventosgalicia.com" },
-  { nombre: "SeaGalicia", texto: "Barcos, paseos y eventos en el mar.", url: "https://seagalicia.com" },
-  { nombre: "LuxeGalicia", texto: "Traslados con chófer para grupos.", url: "https://luxegalicia.com" },
-  { nombre: "Suunia", texto: "Viajes y escapadas por Galicia.", url: "https://suunia.com" },
-] as const;
+/** Marcas de Grupo Animación Galicia. Solo aparecen en /grupo-animacion-galicia/ (el pie enlaza a esa página). */
+export const GRUPO = {
+  nombre: "Grupo Animación Galicia",
+  marcas: [
+    { nombre: "Despedidas Coruña", url: "https://despedidascoruna.es", tipo: "Despedidas en A Coruña", texto: "Actividades, alojamiento y packs completos para despedidas de soltero y soltera en A Coruña: lo que va antes y después de la cena." },
+    { nombre: "Despedidas Vigo", url: "https://www.despedidas-vigo.es", tipo: "Cenas y despedidas en Vigo", texto: "El concepto de cena con fiesta para grupos, en Vigo." },
+    { nombre: "Mil Eventos Galicia", url: "https://mileventosgalicia.com", tipo: "Eventos de empresa", texto: "Eventos de empresa y celebraciones a medida en toda Galicia." },
+    { nombre: "SeaGalicia", url: "https://seagalicia.com", tipo: "Experiencias en el mar", texto: "Barcos, paseos y eventos en el mar por la costa gallega." },
+    { nombre: "LuxeGalicia", url: "https://luxegalicia.com", tipo: "Traslados con chófer", texto: "Traslados con chófer para grupos: llegáis juntos y volvéis sin coche." },
+    { nombre: "Suunia", url: "https://suunia.com", tipo: "Viajes", texto: "Viajes y escapadas por Galicia." },
+  ],
+} as const;
 
 export const GOOGLE_SITE_VERIFICATION = "bJM1pCcura3K8PKgWS-vjTgBWO3ADOEBuOryLC1OpL8";
