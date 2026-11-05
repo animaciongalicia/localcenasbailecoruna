@@ -101,8 +101,10 @@ export const OFERTAS = {
     temporada: "noviembre y diciembre",
     precio: 50,
     moneda: "EUR",
-    url: "https://navidad.los7pc.com",
-    /** Mientras sea true, Navidad gana visibilidad (aviso superior y menú). */
+    /** Condiciones de la campaña de Navidad (aportadas por Pablo; publicadas en la web de Navidad 2026). */
+    senal: 10,
+    horasCancelacion: 48,
+    /** Mientras sea true, Navidad gana visibilidad (aviso superior y primera tarjeta). */
     destacada: true,
   },
 } as const;

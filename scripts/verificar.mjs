@@ -46,5 +46,23 @@ ok(n410 === RET.length, `${n410}/${RET.length} rutas retiradas responden 410`);
 for (const p of ["/wp-content/uploads/x.jpg", "/feed/", "/?p=123", "/category/despedidas/"]) ok((await get(p)).status === 410, `410 en ${p}`);
 ok((await get("/no-existe-esta-url/")).status === 404, "404 en URL desconocida");
 
+// Navidad integrada: variantes de anuncio y antiguo subdominio
+for (const g of ["empresas", "amigos", "instagram"]) {
+  const r = await get(`/cenas-navidad-coruna/?g=${g}`);
+  const html = await r.text();
+  ok(r.status === 200 && /noindex/.test(html) && html.includes('rel="canonical" href="https://www.los7pc.com/cenas-navidad-coruna/"'), `variante ?g=${g}: 200, noindex y canonical a Navidad`);
+}
+// El Host no se puede cambiar con fetch: se usa curl.
+import { execFileSync } from "node:child_process";
+for (const [ruta, esperado] of [["/?g=empresas&gclid=abc", "https://www.los7pc.com/cenas-navidad-coruna/?g=empresas&gclid=abc"], ["/", "https://www.los7pc.com/cenas-navidad-coruna/"], ["/v/amigos/", "https://www.los7pc.com/cenas-navidad-coruna/?g=amigos"], ["/privacidad/", "https://www.los7pc.com/privacidad/"]]) {
+  const out = execFileSync("curl", ["-s", "-o", "/dev/null", "-w", "%{http_code} %{redirect_url}", "-H", "Host: navidad.los7pc.com", BASE + ruta]).toString();
+  ok(out === `301 ${esperado}`, `navidad.los7pc.com${ruta} → ${out}`);
+}
+{
+  const html = await (await get("/cenas-navidad-coruna/")).text();
+  ok(/"@type":"Event"/.test(html), "Navidad: datos estructurados Event para noches confirmadas");
+  ok(!/navidad\.los7pc\.com/.test(html), "Navidad: sin enlaces al antiguo subdominio");
+}
+
 console.log(fallos ? `\n${fallos} FALLOS` : "\nTODO OK");
 process.exit(fallos ? 1 : 0);

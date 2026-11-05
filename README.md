@@ -37,10 +37,16 @@ Documentación:
 Cambiar el precio en `OFERTAS.temporada.precio` lo actualiza en todas las páginas, en los datos estructurados
 y en la meta descripción. Navidad (`OFERTAS.navidad`) es independiente: no hereda el precio de temporada.
 
-**Campaña de Navidad:** `OFERTAS.navidad.destacada = true` muestra la franja superior y pone Navidad la primera
-en "¿Qué celebráis?". Pásalo a `false` en enero. Las fechas y reservas de Navidad viven en
-https://navidad.los7pc.com (repo `cenas-navidad-2026`); esta web enlaza allí. La URL `/cenas-navidad-coruna/`
-no lleva año: cada campaña se actualiza el año en `lib/sitio.ts`.
+**Navidad (integrada en esta web, `/cenas-navidad-coruna/`):**
+- Precio, señal y plazo de cancelación: `lib/sitio.ts` → `OFERTAS.navidad`. No hereda nada de la temporada.
+- Noches: `data/navidad.json`. Cada noche: `fecha`, `etiqueta`, `tipo` (`confirmada` o `a-demanda`), `nota` opcional
+  ("Puente") y `"completa": true` cuando ya no quepan más grupos (muestra "Lista de espera"). Sin aforos ni contadores.
+  Las noches pasadas desaparecen solas (la página se regenera cada hora). Las confirmadas generan datos `Event`.
+- Abrir un sábado a demanda: cambia su `tipo` a `confirmada`. Añadir noche: copia una línea.
+- Titulares para anuncios: `/cenas-navidad-coruna/?g=empresas | amigos | instagram` (textos en `lib/variantes.ts`).
+  Cada variante es HTML estático con canonical a la página de Navidad y `noindex`.
+- `OFERTAS.navidad.destacada = true` muestra la franja superior y pone Navidad la primera en "¿Qué celebráis?". En enero, `false`.
+- El antiguo subdominio `navidad.los7pc.com` redirige (301) aquí conservando `?g=`, `utm_*` y `gclid` (ver docs/LANZAMIENTO.md).
 
 Haz commit y Vercel redespliega solo.
 

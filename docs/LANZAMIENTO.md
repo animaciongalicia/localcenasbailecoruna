@@ -20,7 +20,21 @@
 | CNAME | `www` | el que indique Vercel (normalmente `cname.vercel-dns.com.`) |
 
 - **No** cambies los `MX` ni los `TXT` del correo. **No** cambies los nameservers a Vercel.
-- **No** toques el `CNAME` de `navidad`: la campaña de Navidad sigue igual.
+- **No borres el `CNAME` de `navidad`**: sigue haciendo falta para que los anuncios y enlaces antiguos lleguen (ver abajo).
+
+## Integrar Navidad y retirar el subdominio (sin perder anuncios)
+La Navidad ahora vive en `https://www.los7pc.com/cenas-navidad-coruna/`. El subdominio no se borra: se **redirige**.
+1. Antes de nada, en el proyecto de Vercel de Navidad (`cenas-navidad-2026`) → *Settings → Environment Variables*:
+   copia a este proyecto `NEXT_PUBLIC_GADS_ID`, `NEXT_PUBLIC_GADS_LABEL_WHATSAPP`, `NEXT_PUBLIC_GADS_LABEL_PHONE`,
+   `NEXT_PUBLIC_GADS_LABEL_FORM` y `NEXT_PUBLIC_META_PIXEL_ID`. Sin esto, **las conversiones de los anuncios dejan de contarse**.
+2. Proyecto de Navidad → *Settings → Domains* → quita `navidad.los7pc.com`.
+3. Este proyecto → *Settings → Domains* → añade `navidad.los7pc.com` (sin redirección en Vercel: la hace la web).
+   El `CNAME navidad` de Piensa Solutions ya apunta a Vercel, no se toca.
+4. Comprueba: `https://navidad.los7pc.com/?g=empresas` → 301 a `https://www.los7pc.com/cenas-navidad-coruna/?g=empresas`.
+5. Google Ads / Meta: cambia las URL finales a `https://www.los7pc.com/cenas-navidad-coruna/?g=…` en cuanto puedas
+   (la redirección cubre el hueco, pero Google prefiere URL finales sin redirección).
+6. El proyecto de Navidad en Vercel se puede pausar después; no hace falta borrarlo ya.
+7. Pasada la campaña (febrero), si ya no llega tráfico al subdominio, puedes quitar el `CNAME navidad`.
 
 ## Comprobaciones tras el cambio (cuando Vercel muestre el dominio "Valid")
 - `https://www.los7pc.com/` carga la web nueva y `https://los7pc.com/` redirige a www.

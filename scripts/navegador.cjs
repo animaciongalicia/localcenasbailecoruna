@@ -2,7 +2,7 @@
 const { chromium } = require("playwright");
 const BASE = process.argv[2] || "http://localhost:3000";
 const OUT = process.argv[3] || ".";
-const PAGINAS = ["/", "/cumpleanos-coruna/", "/cenas-empresa-coruna/", "/cenas-despedidas-coruna/", "/cenas-navidad-coruna/", "/celebraciones-coruna/", "/menus-precios/", "/club-nautico-oza/", "/reservas/", "/aviso-legal/"];
+const PAGINAS = ["/", "/cenas-navidad-coruna/?g=empresas", "/cumpleanos-coruna/", "/cenas-empresa-coruna/", "/cenas-despedidas-coruna/", "/cenas-navidad-coruna/", "/celebraciones-coruna/", "/menus-precios/", "/club-nautico-oza/", "/reservas/", "/aviso-legal/"];
 let fallos = 0;
 const ok = (c, m) => { if (!c) fallos++; console.log(c ? "✓" : "✗", m); };
 
@@ -51,6 +51,18 @@ const ok = (c, m) => { if (!c) fallos++; console.log(c ? "✓" : "✗", m); };
   await m.getByRole("radio", { name: /Celebración a medida/ }).check();
   ok(await m.getByText("¿Qué te gustaría incluir?").isVisible(), "extras visibles solo con 'a medida'");
 
+  // Navidad: elegir noche desde la tarjeta y preparar el mensaje
+  await m.goto(BASE + "/cenas-navidad-coruna/", { waitUntil: "networkidle" });
+  await m.getByRole("link", { name: "Consultar esta noche" }).first().click();
+  const elegida = await m.locator("#reserva-navidad select").inputValue();
+  ok(/^\d{4}-\d{2}-\d{2}$/.test(elegida), "Navidad: el botón de la fecha preselecciona la noche (" + elegida + ")");
+  await m.locator("#reserva-navidad").getByLabel(/Tu nombre/).fill("Ana, Óptica Peña");
+  await m.locator("#reserva-navidad").getByLabel("Personas (aprox.)").fill("14");
+  await m.locator("#reserva-navidad").getByRole("button", { name: /Preparar mi mensaje/ }).click();
+  const hrefN = await m.getByRole("link", { name: /Abrir WhatsApp y enviar/ }).getAttribute("href");
+  const txtN = decodeURIComponent(new URL(hrefN).searchParams.get("text"));
+  ok(txtN.includes("Óptica Peña") && txtN.includes("14 personas") && /cena de Navidad del (lunes|martes|miércoles|jueves|viernes|sábado|domingo)/.test(txtN), "Navidad: mensaje correcto: " + JSON.stringify(txtN));
+
   // Menú móvil y teclado
   await m.goto(BASE + "/", { waitUntil: "networkidle" });
   await m.getByRole("button", { name: "Abrir menú" }).click();
@@ -73,6 +85,12 @@ const ok = (c, m) => { if (!c) fallos++; console.log(c ? "✓" : "✗", m); };
   for (let y = 0; y < 9000; y += 600) { await d.mouse.wheel(0, 600); await d.waitForTimeout(80); }
   await d.waitForTimeout(500);
   await d.screenshot({ path: `${OUT}/home-1440-full.png`, fullPage: true });
+  for (const [pg, ancho, nombre] of [[d, 1440, "navidad-1440"], [m, 390, "navidad-390"]]) {
+    await pg.goto(BASE + "/cenas-navidad-coruna/", { waitUntil: "networkidle" });
+    for (let y = 0; y < 12000; y += 600) { await pg.mouse.wheel(0, 600); await pg.waitForTimeout(60); }
+    await pg.waitForTimeout(400);
+    await pg.screenshot({ path: `${OUT}/${nombre}.png`, fullPage: true });
+  }
   await b.close();
   console.log(fallos ? `\n${fallos} FALLOS` : "\nTODO OK");
   process.exit(fallos ? 1 : 0);

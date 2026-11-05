@@ -3,7 +3,7 @@
 ## Bloquean o conviene cerrar antes de publicar
 | Dato | Estado en la web | Qué hace falta |
 |---|---|---|
-| **CIF** | Se publica `B70319223` | Dictado: B70319923, pero ese número **no supera el dígito de control**. B70319223 sí lo supera y es el de la web de Navidad. Confirmar con la escritura. |
+| **CIF** | Se publica `B70319223` | Recibidos B70319923 y B703192223: el primero no supera el dígito de control y el segundo tiene una cifra de más. B70319223 es válido y es el de la web de Navidad. Confirmar con la escritura. |
 | Domicilio social | "A Coruña" | Dirección completa para aviso legal (LSSI). |
 | Condiciones de señal, cancelación y cambios (temporada 2027) | Solo se dice que se envían por escrito antes de pagar | Texto de Pablo. ¿Son las mismas que Navidad (10 €/persona de señal, 48 h)? |
 | Fotos | 4 fotos reales de cenas (de la web de Navidad); alt sin afirmar el lugar | Confirmar cuáles son de Oza y con derechos; mandar fotos actuales del club (salón, pista, exterior). Las de banco (Fotolia) NO se usan. |
@@ -22,3 +22,6 @@
 - Enlaces externos valiosos (lavozdegalicia.es, enriquedans.com, lacorunalifestyle.com): comprobar a qué URL apuntan y que tenga destino.
 - Actualizar enlaces de webs propias (despedidasenoporto.com, despedidasgalicia.es, mileventosgalicia.com, despedidascoruna.es) a las URLs nuevas.
 - Navidad: al terminar la campaña, `OFERTAS.navidad.destacada = false`.
+- Navidad: el antiguo formulario enviaba además un email (Resend) con nombre y teléfono. La versión integrada solo prepara WhatsApp, como el resto de la web. Si quieres recibir también el email, se puede añadir.
+- Navidad: IVA del precio de 50 € sin confirmar; no se menciona.
+- Navidad: las plazas y "¡Quedan pocas!" de la web antigua no se trasladan; solo "confirmada", "se abre si se juntan grupos" y "completa".

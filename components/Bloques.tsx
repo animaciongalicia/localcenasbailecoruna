@@ -18,6 +18,7 @@ export function Hero({
   foto = FOTOS.baile,
   precio = true,
   ctaSecundario = { href: "/menus-precios/", texto: "Ver menú y precio" },
+  ctaPrincipal = { href: "/reservas/", texto: "Consultar disponibilidad" },
   children,
 }: {
   antetitulo: string;
@@ -26,6 +27,7 @@ export function Hero({
   foto?: Foto;
   precio?: boolean;
   ctaSecundario?: { href: string; texto: string } | null;
+  ctaPrincipal?: { href: string; texto: string };
   children?: React.ReactNode;
 }) {
   return (
@@ -45,7 +47,7 @@ export function Hero({
             </div>
           )}
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Link href="/reservas/" className="btn-principal">Consultar disponibilidad</Link>
+            <Link href={ctaPrincipal.href} className="btn-principal">{ctaPrincipal.texto}</Link>
             {ctaSecundario && <Link href={ctaSecundario.href} className="btn-linea">{ctaSecundario.texto}</Link>}
           </div>
           {children}

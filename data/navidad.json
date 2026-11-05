@@ -1,0 +1,61 @@
+{
+ "_LEEME": "Noches de Navidad. 'tipo': 'confirmada' = noche fija · 'a-demanda' = se abre si se juntan grupos. 'completa': true cuando ya no caben más grupos. Las noches pasadas se ocultan solas. Ver README → Navidad.",
+ "fechas": [
+  {
+   "fecha": "2026-11-20",
+   "etiqueta": "Viernes 20 de noviembre",
+   "tipo": "confirmada"
+  },
+  {
+   "fecha": "2026-11-21",
+   "etiqueta": "Sábado 21 de noviembre",
+   "tipo": "a-demanda"
+  },
+  {
+   "fecha": "2026-11-27",
+   "etiqueta": "Viernes 27 de noviembre",
+   "tipo": "confirmada"
+  },
+  {
+   "fecha": "2026-11-28",
+   "etiqueta": "Sábado 28 de noviembre",
+   "tipo": "a-demanda"
+  },
+  {
+   "fecha": "2026-12-04",
+   "etiqueta": "Viernes 4 de diciembre",
+   "tipo": "confirmada"
+  },
+  {
+   "fecha": "2026-12-05",
+   "etiqueta": "Sábado 5 de diciembre",
+   "tipo": "a-demanda"
+  },
+  {
+   "fecha": "2026-12-07",
+   "etiqueta": "Lunes 7 de diciembre",
+   "tipo": "confirmada",
+   "nota": "Puente"
+  },
+  {
+   "fecha": "2026-12-11",
+   "etiqueta": "Viernes 11 de diciembre",
+   "tipo": "confirmada"
+  },
+  {
+   "fecha": "2026-12-12",
+   "etiqueta": "Sábado 12 de diciembre",
+   "tipo": "a-demanda"
+  },
+  {
+   "fecha": "2026-12-18",
+   "etiqueta": "Viernes 18 de diciembre",
+   "tipo": "confirmada"
+  },
+  {
+   "fecha": "2026-12-19",
+   "etiqueta": "Sábado 19 de diciembre",
+   "tipo": "confirmada"
+  }
+ ]
+}

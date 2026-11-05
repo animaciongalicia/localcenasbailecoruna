@@ -34,7 +34,7 @@ export default function Pie() {
             <li><Link className="inline-block py-1 hover:text-marfil" href="/menus-precios/">Menú y precios</Link></li>
             <li><Link className="inline-block py-1 hover:text-marfil" href="/club-nautico-oza/">El espacio: {SEDE.nombre}</Link></li>
             <li><Link className="inline-block py-1 hover:text-marfil" href="/reservas/">Consultar disponibilidad</Link></li>
-            <li><a className="inline-block py-1 hover:text-marfil" href={OFERTAS.navidad.url}>Web de Navidad {OFERTAS.navidad.anio}</a></li>
+            <li><Link className="inline-block py-1 hover:text-marfil" href="/cenas-navidad-coruna/">Navidad {OFERTAS.navidad.anio}: fechas</Link></li>
           </ul>
         </nav>
         <div>
