@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Argumentos, BloqueConsulta, CtaFinal, DosModalidades, Espacio, Faq, Hero, Migas, Ocasiones } from "@/components/Bloques";
+import { Argumentos, CtaFinal, DosModalidades, Espacio, Faq, Hero, Migas, Ocasiones } from "@/components/Bloques";
 import { JsonLdFaq, JsonLdMigas } from "@/components/JsonLd";
 import { FAQ_EMPRESA } from "@/lib/faq";
 import { FOTOS } from "@/lib/fotos";
@@ -49,7 +49,6 @@ export default function Empresas() {
         </p>
       </section>
       <Espacio />
-      <BloqueConsulta titulo="Pide propuesta para tu empresa" celebracion="empresa" modalidad="medida" />
       <Faq preguntas={FAQ_EMPRESA} titulo="Lo que suelen preguntar las empresas" />
       <Ocasiones excluir={RUTA} />
       <CtaFinal titulo="La cena de empresa que la gente sí quiere repetir" />

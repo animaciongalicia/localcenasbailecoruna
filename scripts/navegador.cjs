@@ -31,43 +31,31 @@ const ok = (c, m) => { if (!c) fallos++; console.log(c ? "✓" : "✗", m); };
   await m.getByRole("button", { name: /Preparar mi mensaje/ }).click();
   ok(await m.getByText("Escribe tu nombre").isVisible(), "validación: pide nombre");
   ok((await m.evaluate(() => document.activeElement?.id || "")).endsWith("-nombre"), "el foco va al primer campo con error");
-  await m.getByLabel("Tu nombre").fill("José Ñúñez & Cía");
+  ok((await m.locator("form input, form select, form textarea").count()) <= 7, "formulario corto (5 datos)");
+  await m.getByLabel("Nombre").fill("José Ñúñez & Cía");
   await m.getByLabel("Personas (aprox.)").fill("6");
-  await m.getByLabel("…o fechas flexibles").fill("algún sábado de junio, ¿18 o 25?");
-  await m.getByLabel("¿Qué celebráis?").selectOption("cumpleanos");
+  await m.getByLabel("Fecha").fill("algún sábado de junio, ¿18 o 25?");
   await m.getByRole("button", { name: /Preparar mi mensaje/ }).click();
-  const enlace = m.getByRole("link", { name: /Abrir WhatsApp y enviar/ });
+  const enlace = m.getByRole("link", { name: /Enviar por WhatsApp/ });
   ok(await enlace.isVisible(), "grupo de 6 personas: mensaje preparado sin bloqueo");
   const href = await enlace.getAttribute("href");
   const texto = decodeURIComponent(new URL(href).searchParams.get("text"));
-  ok(texto.includes("José Ñúñez & Cía") && texto.includes("6 personas") && texto.includes("¿18 o 25?") && texto.includes("cena baile conjunta"), "mensaje con campos correctos y caracteres especiales: " + JSON.stringify(texto));
+  ok(texto.includes("José Ñúñez & Cía") && texto.includes("6 personas") && texto.includes("¿18 o 25?") && texto.includes("con otros grupos"), "mensaje con campos correctos y caracteres especiales: " + JSON.stringify(texto));
   ok(href.startsWith("https://wa.me/34678288284?text="), "enlace wa.me al número comercial");
-  ok(!/confirmad[ao]/i.test(await m.locator("[aria-live=polite]").last().innerText()) || true, "sin texto de reserva confirmada");
+  ok((await m.getByRole("link", { name: /Enviar por email/ }).getAttribute("href")).startsWith("mailto:info@los7pc.com"), "alternativa por email");
   ok(!(await m.content()).match(/Reserva confirmada|Mensaje enviado/), "no aparece 'Reserva confirmada' ni 'Mensaje enviado'");
   ok(m.url() === BASE + "/reservas/", "la URL de la web no contiene datos personales");
   await m.screenshot({ path: `${OUT}/reservas-390.png`, fullPage: true });
+  await m.goto(BASE + "/reservas/?modalidad=medida&celebracion=navidad", { waitUntil: "networkidle" });
+  ok((await m.getByRole("radio", { name: "Solo para mi grupo" }).isChecked()) && (await m.getByLabel("¿Qué celebráis?").inputValue()) === "navidad", "los botones de otras páginas preseleccionan formato y celebración");
 
-  // A medida: extras opcionales solo en ese formato
-  await m.getByRole("radio", { name: /En exclusiva para mi grupo/ }).check();
-  ok(await m.getByText("¿Qué te gustaría incluir?").isVisible() && await m.getByText("¿Dónde?").isVisible(), "exclusiva: lugar, momento y extras visibles");
-  await m.getByRole("radio", { name: "Nuestro propio local" }).check();
-  await m.getByRole("radio", { name: "Comida (mediodía)" }).check();
-  await m.getByRole("button", { name: /Preparar mi mensaje/ }).click();
-  const txtE = decodeURIComponent(new URL(await m.getByRole("link", { name: /Abrir WhatsApp y enviar/ }).getAttribute("href")).searchParams.get("text"));
-  ok(txtE.includes("en exclusiva para nuestro grupo") && txtE.includes("como comida, al mediodía, en nuestro propio local"), "exclusiva: mensaje con lugar y momento: " + JSON.stringify(txtE));
-
-  // Navidad: elegir noche desde la tarjeta y preparar el mensaje
+  // Solo hay formulario en Contacto
+  for (const r of ["/", "/cumpleanos-coruna/", "/cenas-empresa-coruna/", "/eventos-privados-coruna/", "/cenas-navidad-coruna/"]) {
+    await m.goto(BASE + r, { waitUntil: "networkidle" });
+    ok((await m.locator("main form").count()) === 0, `${r} sin formulario`);
+  }
   await m.goto(BASE + "/cenas-navidad-coruna/", { waitUntil: "networkidle" });
-  ok((await m.getByRole("link", { name: "Consultar esta noche" }).count()) === 0, "Navidad: las fechas no llevan botones");
   ok(await m.locator('a[data-ubicacion="navidad-fechas"][href^="mailto:"]').isVisible(), "Navidad: contacto por email bajo las fechas");
-  const primera = await m.locator("#reserva-navidad select option:not([value='']):not([disabled])").first().getAttribute("value");
-  await m.locator("#reserva-navidad select").selectOption(primera);
-  await m.locator("#reserva-navidad").getByLabel(/Tu nombre/).fill("Ana, Óptica Peña");
-  await m.locator("#reserva-navidad").getByLabel("Personas (aprox.)").fill("14");
-  await m.locator("#reserva-navidad").getByRole("button", { name: /Preparar mi mensaje/ }).click();
-  const hrefN = await m.getByRole("link", { name: /Abrir WhatsApp y enviar/ }).getAttribute("href");
-  const txtN = decodeURIComponent(new URL(hrefN).searchParams.get("text"));
-  ok(txtN.includes("Óptica Peña") && txtN.includes("14 personas") && /cena de Navidad del (lunes|martes|miércoles|jueves|viernes|sábado|domingo)/.test(txtN), "Navidad: mensaje correcto: " + JSON.stringify(txtN));
 
   // Menú móvil y teclado
   await m.goto(BASE + "/", { waitUntil: "networkidle" });

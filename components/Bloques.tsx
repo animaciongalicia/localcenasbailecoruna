@@ -4,8 +4,7 @@ import { FOTOS, type Foto } from "@/lib/fotos";
 import { OCASIONES } from "@/lib/paginas";
 import type { Pregunta } from "@/lib/faq";
 import { CONTACTO, HISTORIA, MARCA, MENU, NOCHE, OFERTAS, SEDE } from "@/lib/sitio";
-import { whatsappUrl, type Celebracion, type Modalidad } from "@/lib/whatsapp";
-import FormularioConsulta from "./FormularioConsulta";
+import { whatsappUrl } from "@/lib/whatsapp";
 import { IconoBaile, IconoCena, IconoFlecha, IconoMas, IconoShow, IconoTelefono, IconoUbicacion, IconoWhatsapp } from "./Iconos";
 
 const T = OFERTAS.temporada;
@@ -377,35 +376,6 @@ export function Argumentos({ ante, titulo, texto, puntos, oscura }: { ante: stri
           </li>
         ))}
       </ul>
-    </Seccion>
-  );
-}
-
-/* ── Formulario de consulta en contexto ─────────────────────────────── */
-export function BloqueConsulta({
-  titulo = "Consulta disponibilidad",
-  texto = "Rellena lo básico y se prepara un mensaje de WhatsApp con tus datos. Lo revisas y lo envías tú.",
-  celebracion,
-  modalidad,
-  campana,
-}: {
-  titulo?: string;
-  texto?: string;
-  celebracion?: Celebracion;
-  modalidad?: Modalidad;
-  campana?: string;
-}) {
-  return (
-    <Seccion id="consulta" arena>
-      <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr]">
-        <div>
-          <Titulo ante="Sin compromiso" titulo={titulo} texto={texto} />
-          <p className="mt-6 text-tinta-suave">
-            ¿Prefieres hablar? Llama al <a href={CONTACTO.telefonoHref} className="enlace" data-ubicacion="bloque-consulta">{CONTACTO.telefono}</a>.
-          </p>
-        </div>
-        <FormularioConsulta celebracionInicial={celebracion} modalidadInicial={modalidad} campana={campana} />
-      </div>
     </Seccion>
   );
 }

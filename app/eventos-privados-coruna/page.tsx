@@ -1,4 +1,4 @@
-import { Argumentos, BloqueConsulta, CtaFinal, Faq, Hero, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
+import { Argumentos, CtaFinal, Faq, Hero, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
 import { JsonLdFaq, JsonLdMigas, ORG_ID } from "@/components/JsonLd";
 import { FOTOS } from "@/lib/fotos";
 import type { Pregunta } from "@/lib/faq";
@@ -47,7 +47,7 @@ export default function EventosPrivados() {
         texto={`La noche que funciona en el ${SEDE.nombre} desde hace temporadas, en exclusiva para vosotros. ${EXCLUSIVO.cuando}: en Oza, en otro espacio o en vuestro propio local.`}
         foto={FOTOS.baile}
         precio={false}
-        ctaPrincipal={{ href: "#consulta", texto: "Pedir propuesta" }}
+        ctaPrincipal={{ href: "/reservas/?modalidad=medida", texto: "Pedir propuesta" }}
         ctaSecundario={{ href: "#donde", texto: "Dónde se puede hacer" }}
       />
 
@@ -87,8 +87,6 @@ export default function EventosPrivados() {
           </ul>
         </div>
       </Seccion>
-
-      <BloqueConsulta titulo="Cuéntame tu evento" texto="Fecha, número de personas, comida o cena y dónde lo imaginas. Te respondo con disponibilidad y una propuesta." celebracion="otra" modalidad="medida" />
       <Faq preguntas={FAQ_PRIVADOS} titulo="Dudas sobre eventos privados" />
       <Ocasiones excluir={RUTA} />
       <CtaFinal titulo="¿Tienes ya la fecha?" texto="Las fechas en exclusiva dependen de la agenda del DJ y del show. Pregunta con tiempo." />

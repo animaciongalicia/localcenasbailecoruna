@@ -1,20 +1,19 @@
 import Link from "next/link";
-import { CtaFinal, Faq, Hero, LineaNoche, ListaMenu, Migas, Ocasiones, Seccion, Titulo } from "./Bloques";
-import FormularioNavidad from "./FormularioNavidad";
+import { Faq, Hero, LineaNoche, ListaMenu, Migas, Ocasiones, Seccion, Titulo } from "./Bloques";
 import { IconoMail, IconoTelefono, IconoWhatsapp } from "./Iconos";
 import { JsonLdFaq, JsonLdMigas, ORG_ID } from "./JsonLd";
 import { FOTOS } from "@/lib/fotos";
-import { getADemanda, getConfirmadas, getNoches } from "@/lib/navidad";
+import { getADemanda, getConfirmadas } from "@/lib/navidad";
 import type { Pregunta } from "@/lib/faq";
 import { CONTACTO, MENU, OFERTAS, SEDE, SITE_URL } from "@/lib/sitio";
 import { COPY_NAVIDAD, type Variante } from "@/lib/variantes";
-import { whatsappUrl } from "@/lib/whatsapp";
+import { mailUrl, whatsappUrl } from "@/lib/whatsapp";
 
 export const RUTA_NAVIDAD = "/cenas-navidad-coruna/";
 const N = OFERTAS.navidad;
 const resto = N.precio - N.senal;
 const WA_NAVIDAD = `Hola, quiero consultar una cena de Navidad ${N.anio} en el ${SEDE.nombre}.\nNoche que nos interesa: \nPersonas: `;
-const MAIL_NAVIDAD = `mailto:${CONTACTO.email}?subject=${encodeURIComponent(`Cena de Navidad ${N.anio}`)}&body=${encodeURIComponent("Hola, queremos consultar una cena de Navidad.\nNoche: \nPersonas: \nNombre y teléfono: \n")}`;
+const MAIL_NAVIDAD = mailUrl(`Cena de Navidad ${N.anio}`, "Hola, queremos consultar una cena de Navidad.\nNoche: \nPersonas: \nNombre y teléfono: \n");
 
 /** Bajo las fechas: los dos canales de consulta, sin botones por noche. */
 function ContactoNavidad() {
@@ -90,7 +89,7 @@ export default function NavidadLanding({ variante }: { variante: Variante }) {
         texto={copy.bajada}
         foto={FOTOS.salon}
         precio={false}
-        ctaPrincipal={{ href: "#reserva-navidad", texto: "Reservar mesa" }}
+        ctaPrincipal={{ href: "/reservas/?celebracion=navidad", texto: "Reservar mesa" }}
         ctaSecundario={{ href: "#fechas", texto: `Ver fechas de ${N.temporada}` }}
       >
         <div className="mt-6 flex items-center gap-4 border-l-2 border-oro pl-4 text-marfil">
@@ -171,25 +170,22 @@ export default function NavidadLanding({ variante }: { variante: Variante }) {
       </Seccion>
 
       <Seccion id="reserva-navidad" oscura>
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr]">
-          <div>
-            <Titulo ante="Reserva tu mesa" titulo="Un minuto aquí y tienes el WhatsApp escrito" texto="Elige noche, di cuántos sois y se prepara el mensaje. Lo envías tú y te respondo con la confirmación." />
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <a href={whatsappUrl(WA_NAVIDAD)} className="btn-wa" target="_blank" rel="noopener" data-ubicacion="navidad" data-campana={N.id}><IconoWhatsapp /> WhatsApp directo</a>
-              <a href={MAIL_NAVIDAD} className="btn-linea"><IconoMail /> {CONTACTO.email}</a>
-              <a href={CONTACTO.telefonoHref} className="btn-linea" data-ubicacion="navidad"><IconoTelefono /> {CONTACTO.telefono}</a>
-            </div>
-            <p className="mt-6 text-marfil/75">
-              ¿Comida o cena de empresa con otro formato? <Link href="/cenas-empresa-coruna/" className="enlace">Mira las opciones para empresas</Link>.
-            </p>
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="titulo-seccion">Reserva tu mesa de Navidad</h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg text-marfil/80">Dime la noche y cuántos sois. Te respondo con la confirmación y los datos para la señal.</p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <a href={whatsappUrl(WA_NAVIDAD)} className="btn-wa" target="_blank" rel="noopener" data-ubicacion="navidad" data-campana={N.id}><IconoWhatsapp /> WhatsApp</a>
+            <a href={MAIL_NAVIDAD} className="btn-linea"><IconoMail /> Email</a>
+            <a href={CONTACTO.telefonoHref} className="btn-linea" data-ubicacion="navidad"><IconoTelefono /> {CONTACTO.telefono}</a>
           </div>
-          <FormularioNavidad noches={getNoches()} campana={N.id} variante={variante} />
+          <p className="mt-6 text-marfil/70">
+            ¿Comida o cena de empresa con otro formato? <Link href="/eventos-privados-coruna/" className="enlace">Eventos en exclusiva</Link>.
+          </p>
         </div>
       </Seccion>
 
       <Faq preguntas={FAQ_NAVIDAD} titulo="Navidad: lo que todo el mundo pregunta" />
       <Ocasiones excluir={RUTA_NAVIDAD} />
-      <CtaFinal titulo="¿Ya tienes fecha para la cena de Navidad?" texto="Dime el día y cuántos sois. Te respondo con disponibilidad." />
       <JsonLdMigas nombre="Navidad" ruta={RUTA_NAVIDAD} />
       <JsonLdFaq preguntas={FAQ_NAVIDAD} />
       <JsonLdEventos />

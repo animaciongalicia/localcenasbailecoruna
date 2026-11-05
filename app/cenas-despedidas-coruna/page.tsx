@@ -1,4 +1,4 @@
-import { Argumentos, BloqueConsulta, CtaFinal, Faq, Hero, LineaNoche, MenuResumen, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
+import { Argumentos, CtaFinal, Faq, Hero, LineaNoche, MenuResumen, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
 import { JsonLdFaq, JsonLdMigas } from "@/components/JsonLd";
 import { FAQ_DESPEDIDA } from "@/lib/faq";
 import { FOTOS } from "@/lib/fotos";
@@ -49,7 +49,6 @@ export default function Despedidas() {
           <a href="https://despedidascoruna.es" className="btn-linea" rel="noopener">Ver despedidascoruna.es</a>
         </div>
       </Seccion>
-      <BloqueConsulta titulo="Consulta fecha para tu despedida" celebracion="despedida" modalidad="conjunta" />
       <Faq preguntas={FAQ_DESPEDIDA} titulo="Dudas de despedida" />
       <Ocasiones excluir={RUTA} />
       <CtaFinal titulo="La despedida, en buenas manos" />

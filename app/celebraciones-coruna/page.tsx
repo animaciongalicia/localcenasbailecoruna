@@ -1,4 +1,4 @@
-import { Argumentos, BloqueConsulta, CtaFinal, DosModalidades, Espacio, Faq, Hero, Migas, Ocasiones } from "@/components/Bloques";
+import { Argumentos, CtaFinal, DosModalidades, Espacio, Faq, Hero, Migas, Ocasiones } from "@/components/Bloques";
 import { JsonLdFaq, JsonLdMigas } from "@/components/JsonLd";
 import { FAQ_CELEBRACIONES } from "@/lib/faq";
 import { FOTOS } from "@/lib/fotos";
@@ -50,7 +50,6 @@ export default function Celebraciones() {
         ejemploMedida="Para una jubilación grande o un homenaje con discursos: solo vuestro grupo, en comida o en cena, en Oza, en otro espacio o en la propia empresa."
       />
       <Espacio />
-      <BloqueConsulta titulo="Cuéntame la jubilación (o lo que celebréis)" celebracion="jubilacion" />
       <Faq preguntas={FAQ_CELEBRACIONES} />
       <Ocasiones excluir={RUTA} />
       <CtaFinal />

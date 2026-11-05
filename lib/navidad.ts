@@ -6,7 +6,6 @@ import datos from "@/data/navidad.json";
 export type TipoNoche = "confirmada" | "a-demanda";
 export type Noche = { fecha: string; etiqueta: string; tipo: TipoNoche; nota?: string; completa?: boolean };
 
-export const OTRA_FECHA = "otra";
 
 /** Una noche desaparece al día siguiente (la página se regenera cada hora). */
 const pasada = (f: Noche) => Date.now() > new Date(`${f.fecha}T23:00:00Z`).getTime();
@@ -21,5 +20,3 @@ export function getNoches(): Noche[] {
 export const getConfirmadas = () => getNoches().filter((f) => f.tipo === "confirmada");
 export const getADemanda = () => getNoches().filter((f) => f.tipo === "a-demanda");
 
-/** "Viernes 20 de noviembre" → "viernes 20 de noviembre" (para dentro de una frase). */
-export const enFrase = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);

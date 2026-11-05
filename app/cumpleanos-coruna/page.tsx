@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Argumentos, BloqueConsulta, CtaFinal, DosModalidades, Faq, Hero, LineaNoche, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
+import { Argumentos, CtaFinal, DosModalidades, Faq, Hero, LineaNoche, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
 import { JsonLdFaq, JsonLdMigas } from "@/components/JsonLd";
 import { FAQ_CUMPLE } from "@/lib/faq";
 import { FOTOS } from "@/lib/fotos";
@@ -60,7 +60,6 @@ export default function Cumpleanos() {
         ejemploMedida="Para un cumpleaños grande o redondo: solo tus invitados, cualquier día del año, en comida o en cena. En Oza, en otro espacio o en tu casa o finca. Precio según fecha y número de invitados."
       />
       <LineaNoche />
-      <BloqueConsulta titulo="Cuéntame tu cumpleaños" celebracion="cumpleanos" />
       <Faq preguntas={FAQ_CUMPLE} titulo="Dudas típicas de un cumpleaños" />
       <Ocasiones excluir={RUTA} />
       <CtaFinal titulo="Que el cumpleaños se recuerde por la fiesta" />
