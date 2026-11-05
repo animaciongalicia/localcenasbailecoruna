@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --barra-movil: 68px;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+body {
+  @apply bg-marfil text-tinta font-sans antialiased;
+  padding-bottom: calc(var(--barra-movil) + env(safe-area-inset-bottom));
+}
+@media (min-width: 1024px) {
+  body { padding-bottom: 0; }
+}
+
+[id] { scroll-margin-top: 5rem; }
+
+::selection { background: #b4441f; color: #fff; }
+
+:focus-visible {
+  outline: 3px solid #b4441f;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.oscuro :focus-visible { outline-color: #e3b66e; }
+
+@layer components {
+  .contenedor { @apply mx-auto w-full max-w-6xl px-4 sm:px-8; }
+  .seccion { @apply py-14 sm:py-20; }
+  .antetitulo { @apply text-xs font-semibold uppercase tracking-[0.2em] text-acento; }
+  .oscuro .antetitulo { @apply text-oro; }
+  .titulo-seccion { @apply font-serif text-[1.9rem] font-semibold leading-[1.12] text-tinta sm:text-[2.6rem]; }
+  .oscuro .titulo-seccion { @apply text-marfil; }
+  .entradilla { @apply mt-4 max-w-prosa text-lg leading-relaxed text-tinta-suave; }
+  .oscuro .entradilla { @apply text-marfil/80; }
+  .btn { @apply inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full px-6 text-base font-semibold transition-colors duration-200; }
+  .btn-principal { @apply btn bg-acento text-white hover:bg-acento-hover; }
+  .btn-wa { @apply btn bg-wa text-wa-oscuro hover:bg-wa-hover; }
+  .btn-linea { @apply btn border-2 border-tinta/80 text-tinta hover:bg-tinta hover:text-marfil; }
+  .oscuro .btn-linea { @apply border-marfil/70 text-marfil hover:bg-marfil hover:text-noche; }
+  .tarjeta { @apply rounded-2xl border border-linea bg-white; }
+  .campo { @apply block w-full min-h-[50px] rounded-xl border border-tinta/25 bg-white px-4 py-3 text-base text-tinta placeholder:text-tinta-suave/70 focus:border-acento focus:outline-none focus:ring-2 focus:ring-acento/30; }
+  .campo[aria-invalid="true"] { @apply border-acento; }
+  .etiqueta { @apply mb-2 block text-sm font-semibold text-tinta; }
+  .enlace { @apply font-semibold text-acento underline decoration-2 underline-offset-4 hover:text-acento-hover; }
+  .oscuro .enlace { @apply text-oro hover:text-marfil; }
+  .lista-check li { @apply relative pl-7; }
+  .lista-check li::before { content: ""; @apply absolute left-0 top-[0.55em] h-2.5 w-2.5 rotate-45 rounded-[2px] bg-acento; }
+  .oscuro .lista-check li::before { @apply bg-oro; }
+}
+
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .faq-icono { transform: rotate(45deg); }
+
+.font-serif { font-variant-numeric: lining-nums; }
+
+/* Bloques oscuros: un leve resplandor cálido, como luz de sala. */
+.oscuro {
+  background-image: radial-gradient(ellipse 70% 60% at 85% 0%, rgba(227, 182, 110, 0.13), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 0% 100%, rgba(180, 68, 31, 0.12), transparent 70%);
+}
