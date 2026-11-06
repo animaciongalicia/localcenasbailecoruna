@@ -13,7 +13,7 @@ export const metadata = meta({
   titulo: "Dónde celebrar un cumpleaños de adultos en A Coruña · Los7pc",
   descripcion: `Celebra tu cumpleaños (30, 40, 50, 60…) en A Coruña con cena, show cómico y DJ hasta las 3 en el ${SEDE.nombre}. Con otros grupos o en exclusiva para tus invitados.`,
   ruta: RUTA,
-  imagen: FOTOS.celebrando.src,
+  imagen: FOTOS.cumpleanos.src,
 });
 
 const DECADAS = [
@@ -31,7 +31,7 @@ export default function Cumpleanos() {
         antetitulo="Cumpleaños de adultos en A Coruña"
         titulo="Celebra tu cumpleaños en A Coruña con cena, show y baile"
         texto="Tú pones a la gente. La cena, las risas y la pista de baile ya están montadas. Sin cocinar, sin recoger y sin buscar dónde seguir la fiesta."
-        foto={FOTOS.celebrando}
+        foto={FOTOS.cumpleanos}
       />
 
       <Prosa ante="Sitios para celebrar un cumpleaños de adultos" titulo="Tu cumpleaños no se merece un «ya si eso lo celebramos»">

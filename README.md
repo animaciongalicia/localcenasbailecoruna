@@ -32,7 +32,7 @@ Documentación:
 | Eventos privados en exclusiva (cuándo, dónde, qué incluye) | `lib/sitio.ts` → `EXCLUSIVO` |
 | Preguntas frecuentes | `lib/faq.ts` |
 | Menú de navegación y tarjetas de celebraciones | `lib/paginas.ts` |
-| Fotos | `public/fotos/` + `lib/fotos.ts` (solo fotos reales con derechos) |
+| Fotos | `public/fotos/`: sustituye el archivo **con el mismo nombre** (ver tabla de fotos) |
 | Texto de cada página | `app/<ruta>/page.tsx` |
 | Noticias (artículos) | `lib/noticias.ts`: copia un artículo, cambia `slug`, título, fecha y bloques |
 
@@ -51,6 +51,22 @@ y en la meta descripción. Navidad (`OFERTAS.navidad`) es independiente: no here
 - El antiguo subdominio `navidad.los7pc.com` redirige (301) aquí conservando `?g=`, `utm_*` y `gclid` (ver docs/LANZAMIENTO.md).
 
 Haz commit y Vercel redespliega solo.
+
+## Fotos por celebración
+Cada página tiene su foto. Para cambiarla, sube a `public/fotos/` un archivo con **exactamente** este nombre
+(horizontal, mínimo 1200 px de ancho, menos de 500 KB; solo fotos reales con permiso de quien sale):
+
+| Archivo | Dónde sale |
+|---|---|
+| `navidad.jpg` | Cenas de empresa de Navidad, menú y tarjetas |
+| `cumpleanos.jpg` | Cumpleaños |
+| `empresas.jpg` | Cenas de empresa |
+| `despedidas.jpg` | Despedidas |
+| `jubilaciones.jpg` | Jubilaciones y aniversarios |
+| `eventos-privados.jpg` | Eventos privados |
+| `local.jpg` | El local |
+| `menus.jpg` | Menús |
+| `ambiente-baile.jpg`, `cena-salon.jpg`, `cena-grupos.jpg`, `grupo-celebrando.jpg` | Portada, galerías y ambiente |
 
 ## Noticias
 Cada artículo vive en `lib/noticias.ts` como una lista de bloques (párrafo, subtítulo, lista, cita y llamada a la acción).

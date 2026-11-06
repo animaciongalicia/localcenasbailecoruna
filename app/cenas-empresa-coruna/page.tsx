@@ -13,7 +13,7 @@ export const metadata = meta({
   titulo: "Cenas y comidas de empresa en A Coruña con show y baile · Los7pc",
   descripcion: `Cenas y comidas de empresa en A Coruña: cena, show cómico y DJ en el ${SEDE.nombre}, o en exclusiva en vuestras instalaciones. Para equipos de 6 a toda la plantilla.`,
   ruta: RUTA,
-  imagen: FOTOS.salon.src,
+  imagen: FOTOS.empresas.src,
 });
 
 export default function Empresas() {
@@ -24,7 +24,7 @@ export default function Empresas() {
         antetitulo="Empresas · A Coruña"
         titulo="Cenas y comidas de empresa con show y baile en A Coruña"
         texto="La cena de equipo que no se queda en el postre. Cena, una hora de humor y pista de baile, con una sola persona de contacto para todo."
-        foto={FOTOS.salon}
+        foto={FOTOS.empresas}
         ctaSecundario={{ href: "/reservas/?modalidad=medida&celebracion=empresa", texto: "Pedir propuesta para mi empresa" }}
       />
 

@@ -13,7 +13,7 @@ export const metadata = meta({
   titulo: `Cenas de empresa de Navidad en A Coruña ${N.anio} · Cena, show y baile · Los7pc`,
   descripcion: `Cena de empresa de Navidad en A Coruña: cena con bebida, show cómico y DJ hasta las 3 en el ${SEDE.nombre}. Para equipos de 6 a 80+, también comidas y en exclusiva. Guía para organizarla.`,
   ruta: RUTA_NAVIDAD,
-  imagen: FOTOS.salon.src,
+  imagen: FOTOS.navidad.src,
 });
 
 export default function Navidad() {

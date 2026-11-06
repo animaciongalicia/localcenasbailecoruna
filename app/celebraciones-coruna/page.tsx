@@ -1,86 +1,56 @@
-import { Ambiente, Argumentos, CtaFinal, DosModalidades, Espacio, Faq, Hero, Migas, Ocasiones } from "@/components/Bloques";
-import { MejorPeor, Pasos, Prosa } from "@/components/Contenido";
+import { Ambiente, CtaFinal, DosModalidades, Faq, Hero, LineaNoche, Migas, Ocasiones } from "@/components/Bloques";
+import { Pasos, PostsRelacionados, Prosa } from "@/components/Contenido";
 import { JsonLdFaq, JsonLdMigas } from "@/components/JsonLd";
-import { FAQ_CELEBRACIONES } from "@/lib/faq";
+import { FAQ_HOME } from "@/lib/faq";
 import { FOTOS } from "@/lib/fotos";
 import { meta } from "@/lib/seo";
 import { SEDE } from "@/lib/sitio";
 
 const RUTA = "/celebraciones-coruna/";
+const FAQ = FAQ_HOME.filter((q) => !/aparcar/.test(q.p));
 
 export const metadata = meta({
-  titulo: "Fiesta de jubilación en A Coruña: cena, show y baile · Los7pc",
-  descripcion: `Organiza la fiesta de jubilación de un compañero en A Coruña: comida o cena, show cómico y baile. Con otros grupos en el ${SEDE.nombre} o en exclusiva, cualquier día del año. También aniversarios y reencuentros.`,
+  titulo: "Celebraciones en A Coruña con cena, show y baile · Los7pc",
+  descripcion: `Cumpleaños, cenas de empresa, Navidad, despedidas, jubilaciones y eventos privados en A Coruña: cena, show cómico y DJ hasta las 3 en el ${SEDE.nombre} o en exclusiva donde quieras.`,
   ruta: RUTA,
-  imagen: FOTOS.grupos.src,
+  imagen: FOTOS.baile.src,
 });
 
 export default function Celebraciones() {
   return (
     <>
-      <Migas actual="Jubilaciones y aniversarios" />
+      <Migas actual="Celebraciones" />
       <Hero
-        antetitulo="Jubilaciones · aniversarios · reencuentros"
-        titulo="Fiesta de jubilación en A Coruña, con cena, show y baile"
-        texto="Despedir a un compañero después de tantos años merece algo más que una comida rápida. Cena o comida, unas risas con el show y baile, con la empresa y la familia juntas."
-        foto={FOTOS.grupos}
+        antetitulo="Celebraciones en A Coruña"
+        titulo="Cada celebración tiene su noche"
+        texto="Cumpleaños, cenas de empresa, Navidad, despedidas, jubilaciones o una fiesta solo vuestra. La fórmula es la misma: cena, show cómico y baile hasta las tres. Lo que cambia es tu motivo."
+        foto={FOTOS.baile}
       />
+      <Ocasiones ante="Elige tu motivo" titulo="¿Qué celebráis?" texto="Cada página explica cómo organizarlo, qué incluye y lo que conviene saber antes." />
 
-      <Prosa ante="Celebrar una jubilación" titulo="Treinta años de trabajo no se despiden con un café y una tarjeta">
-        <p>Una jubilación es de esas fechas que solo pasan una vez. Y casi siempre la organiza un compañero que no ha hecho esto nunca, con poco tiempo y mucha gente a la que contentar: jefes, compañeros de hoy, compañeros de antes y la familia.</p>
-        <p><strong>La fórmula que funciona es sencilla:</strong> una buena comida o cena, un momento para las palabras y el regalo, una hora de humor para que todo el mundo se relaje y música para distintas generaciones. Ni discursos eternos ni tardes que se apagan a las seis.</p>
-        <p>Podéis uniros a una cena baile con otros grupos en el {SEDE.nombre} o hacerlo en exclusiva, <strong>cualquier día del año, en comida o en cena</strong>, en Oza, en otro espacio o en la propia empresa.</p>
+      <Prosa ante="Una fórmula, muchos motivos" titulo="Por qué funciona para cualquier celebración">
+        <p>Da igual que sea el cumpleaños de tu madre, la cena de la oficina o la despedida de tu mejor amigo. <strong>Lo que hace buena una celebración es lo mismo:</strong> comer bien, reírse juntos y acabar la noche sin que nadie tenga que decidir «a dónde vamos ahora».</p>
+        <p>Por eso la noche está montada de principio a fin: cena con bebida, una hora de show cómico que rompe el hielo y DJ con música para distintas generaciones hasta las tres. En el {SEDE.nombre}, compartiendo ambiente con otros grupos, o en exclusiva, el día y en el sitio que elijáis.</p>
       </Prosa>
 
+      <DosModalidades />
+
       <Pasos
-        ante="Para quien organiza la jubilación"
-        titulo="Cómo organizar una fiesta de jubilación, paso a paso"
+        ante="Cómo funciona"
+        titulo="De la idea a la pista, en tres pasos"
         pasos={[
-          { t: "Fecha con margen", d: "Que pueda venir la gente de antes, no solo la de ahora. Cuanto antes, más opciones." },
-          { t: "Lista: empresa y familia", d: "Compañeros, jefes, pareja e hijos. Cuenta a todos aunque sea aproximado." },
-          { t: "Comida o cena", d: "Si hay mucha familia o turnos, el mediodía funciona muy bien (en exclusiva)." },
-          { t: "Palabras y regalo", d: "Dilo al reservar y se prevé el momento durante la comida o cena, antes del show." },
-          { t: "Recoge fotos y anécdotas", d: "Un vídeo o unas fotos de sus años en la empresa: siempre emociona." },
-          { t: "Formato", d: "Con otros grupos si sois pocos; en exclusiva si es un homenaje grande." },
+          { t: "Consultas fecha", d: "Por WhatsApp, email o teléfono: qué celebráis, qué día y cuántos sois, aunque sea aproximado." },
+          { t: "Te confirmo hueco", d: "Te respondo con disponibilidad y te paso por escrito lo que incluye y las condiciones." },
+          { t: "Reservas y a disfrutar", d: "Con el pago de confirmación la mesa es vuestra. El día de la cena solo tenéis que llegar." },
         ]}
       />
-
-      <MejorPeor
-        titulo="Lo mejor y lo que debes saber"
-        mejor={[
-          "Empresa y familia, juntas en la misma celebración.",
-          "Un momento previsto para las palabras y el regalo.",
-          "Música para distintas generaciones.",
-          "En exclusiva, el día y en el sitio que elijáis, también al mediodía.",
-        ]}
-        peor={[
-          "En la cena con otros grupos compartís sala: para un homenaje con discursos largos, mejor en exclusiva.",
-          "La cena con otros grupos es de abril a septiembre.",
-          "Las copas del baile van aparte.",
-        ]}
-      />
-
-      <Argumentos
-        ante="Otras celebraciones"
-        titulo="Aniversarios, reencuentros y homenajes"
-        puntos={[
-          { t: "Aniversarios", d: "Bodas de plata, de oro o un aniversario de pareja con los amigos de siempre." },
-          { t: "Reencuentros", d: "La promoción del instituto, la cuadrilla de la mili o los del equipo de fútbol, veinte años después." },
-          { t: "Homenajes y fiestas de grupo", d: "Un premio, una oposición aprobada o simplemente juntarse. Si es una excusa para celebrar, encaja." },
-          { t: "Cenas de grupo", d: "Peñas, asociaciones y grupos de amigos que quieren cenar juntos y acabar bailando." },
-        ]}
-      />
+      <LineaNoche />
       <Ambiente />
-      <DosModalidades
-        ejemploConjunta="Si sois un grupo de 6 a 30 personas, os unís a una cena baile con otros grupos: mesa propia y fiesta compartida."
-        ejemploMedida="Para una jubilación grande o un homenaje con discursos: solo vuestro grupo, en comida o en cena, en Oza, en otro espacio o en la propia empresa."
-      />
-      <Espacio />
-      <Faq preguntas={FAQ_CELEBRACIONES} titulo="Dudas sobre jubilaciones y celebraciones" />
-      <Ocasiones excluir={RUTA} />
-      <CtaFinal titulo="Que su despedida se recuerde tanto como sus años de trabajo" />
-      <JsonLdMigas nombre="Jubilaciones y aniversarios" ruta={RUTA} />
-      <JsonLdFaq preguntas={FAQ_CELEBRACIONES} />
+      <Faq preguntas={FAQ} />
+      <PostsRelacionados slugs={["organizar-cena-empresa-navidad-coruna", "celebrar-50-cumpleanos-coruna", "personajes-cena-empresa-navidad"]} titulo="Ideas y consejos para tu celebración" />
+      <CtaFinal />
+      <JsonLdMigas nombre="Celebraciones" ruta={RUTA} />
+      <JsonLdFaq preguntas={FAQ} />
     </>
   );
 }

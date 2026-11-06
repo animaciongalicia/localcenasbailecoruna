@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CtaFinal } from "@/components/Bloques";
+import BarraNoticias from "@/components/BarraNoticias";
+import { IconoFlecha, IconoWhatsapp } from "@/components/Iconos";
 import { ORG_ID } from "@/components/JsonLd";
 import { FOTOS } from "@/lib/fotos";
 import { POSTS, fechaPost, getPost } from "@/lib/noticias";
@@ -20,7 +22,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function Articulo({ params }: { params: Promise<{ slug: string }> }) {
   const p = getPost((await params).slug);
   if (!p) notFound();
-  const otros = POSTS.filter((x) => x.slug !== p.slug).slice(0, 2);
+  const i = POSTS.findIndex((x) => x.slug === p.slug);
+  const anterior = POSTS[i - 1];
+  const siguiente = POSTS[i + 1];
   const url = `${SITE_URL}/noticias/${p.slug}/`;
   const datos = [
     {
@@ -56,7 +60,8 @@ export default async function Articulo({ params }: { params: Promise<{ slug: str
           <li><Link href="/noticias/" className="hover:text-acento">Noticias</Link></li>
         </ol>
       </nav>
-      <article className="contenedor max-w-3xl py-12 sm:py-16">
+      <div className="contenedor grid gap-12 py-12 sm:py-16 lg:grid-cols-[minmax(0,1fr)_320px]">
+      <article className="max-w-3xl">
         <p className="antetitulo">{p.categoria}</p>
         <h1 className="mt-3 font-serif text-[2.2rem] font-semibold leading-tight sm:text-5xl">{p.titulo}</h1>
         <p className="mt-4 text-lg text-tinta-suave">{p.descripcion}</p>
@@ -82,17 +87,27 @@ export default async function Articulo({ params }: { params: Promise<{ slug: str
             }
           })}
         </div>
-        {otros.length > 0 && (
-          <aside className="mt-14 border-t border-linea pt-8">
-            <h2 className="font-serif text-2xl font-semibold">Sigue leyendo</h2>
-            <ul className="mt-4 space-y-3">
-              {otros.map((o) => (
-                <li key={o.slug}><Link href={`/noticias/${o.slug}/`} className="enlace">{o.titulo}</Link></li>
-              ))}
-            </ul>
-          </aside>
-        )}
+        <div className="mt-10 flex flex-wrap items-center gap-3 border-t border-linea pt-6">
+          <span className="text-sm font-semibold">¿Te has reído? Compártelo con quien organiza:</span>
+          <a href={`https://wa.me/?text=${encodeURIComponent(`${p.titulo} ${url}`)}`} className="btn-wa min-h-[40px] px-4 text-sm" target="_blank" rel="noopener"><IconoWhatsapp className="h-4 w-4" /> Enviar por WhatsApp</a>
+        </div>
+        <nav aria-label="Más artículos" className="mt-8 grid gap-4 sm:grid-cols-2">
+          {anterior && (
+            <Link href={`/noticias/${anterior.slug}/`} className="tarjeta p-5 hover:border-acento">
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-tinta-suave">Anterior</span>
+              <span className="mt-1 block font-semibold leading-snug">{anterior.titulo}</span>
+            </Link>
+          )}
+          {siguiente && (
+            <Link href={`/noticias/${siguiente.slug}/`} className="tarjeta p-5 text-right hover:border-acento sm:col-start-2">
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-tinta-suave">Siguiente</span>
+              <span className="mt-1 flex items-center justify-end gap-1 font-semibold leading-snug">{siguiente.titulo} <IconoFlecha className="h-4 w-4 shrink-0 text-acento" /></span>
+            </Link>
+          )}
+        </nav>
       </article>
+      <BarraNoticias actual={p.slug} />
+      </div>
       <CtaFinal />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datos).replace(/</g, "\\u003c") }} />
     </>

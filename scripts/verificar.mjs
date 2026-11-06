@@ -3,7 +3,7 @@
 import fs from "node:fs";
 
 const BASE = process.argv[2] || "http://localhost:3000";
-const PAGINAS = ["/", "/cumpleanos-coruna/", "/cenas-empresa-coruna/", "/cenas-despedidas-coruna/", "/cenas-navidad-coruna/", "/celebraciones-coruna/", "/eventos-privados-coruna/", "/menus-precios/", "/club-nautico-oza/", "/reservas/", "/grupo-animacion-galicia/", "/noticias/", "/noticias/organizar-cena-empresa-navidad-coruna/", "/noticias/personajes-cena-empresa-navidad/", "/noticias/celebrar-50-cumpleanos-coruna/", "/aviso-legal/", "/privacidad/", "/cookies/", "/sitemap.xml", "/robots.txt"];
+const PAGINAS = ["/", "/cumpleanos-coruna/", "/cenas-empresa-coruna/", "/cenas-despedidas-coruna/", "/cenas-navidad-coruna/", "/celebraciones-coruna/", "/jubilaciones-coruna/", "/eventos-privados-coruna/", "/menus-precios/", "/club-nautico-oza/", "/reservas/", "/grupo-animacion-galicia/", "/noticias/", "/noticias/organizar-cena-empresa-navidad-coruna/", "/noticias/personajes-cena-empresa-navidad/", "/noticias/celebrar-50-cumpleanos-coruna/", "/aviso-legal/", "/privacidad/", "/cookies/", "/sitemap.xml", "/robots.txt"];
 // Nada de esto puede aparecer en ninguna salida pública (brief §2 y criterios de aceptación).
 const PROHIBIDO = [/1\.925/, /1925\s*€/, /m[ií]nimo de (30|35)/i, /\b(30|35) personas m[ií]nimo/i, /drag/i, /puticl/i, /stripper/i, /aforo/i, /\b120 personas/i, /barra libre/i, /plazas disponibles/i, /quedan pocas/i, /diversi[oó]n garantizada/i, /todo incluido/i, /l[ií]deres/i, /TODO:/, /lorem/i, /Zenit[^<]{0,40}(sede actual)/i];
 

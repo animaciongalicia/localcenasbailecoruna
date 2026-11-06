@@ -134,25 +134,36 @@ export function DosModalidades({ ejemploConjunta, ejemploMedida, anteConjunta }:
 }
 
 /* ── ¿Qué celebráis? ────────────────────────────────────────────────── */
-export function Ocasiones({ excluir }: { excluir?: string }) {
+export function Ocasiones({ excluir, titulo = "¿Qué celebráis?", ante = "Para cada motivo", texto }: { excluir?: string; titulo?: string; ante?: string; texto?: string }) {
   const lista = OCASIONES.filter((o) => o.href !== excluir);
   return (
     <Seccion>
-      <Titulo ante="Para cada motivo" titulo="¿Qué celebráis?" />
-      <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {lista.map((o) => (
-          <li key={o.href}>
-            <Link href={o.href} className="tarjeta group flex h-full items-start justify-between gap-4 p-6 transition-colors hover:border-acento">
-              <span>
-                <span className="block font-serif text-2xl font-semibold group-hover:text-acento">{o.titulo}</span>
-                <span className="mt-1 block text-tinta-suave">{o.texto}</span>
-              </span>
-              <IconoFlecha className="mt-1 h-6 w-6 shrink-0 text-acento" />
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <Titulo ante={ante} titulo={titulo} texto={texto} />
+      <TarjetasFoto items={lista.map((o) => ({ href: o.href, titulo: o.titulo, texto: o.texto, foto: o.foto }))} />
     </Seccion>
+  );
+}
+
+/** Tarjetas con foto: dan color y llevan a cada celebración. */
+export function TarjetasFoto({ items }: { items: { href: string; titulo: string; texto: string; foto: Foto }[] }) {
+  return (
+    <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {items.map((o) => (
+        <li key={o.href}>
+          <Link href={o.href} className="group block h-full overflow-hidden rounded-2xl border border-linea bg-white transition-shadow hover:shadow-xl">
+            <span className="relative block aspect-[16/10] overflow-hidden bg-arena">
+              <Image src={o.foto.src} alt="" fill sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span className="absolute inset-0 bg-gradient-to-t from-noche/70 via-noche/10 to-transparent" />
+              <span className="absolute bottom-3 left-4 right-4 font-serif text-2xl font-semibold text-white drop-shadow">{o.titulo}</span>
+            </span>
+            <span className="flex items-start justify-between gap-3 p-5">
+              <span className="text-tinta-suave">{o.texto}</span>
+              <IconoFlecha className="mt-0.5 h-5 w-5 shrink-0 text-acento" />
+            </span>
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -254,7 +265,7 @@ export function Espacio({ enlace = true }: { enlace?: boolean }) {
             <IconoUbicacion className="mt-0.5 h-5 w-5 shrink-0 text-acento" /> {SEDE.direccion}, {SEDE.ciudad}
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            {enlace && <Link href="/club-nautico-oza/" className="btn-linea">Ver el espacio</Link>}
+            {enlace && <Link href="/club-nautico-oza/" className="btn-linea">Ver el local</Link>}
             <a href={SEDE.mapsUrl} className="btn-linea" target="_blank" rel="noopener">Cómo llegar</a>
           </div>
         </div>

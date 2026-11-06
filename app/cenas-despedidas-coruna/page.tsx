@@ -13,7 +13,7 @@ export const metadata = meta({
   titulo: "Cena de despedida en A Coruña con show y fiesta hasta las 3 · Los7pc",
   descripcion: `Cena de despedida de soltero o soltera en A Coruña: cena con bebida, show cómico y DJ hasta las 3 en el ${SEDE.nombre}, con otros grupos de celebración. Temporada ${T.temporada}.`,
   ruta: RUTA,
-  imagen: FOTOS.celebrando.src,
+  imagen: FOTOS.despedidas.src,
 });
 
 export default function Despedidas() {
@@ -24,7 +24,7 @@ export default function Despedidas() {
         antetitulo={`Despedidas · temporada ${T.temporada}`}
         titulo="Cena de despedida en A Coruña, con show y fiesta hasta las tres"
         texto="La parte de la noche, resuelta: cena con bebida, show cómico y baile con otros grupos que también vienen a darlo todo. Sin cambiar de local a medianoche."
-        foto={FOTOS.celebrando}
+        foto={FOTOS.despedidas}
       />
 
       <Prosa ante="Cenas de despedida de soltero y soltera" titulo="La noche que el grupo necesita (y que el organizador agradece)">

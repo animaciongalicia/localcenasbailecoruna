@@ -2,7 +2,7 @@
 const { chromium } = require("playwright");
 const BASE = process.argv[2] || "http://localhost:3000";
 const OUT = process.argv[3] || ".";
-const PAGINAS = ["/", "/cenas-navidad-coruna/?g=empresas", "/cumpleanos-coruna/", "/cenas-empresa-coruna/", "/cenas-despedidas-coruna/", "/cenas-navidad-coruna/", "/celebraciones-coruna/", "/eventos-privados-coruna/", "/menus-precios/", "/club-nautico-oza/", "/reservas/", "/aviso-legal/"];
+const PAGINAS = ["/", "/cenas-navidad-coruna/?g=empresas", "/cumpleanos-coruna/", "/cenas-empresa-coruna/", "/cenas-despedidas-coruna/", "/cenas-navidad-coruna/", "/celebraciones-coruna/", "/jubilaciones-coruna/", "/eventos-privados-coruna/", "/menus-precios/", "/club-nautico-oza/", "/reservas/", "/aviso-legal/"];
 let fallos = 0;
 const ok = (c, m) => { if (!c) fallos++; console.log(c ? "✓" : "✗", m); };
 
@@ -60,7 +60,8 @@ const ok = (c, m) => { if (!c) fallos++; console.log(c ? "✓" : "✗", m); };
   // Menú móvil y teclado
   await m.goto(BASE + "/", { waitUntil: "networkidle" });
   await m.getByRole("button", { name: "Abrir menú" }).click();
-  ok(await m.locator("#menu-movil").getByRole("link", { name: "Cumpleaños" }).isVisible(), "menú móvil abre y muestra celebraciones");
+  const caja = await m.locator("#menu-movil").boundingBox();
+  ok(caja && caja.height > 300 && await m.locator("#menu-movil").getByRole("link", { name: "Cumpleaños" }).isVisible(), "menú móvil abre a pantalla completa y muestra celebraciones");
   await m.keyboard.press("Escape");
   ok(!(await m.locator("#menu-movil").isVisible()), "Escape cierra el menú móvil");
 

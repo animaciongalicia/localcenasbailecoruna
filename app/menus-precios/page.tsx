@@ -14,18 +14,18 @@ export const metadata = meta({
   titulo: `Menú y precio de la cena baile ${T.anio} en A Coruña · Los7pc`,
   descripcion: `Cena baile conjunta: ${T.precio} € por persona, IVA incluido. Empanada, croquetas, langostinos, carne asada, postre y bebida en la cena. Show cómico y DJ hasta las 3 en el ${SEDE.nombre}.`,
   ruta: RUTA,
-  imagen: FOTOS.grupos.src,
+  imagen: FOTOS.menus.src,
 });
 
 export default function MenusPrecios() {
   return (
     <>
-      <Migas actual="Menú y precios" />
+      <Migas actual="Menús" />
       <Hero
         antetitulo={`Temporada ${T.temporada} ${T.anio}`}
         titulo="Menú y precio de la cena baile"
         texto="Lo que se cena, lo que se bebe y lo que cuesta. Sin letra pequeña: lo que no está incluido también lo verás aquí."
-        foto={FOTOS.grupos}
+        foto={FOTOS.menus}
         ctaSecundario={null}
       />
       <Seccion>
@@ -88,7 +88,7 @@ export default function MenusPrecios() {
 
       <Faq preguntas={FAQ_PRECIOS} titulo="Dudas sobre el precio" />
       <CtaFinal />
-      <JsonLdMigas nombre="Menú y precios" ruta={RUTA} />
+      <JsonLdMigas nombre="Menús" ruta={RUTA} />
       <JsonLdServicio />
       <JsonLdFaq preguntas={FAQ_PRECIOS} />
     </>

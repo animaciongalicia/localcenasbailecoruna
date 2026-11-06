@@ -1,11 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { NAV } from "@/lib/paginas";
+import { CELEBRACIONES_NAV, NAV } from "@/lib/paginas";
 import { MARCA } from "@/lib/sitio";
-import { IconoAbajo, IconoCerrar, IconoMenu } from "./Iconos";
+import { IconoAbajo, IconoCerrar, IconoFlecha, IconoMenu } from "./Iconos";
 
 /** Cabecera fija. Todos los enlaces están en el HTML (rastreables) aunque el desplegable esté cerrado. */
 export default function Cabecera() {
@@ -13,6 +14,8 @@ export default function Cabecera() {
   const [desplegable, setDesplegable] = useState(false);
   const ruta = usePathname();
   const ref = useRef<HTMLLIElement>(null);
+  const cabecera = useRef<HTMLElement>(null);
+  const [topMenu, setTopMenu] = useState(68);
 
   useEffect(() => {
     setMovil(false);
@@ -39,16 +42,22 @@ export default function Cabecera() {
 
   useEffect(() => {
     document.body.style.overflow = movil ? "hidden" : "";
+    if (movil && cabecera.current) setTopMenu(Math.max(0, cabecera.current.getBoundingClientRect().bottom));
   }, [movil]);
 
-  const activo = (href: string) => (href !== "/" && !href.startsWith("/#") && ruta?.startsWith(href) ? "page" : undefined);
+  const activo = (href: string) => (href !== "/" && ruta?.startsWith(href) ? "page" : undefined);
+  const enCelebraciones = CELEBRACIONES_NAV.some((h) => ruta?.startsWith(h.href)) || ruta?.startsWith("/celebraciones-coruna/");
+  const base = "relative flex min-h-[44px] items-center gap-1.5 px-3 text-[0.95rem] font-semibold text-tinta transition-colors hover:text-acento";
+  const subrayado = "after:absolute after:inset-x-3 after:bottom-1.5 after:h-0.5 after:rounded-full after:bg-acento";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-linea bg-marfil/95 backdrop-blur">
-      <div className="contenedor flex h-16 items-center justify-between gap-4">
-        <Link href="/" className="flex items-baseline gap-2 font-serif text-2xl font-semibold text-tinta" aria-label={`${MARCA.nombre}, inicio`}>
-          <span>Los<span className="text-acento">7</span>pc</span>
-          <span className="hidden font-sans text-xs font-medium uppercase tracking-[0.18em] text-tinta-suave sm:inline">Cenas baile · A Coruña</span>
+    <header ref={cabecera} className="sticky top-0 z-50 border-b border-linea bg-marfil">
+      <div className="contenedor flex h-[68px] items-center justify-between gap-4">
+        <Link href="/" className="flex shrink-0 flex-col leading-none" aria-label={`${MARCA.nombre}, inicio`}>
+          <span className="font-serif text-[1.7rem] font-semibold text-tinta">
+            Los<span className="text-acento">7</span>pc
+          </span>
+          <span className="mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-tinta-suave">Cenas baile · A Coruña</span>
         </Link>
 
         <nav aria-label="Principal" className="hidden lg:block">
@@ -61,28 +70,52 @@ export default function Cabecera() {
                     aria-expanded={desplegable}
                     aria-controls="menu-celebraciones"
                     onClick={() => setDesplegable((v) => !v)}
-                    className="flex min-h-[44px] items-center gap-1 rounded-full px-3 font-medium text-tinta hover:bg-arena"
+                    className={`${base} ${enCelebraciones ? subrayado : ""}`}
                   >
                     {item.texto}
                     <IconoAbajo className={`h-4 w-4 transition-transform ${desplegable ? "rotate-180" : ""}`} />
                   </button>
-                  <ul
+                  <div
                     id="menu-celebraciones"
-                    className={`absolute left-0 top-full mt-2 w-72 rounded-2xl border border-linea bg-white p-2 shadow-xl ${desplegable ? "block" : "hidden"}`}
+                    className={`absolute left-1/2 top-full mt-3 w-[620px] -translate-x-1/2 rounded-3xl border border-linea bg-white p-3 shadow-2xl ${desplegable ? "block" : "hidden"}`}
                   >
-                    {item.hijos.map((h) => (
-                      <li key={h.href}>
-                        <Link href={h.href} aria-current={activo(h.href)} className="block rounded-xl px-3 py-2.5 hover:bg-arena">
-                          <span className="block font-semibold text-tinta">{h.texto}</span>
-                          <span className="block text-sm text-tinta-suave">{h.descripcion}</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="grid grid-cols-2 gap-1">
+                      {item.hijos.map((h) => (
+                        <li key={h.href}>
+                          <Link href={h.href} aria-current={activo(h.href)} className="flex items-center gap-3 rounded-2xl p-2.5 hover:bg-arena aria-[current=page]:bg-arena">
+                            {h.foto && (
+                              <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-arena">
+                                <Image src={h.foto.src} alt="" fill sizes="56px" className="object-cover" />
+                              </span>
+                            )}
+                            <span>
+                              <span className="block font-semibold leading-tight text-tinta">{h.texto}</span>
+                              <span className="mt-0.5 block text-sm leading-snug text-tinta-suave">{h.descripcion}</span>
+                            </span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                    <Link href={item.href} className="mt-2 flex items-center justify-between rounded-2xl bg-noche px-4 py-3 font-semibold text-marfil hover:bg-noche-700">
+                      Ver todas las celebraciones
+                      <IconoFlecha className="h-5 w-5 text-oro" />
+                    </Link>
+                  </div>
+                </li>
+              ) : item.destacado ? (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    aria-current={activo(item.href)}
+                    className="mr-1 flex min-h-[40px] items-center gap-2 rounded-full bg-acento/10 px-4 text-[0.95rem] font-semibold text-acento ring-1 ring-acento/25 transition-colors hover:bg-acento hover:text-white aria-[current=page]:bg-acento aria-[current=page]:text-white"
+                  >
+                    <span className="h-2 w-2 rounded-full bg-current" aria-hidden />
+                    {item.texto}
+                  </Link>
                 </li>
               ) : (
                 <li key={item.href}>
-                  <Link href={item.href} aria-current={activo(item.href)} className="flex min-h-[44px] items-center rounded-full px-3 font-medium text-tinta hover:bg-arena aria-[current=page]:text-acento">
+                  <Link href={item.href} aria-current={activo(item.href)} className={`${base} aria-[current=page]:text-acento ${activo(item.href) ? subrayado : ""}`}>
                     {item.texto}
                   </Link>
                 </li>
@@ -108,36 +141,40 @@ export default function Cabecera() {
         </div>
       </div>
 
-      {/* Menú móvil: corto, con los destinos al alcance del pulgar */}
-      <nav
-        id="menu-movil"
-        aria-label="Menú móvil"
-        className={`fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-marfil lg:hidden ${movil ? "block" : "hidden"}`}
-      >
-        <div className="contenedor flex min-h-full flex-col justify-end gap-6 pb-[calc(var(--barra-movil)+1.5rem)] pt-6">
-          <ul className="space-y-1">
-            <li>
-              <Link href="/#experiencia" className="block py-3 font-serif text-2xl font-semibold">La experiencia</Link>
-            </li>
-            <li className="pt-2 text-xs font-semibold uppercase tracking-[0.2em] text-tinta-suave">Celebraciones</li>
-            {NAV[1].hijos!.map((h) => (
-              <li key={h.href}>
-                <Link href={h.href} className="block py-2.5 pl-3 text-lg font-medium" aria-current={activo(h.href)}>
-                  {h.texto}
+      {/* Menú móvil: corto y con los destinos al alcance del pulgar */}
+      <nav id="menu-movil" aria-label="Menú móvil" style={{ top: topMenu }} className={`fixed inset-x-0 bottom-0 z-40 overflow-y-auto border-t border-linea bg-marfil lg:hidden ${movil ? "block" : "hidden"}`}>
+        <div className="contenedor flex min-h-full flex-col gap-6 pb-[calc(var(--barra-movil)+1.5rem)] pt-5">
+          {NAV.filter((n) => n.destacado).map((n) => (
+            <Link key={n.href} href={n.href} className="flex items-center justify-between rounded-2xl bg-acento px-5 py-4 font-serif text-2xl font-semibold text-white">
+              Cenas de empresa de {n.texto}
+              <IconoFlecha className="h-6 w-6" />
+            </Link>
+          ))}
+          <div>
+            <Link href="/celebraciones-coruna/" className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.2em] text-tinta-suave">
+              Celebraciones <span className="normal-case tracking-normal text-acento">Ver todas</span>
+            </Link>
+            <ul className="mt-3 grid grid-cols-2 gap-2">
+              {CELEBRACIONES_NAV.filter((h) => !NAV.some((n) => n.destacado && n.href === h.href)).map((h) => (
+                <li key={h.href}>
+                  <Link href={h.href} aria-current={activo(h.href)} className="flex h-full min-h-[56px] items-center rounded-2xl border border-linea bg-white px-4 py-3 font-semibold leading-tight">
+                    {h.texto}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <ul className="divide-y divide-linea border-y border-linea">
+            {NAV.filter((n) => !n.hijos && !n.destacado).map((n) => (
+              <li key={n.href}>
+                <Link href={n.href} aria-current={activo(n.href)} className="flex items-center justify-between py-4 font-serif text-2xl font-semibold">
+                  {n.texto}
+                  <IconoFlecha className="h-5 w-5 text-acento" />
                 </Link>
               </li>
             ))}
-            <li>
-              <Link href="/menus-precios/" className="block py-3 font-serif text-2xl font-semibold">Menú y precios</Link>
-            </li>
-            <li>
-              <Link href="/club-nautico-oza/" className="block py-3 font-serif text-2xl font-semibold">El espacio</Link>
-            </li>
-            <li>
-              <Link href="/noticias/" className="block py-3 font-serif text-2xl font-semibold">Noticias</Link>
-            </li>
           </ul>
-          <Link href="/reservas/" className="btn-principal w-full">Consultar disponibilidad</Link>
+          <Link href="/reservas/" className="btn-principal mt-auto w-full">Consultar disponibilidad</Link>
         </div>
       </nav>
     </header>

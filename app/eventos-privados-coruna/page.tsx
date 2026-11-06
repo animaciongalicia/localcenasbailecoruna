@@ -12,7 +12,7 @@ export const metadata = meta({
   titulo: "Eventos y fiestas privadas en A Coruña con cena, DJ y show · Los7pc",
   descripcion: `Fiesta privada en exclusiva para tu grupo: comida o cena, DJ, show cómico y baile. En el ${SEDE.nombre}, en otro espacio o en tu propio local. Cualquier día del año.`,
   ruta: RUTA,
-  imagen: FOTOS.baile.src,
+  imagen: FOTOS.privados.src,
 });
 
 const FAQ_PRIVADOS: Pregunta[] = [
@@ -46,7 +46,7 @@ export default function EventosPrivados() {
         antetitulo="Eventos privados · A Coruña"
         titulo="Tu fiesta privada, con cena, DJ y show solo para tu grupo"
         texto={`La noche que funciona en el ${SEDE.nombre} desde hace temporadas, en exclusiva para vosotros. ${EXCLUSIVO.cuando}: en Oza, en otro espacio o en vuestro propio local.`}
-        foto={FOTOS.baile}
+        foto={FOTOS.privados}
         ctaPrincipal={{ href: "/reservas/?modalidad=medida", texto: "Pedir propuesta" }}
         ctaSecundario={{ href: "#donde", texto: "Dónde se puede hacer" }}
       />

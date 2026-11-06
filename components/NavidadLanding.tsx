@@ -41,7 +41,7 @@ function ContactoNavidad() {
 export const FAQ_NAVIDAD: Pregunta[] = [
   { p: "¿Dónde hacer la cena de empresa de Navidad en A Coruña?", r: `Si buscáis algo más que cenar, la cena baile del ${SEDE.nombre} junta en un solo sitio la cena, una hora de show cómico y DJ hasta las 3. Nadie tiene que decidir a dónde ir después.` },
   { p: "¿Con cuánta antelación hay que reservar?", r: "Diciembre es el mes con más demanda del año. Lo ideal es consultar en cuanto tengáis una fecha aproximada; con una idea del número de personas basta para empezar." },
-  { p: "¿Cuánto cuesta la cena de Navidad?", r: "Precio cerrado por persona, que incluye cena, bebida durante la cena, show y DJ. Lo tienes en la página de Menú y precios, junto con las condiciones de reserva." },
+  { p: "¿Cuánto cuesta la cena de Navidad?", r: "Precio cerrado por persona, que incluye cena, bebida durante la cena, show y DJ. Lo tienes en la página de Menús, junto con las condiciones de reserva." },
   { p: "¿Cómo se reserva la mesa?", r: "Consultas fecha y número de personas por WhatsApp, email o teléfono. Si hay hueco, recibes la confirmación y las condiciones por escrito, y la mesa queda reservada con una señal por persona." },
   { p: "Somos solo 8 de la oficina. ¿Merece la pena?", r: "Sí: es justo el caso para el que funciona mejor. Tenéis vuestra mesa y compartís la noche con otros grupos, así que el ambiente no depende de que seáis muchos." },
   { p: "Somos 80. ¿Podemos tener la sala para nosotros?", r: `Para grupos grandes, la opción es un evento en exclusiva: ${EXCLUSIVO.cuando.toLowerCase()}, en Oza, en otro espacio o en vuestras instalaciones.` },
@@ -132,7 +132,7 @@ export default function NavidadLanding({ variante }: { variante: Variante }) {
         antetitulo={copy.antetitulo}
         titulo={copy.titular}
         texto={copy.bajada}
-        foto={FOTOS.salon}
+        foto={FOTOS.navidad}
         ctaPrincipal={{ href: "/reservas/?celebracion=navidad", texto: "Consultar fecha" }}
         ctaSecundario={{ href: "#fechas", texto: "Ver noches abiertas" }}
       />
@@ -208,7 +208,7 @@ export default function NavidadLanding({ variante }: { variante: Variante }) {
 
       <Seccion>
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-          <Titulo ante="El menú" titulo="Se cena bien. Luego ya se verá." texto="Cocina gallega para grupos y la bebida de la cena incluida. El precio por persona, en la página de Menú y precios." />
+          <Titulo ante="El menú" titulo="Se cena bien. Luego ya se verá." texto="Cocina gallega para grupos y la bebida de la cena incluida. El precio por persona, en la página de Menús." />
           <div className="tarjeta p-6 sm:p-8"><ListaMenu /></div>
         </div>
       </Seccion>

@@ -8,11 +8,11 @@ const N = OFERTAS.navidad;
 
 const incluye: Pregunta = {
   p: "¿Qué incluye la cena baile?",
-  r: "Cena sentada con entrantes, principal y postre, bebida durante la cena (vino, sangría, refrescos y cerveza), una hora de show cómico y DJ con baile hasta las 3. Las copas del baile van aparte. El precio por persona lo tienes en la página de Menú y precios.",
+  r: "Cena sentada con entrantes, principal y postre, bebida durante la cena (vino, sangría, refrescos y cerveza), una hora de show cómico y DJ con baile hasta las 3. Las copas del baile van aparte. El precio por persona lo tienes en la página de Menús.",
 };
 const cuanto: Pregunta = {
   p: "¿Cuánto cuesta?",
-  r: "La cena baile con otros grupos tiene un precio cerrado por persona, publicado en Menú y precios. Los eventos en exclusiva se presupuestan según fecha, personas, comida y lugar.",
+  r: "La cena baile con otros grupos tiene un precio cerrado por persona, publicado en la página de Menús. Los eventos en exclusiva se presupuestan según fecha, personas, comida y lugar.",
 };
 const grupoPequeno: Pregunta = {
   p: "Somos un grupo pequeño. ¿Podemos venir?",

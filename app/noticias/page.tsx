@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Migas, Seccion, Titulo } from "@/components/Bloques";
 import { IconoFlecha } from "@/components/Iconos";
 import { JsonLdMigas } from "@/components/JsonLd";
+import BarraNoticias from "@/components/BarraNoticias";
 import { fechaPost, postsOrdenados } from "@/lib/noticias";
 import { meta } from "@/lib/seo";
 
@@ -20,7 +21,8 @@ export default function Noticias() {
       <Migas actual="Noticias" />
       <Seccion className="!pt-10">
         <Titulo as="h1" ante="Noticias y consejos" titulo="Para organizar sin dramas (y reírse un poco)" texto="Guías prácticas para quien organiza, novedades de la temporada y algún que otro artículo para compartir en el grupo de la oficina." />
-        <ul className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <ul className="grid content-start gap-5 md:grid-cols-2">
           {posts.map((p) => (
             <li key={p.slug}>
               <Link href={`/noticias/${p.slug}/`} className="tarjeta group flex h-full flex-col p-6 hover:border-acento">
@@ -35,6 +37,8 @@ export default function Noticias() {
             </li>
           ))}
         </ul>
+        <BarraNoticias />
+        </div>
       </Seccion>
       <JsonLdMigas nombre="Noticias" ruta={RUTA} />
     </>

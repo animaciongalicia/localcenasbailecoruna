@@ -13,18 +13,18 @@ export const metadata = meta({
   titulo: `Cenas baile en el ${SEDE.nombre}, A Coruña · Los7pc`,
   descripcion: `Dónde se celebran las cenas baile de Los7pc: ${SEDE.nombre}, ${SEDE.direccion}, A Coruña. Aparcamiento, cómo llegar y quién organiza la noche.`,
   ruta: RUTA,
-  imagen: FOTOS.salon.src,
+  imagen: FOTOS.local.src,
 });
 
 export default function Espacio() {
   return (
     <>
-      <Migas actual="El espacio" />
+      <Migas actual="El local" />
       <Hero
-        antetitulo="El espacio"
+        antetitulo="El local"
         titulo={`Cenas baile en el ${SEDE.nombre}`}
         texto={`Junto a la playa de Oza, en A Coruña. ${SEDE.desde}, aquí se celebran las cenas con show y baile de Los7pc.`}
-        foto={FOTOS.salon}
+        foto={FOTOS.local}
         ctaSecundario={{ href: SEDE.mapsUrl, texto: "Cómo llegar" }}
       />
       <Prosa ante="Dónde se celebran las cenas baile" titulo={`El ${SEDE.nombre}, junto a la playa de Oza`}>
@@ -69,7 +69,7 @@ export default function Espacio() {
       <Trayectoria />
       <Faq preguntas={FAQ_ESPACIO} titulo="Dudas sobre el lugar" />
       <CtaFinal />
-      <JsonLdMigas nombre="El espacio" ruta={RUTA} />
+      <JsonLdMigas nombre="El local" ruta={RUTA} />
       <JsonLdFaq preguntas={FAQ_ESPACIO} />
     </>
   );
