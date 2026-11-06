@@ -39,6 +39,7 @@ body {
   .seccion { @apply py-14 sm:py-20; }
   .antetitulo { @apply text-xs font-semibold uppercase tracking-[0.2em] text-acento; }
   .oscuro .antetitulo { @apply text-oro; }
+  .oscuro .claro .antetitulo { @apply text-acento; }
   .titulo-seccion { @apply font-serif text-[1.9rem] font-semibold leading-[1.12] text-tinta sm:text-[2.6rem]; }
   .oscuro .titulo-seccion { @apply text-marfil; }
   .entradilla { @apply mt-4 max-w-prosa text-lg leading-relaxed text-tinta-suave; }

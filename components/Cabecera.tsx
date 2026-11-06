@@ -161,10 +161,10 @@ export default function Cabecera() {
             </Link>
           ))}
           <div>
-            <Link href="/celebraciones-coruna/" className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.2em] text-tinta-suave">
+            <Link href="/celebraciones-coruna/" className="flex min-h-[44px] items-center justify-between text-xs font-semibold uppercase tracking-[0.2em] text-tinta-suave">
               Celebraciones <span className="normal-case tracking-normal text-acento">Ver todas</span>
             </Link>
-            <ul className="mt-3 grid grid-cols-2 gap-2">
+            <ul className="mt-1 grid grid-cols-2 gap-2">
               {CELEBRACIONES_NAV.filter((h) => !NAV.some((n) => n.destacado && n.href === h.href)).map((h) => (
                 <li key={h.href}>
                   <Link href={h.href} aria-current={activo(h.href)} className="flex h-full min-h-[56px] items-center rounded-2xl border border-linea bg-white px-4 py-3 font-semibold leading-tight">

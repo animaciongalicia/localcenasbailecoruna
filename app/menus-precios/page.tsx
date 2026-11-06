@@ -78,7 +78,7 @@ export default function MenusPrecios() {
           </div>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-[1.25fr_1fr]">
-            <article className="rounded-3xl bg-marfil p-6 text-tinta sm:p-8">
+            <article className="claro rounded-3xl bg-marfil p-6 text-tinta sm:p-8">
               <p className="antetitulo">Menú de Navidad</p>
               <h3 className="mt-2 font-serif text-3xl font-semibold">Cocina gallega para celebrar</h3>
               <div className="mt-6"><ListaMenu /></div>
