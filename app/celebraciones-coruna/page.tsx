@@ -1,4 +1,4 @@
-import { BandaFotos, PruebaSocial, Ambiente, CtaFinal, DosModalidades, Faq, Hero, LineaNoche, Migas, Ocasiones } from "@/components/Bloques";
+import { GaleriaNoches, BandaFotos, PruebaSocial, Ambiente, CtaFinal, DosModalidades, Faq, Hero, LineaNoche, Migas, Ocasiones } from "@/components/Bloques";
 import { Pasos, PostsRelacionados, Prosa } from "@/components/Contenido";
 import { JsonLdFaq, JsonLdMigas } from "@/components/JsonLd";
 import { FAQ_HOME } from "@/lib/faq";
@@ -49,6 +49,7 @@ export default function Celebraciones() {
       <LineaNoche />
       <Ambiente />
       <PruebaSocial />
+      <GaleriaNoches titulo="Así se vive una noche de celebración" desde={34} max={8} />
       <Faq preguntas={FAQ} />
       <PostsRelacionados slugs={["organizar-cena-empresa-navidad-coruna", "celebrar-50-cumpleanos-coruna", "personajes-cena-empresa-navidad"]} titulo="Ideas y consejos para tu celebración" />
       <CtaFinal />

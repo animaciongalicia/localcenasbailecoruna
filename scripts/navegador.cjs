@@ -11,18 +11,18 @@ const ok = (c, m) => { if (!c) fallos++; console.log(c ? "✓" : "✗", m); };
   for (const w of [360, 390, 768, 1440]) {
     const p = await b.newPage({ viewport: { width: w, height: 800 } });
     for (const ruta of PAGINAS) {
-      await p.goto(BASE + ruta, { waitUntil: "networkidle" });
+      await p.goto(BASE + ruta, { waitUntil: "load" });
       const sobra = await p.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
       ok(sobra <= 0, `${w}px ${ruta} sin desbordamiento horizontal (${sobra})`);
     }
-    await p.goto(BASE + "/", { waitUntil: "networkidle" });
+    await p.goto(BASE + "/", { waitUntil: "load" });
     await p.screenshot({ path: `${OUT}/home-${w}.png`, fullPage: w !== 1440 ? false : false });
     await p.close();
   }
 
   // Formulario: grupo de 6, tildes y caracteres especiales; no hay "reserva confirmada"
   const m = await b.newPage({ viewport: { width: 390, height: 844 } });
-  await m.goto(BASE + "/reservas/", { waitUntil: "networkidle" });
+  await m.goto(BASE + "/reservas/", { waitUntil: "load" });
   ok(await m.locator('[role="dialog"][aria-label="Preferencias de cookies"]').isVisible(), "banner de cookies visible al entrar");
   const bannerBox = await m.locator('[role="dialog"]').boundingBox();
   const barraBox = await m.locator('a[data-ubicacion="barra-movil"]').first().boundingBox();
@@ -46,19 +46,19 @@ const ok = (c, m) => { if (!c) fallos++; console.log(c ? "✓" : "✗", m); };
   ok(!(await m.content()).match(/Reserva confirmada|Mensaje enviado/), "no aparece 'Reserva confirmada' ni 'Mensaje enviado'");
   ok(m.url() === BASE + "/reservas/", "la URL de la web no contiene datos personales");
   await m.screenshot({ path: `${OUT}/reservas-390.png`, fullPage: true });
-  await m.goto(BASE + "/reservas/?modalidad=medida&celebracion=navidad", { waitUntil: "networkidle" });
+  await m.goto(BASE + "/reservas/?modalidad=medida&celebracion=navidad", { waitUntil: "load" });
   ok((await m.getByRole("radio", { name: "Solo para mi grupo" }).isChecked()) && (await m.getByLabel("¿Qué celebráis?").inputValue()) === "navidad", "los botones de otras páginas preseleccionan formato y celebración");
 
   // Solo hay formulario en Contacto
   for (const r of ["/", "/cumpleanos-coruna/", "/cenas-empresa-coruna/", "/eventos-privados-coruna/", "/cenas-navidad-coruna/"]) {
-    await m.goto(BASE + r, { waitUntil: "networkidle" });
+    await m.goto(BASE + r, { waitUntil: "load" });
     ok((await m.locator("main form").count()) === 0, `${r} sin formulario`);
   }
-  await m.goto(BASE + "/cenas-navidad-coruna/", { waitUntil: "networkidle" });
+  await m.goto(BASE + "/cenas-navidad-coruna/", { waitUntil: "load" });
   ok(await m.locator('a[data-ubicacion="navidad-fechas"][href^="mailto:"]').isVisible(), "Navidad: contacto por email bajo las fechas");
 
   // Menú móvil y teclado
-  await m.goto(BASE + "/", { waitUntil: "networkidle" });
+  await m.goto(BASE + "/", { waitUntil: "load" });
   await m.getByRole("button", { name: "Abrir menú" }).click();
   const caja = await m.locator("#menu-movil").boundingBox();
   ok(caja && caja.height > 300 && await m.locator("#menu-movil").getByRole("link", { name: "Cumpleaños" }).isVisible(), "menú móvil abre a pantalla completa y muestra celebraciones");
@@ -66,7 +66,7 @@ const ok = (c, m) => { if (!c) fallos++; console.log(c ? "✓" : "✗", m); };
   ok(!(await m.locator("#menu-movil").isVisible()), "Escape cierra el menú móvil");
 
   const d = await b.newPage({ viewport: { width: 1440, height: 900 } });
-  await d.goto(BASE + "/", { waitUntil: "networkidle" });
+  await d.goto(BASE + "/", { waitUntil: "load" });
   await d.keyboard.press("Tab"); // salto al contenido
   ok((await d.evaluate(() => document.activeElement?.textContent || "")).includes("Saltar"), "primer Tab: enlace 'Saltar al contenido'");
   await d.getByRole("button", { name: "Celebraciones" }).focus();
@@ -81,7 +81,7 @@ const ok = (c, m) => { if (!c) fallos++; console.log(c ? "✓" : "✗", m); };
   await d.waitForTimeout(500);
   await d.screenshot({ path: `${OUT}/home-1440-full.png`, fullPage: true });
   for (const [pg, ancho, nombre] of [[d, 1440, "navidad-1440"], [m, 390, "navidad-390"]]) {
-    await pg.goto(BASE + "/cenas-navidad-coruna/", { waitUntil: "networkidle" });
+    await pg.goto(BASE + "/cenas-navidad-coruna/", { waitUntil: "load" });
     for (let y = 0; y < 12000; y += 600) { await pg.mouse.wheel(0, 600); await pg.waitForTimeout(60); }
     await pg.waitForTimeout(400);
     await pg.screenshot({ path: `${OUT}/${nombre}.png`, fullPage: true });

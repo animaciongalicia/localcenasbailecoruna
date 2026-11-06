@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BandaFotos, Ambiente, CtaFinal, DosModalidades, Faq, Hero, Incluye, LineaNoche, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
+import { GaleriaNoches, BandaFotos, Ambiente, CtaFinal, DosModalidades, Faq, Hero, Incluye, LineaNoche, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
 import { MejorPeor, Pasos, PostsRelacionados, Prosa } from "@/components/Contenido";
 import { JsonLdFaq, JsonLdMigas } from "@/components/JsonLd";
 import { FAQ_CUMPLE } from "@/lib/faq";
@@ -93,6 +93,7 @@ export default function Cumpleanos() {
         ejemploConjunta="Ideal si sois entre 6 y 25: vuestra mesa, vuestra tarta si la habéis pactado y el resto de la sala también de celebración."
         ejemploMedida="Para un cumpleaños grande o redondo: solo tus invitados, cualquier día del año, en comida o en cena. En Oza, en otro espacio o en tu casa o finca."
       />
+      <GaleriaNoches titulo="Así se vive una noche de celebración" desde={26} max={8} />
       <Faq preguntas={FAQ_CUMPLE} titulo="Dudas típicas de un cumpleaños" />
       <PostsRelacionados slugs={["celebrar-50-cumpleanos-coruna"]} titulo="Ideas para tu cumpleaños" />
       <Ocasiones excluir={RUTA} />

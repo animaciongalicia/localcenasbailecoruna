@@ -448,8 +448,8 @@ export function PruebaSocial() {
 }
 
 /* ── Galería de noches reales (aparece sola cuando hay fotos en public/fotos/noches/) ── */
-export function GaleriaNoches({ titulo = "Así son nuestras noches" }: { titulo?: string }) {
-  const fotos = fotosNoches();
+export function GaleriaNoches({ titulo = "Así son nuestras noches", max = 12, desde = 0 }: { titulo?: string; max?: number; desde?: number }) {
+  const fotos = fotosNoches().slice(desde, desde + max);
   if (fotos.length < 4) return null;
   return (
     <Seccion>

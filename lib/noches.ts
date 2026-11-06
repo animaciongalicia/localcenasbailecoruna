@@ -10,7 +10,7 @@ export function fotosNoches(): Foto[] {
       .readdirSync(dir)
       .filter((f) => /\.(jpe?g|png|webp)$/i.test(f))
       .sort()
-      .map((f) => ({ src: `/fotos/noches/${f}`, alt: "Grupos celebrando en una cena baile de Los7pc" }));
+      .map((f) => ({ src: `/fotos/noches/${f}`, alt: "Grupo celebrando en una cena baile de Los7pc con show y DJ" }));
   } catch {
     return [];
   }

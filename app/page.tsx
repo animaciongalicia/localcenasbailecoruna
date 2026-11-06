@@ -68,7 +68,7 @@ export default function Inicio() {
       <Espacio />
       <Trayectoria />
       <PruebaSocial />
-      <GaleriaNoches />
+      <GaleriaNoches desde={6} max={12} />
       <Faq preguntas={FAQ_HOME} />
       <PostsRelacionados slugs={["organizar-cena-empresa-navidad-coruna", "celebrar-50-cumpleanos-coruna", "personajes-cena-empresa-navidad"]} titulo="Consejos para organizar (y reírse un poco)" />
       <CtaFinal />

@@ -1,4 +1,4 @@
-import { BandaFotos, Ambiente, CtaFinal, Faq, Hero, Incluye, LineaNoche, MenuResumen, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
+import { GaleriaNoches, BandaFotos, Ambiente, CtaFinal, Faq, Hero, Incluye, LineaNoche, MenuResumen, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
 import { MejorPeor, Pasos, PostsRelacionados, Prosa } from "@/components/Contenido";
 import { JsonLdFaq, JsonLdMigas } from "@/components/JsonLd";
 import { FAQ_DESPEDIDA } from "@/lib/faq";
@@ -78,6 +78,7 @@ export default function Despedidas() {
           <a href="https://despedidascoruna.es" className="btn-linea" rel="noopener">Ver despedidascoruna.es</a>
         </div>
       </Seccion>
+      <GaleriaNoches titulo="Así se vive una noche de celebración" desde={18} max={8} />
       <Faq preguntas={FAQ_DESPEDIDA} titulo="Dudas de despedida" />
       <PostsRelacionados slugs={["despedida-soltera-coruna-plan-noche", "retos-despedida-soltero", "despedidas-mixtas-como-organizarlas", "organizar-despedida-grupo-whatsapp", "cuando-reservar-despedida"]} titulo="Ideas para tu despedida" />
       <Ocasiones excluir={RUTA} />

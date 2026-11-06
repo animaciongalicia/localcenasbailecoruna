@@ -79,7 +79,7 @@ export default function Espacio() {
           <Galeria fotos={GALERIA} />
         </div>
       </Seccion>
-      <GaleriaNoches titulo="Noches reales en las cenas baile" />
+      <GaleriaNoches titulo="Noches reales en las cenas baile" desde={6} max={24} />
       <Trayectoria />
       <Faq preguntas={FAQ_ESPACIO} titulo="Dudas sobre el lugar" />
       <CtaFinal />
