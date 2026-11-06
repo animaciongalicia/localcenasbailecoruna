@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FOTOS, GALERIA, MOSAICO, type Foto } from "@/lib/fotos";
+import { fotosNoches } from "@/lib/noches";
 import { OCASIONES } from "@/lib/paginas";
 import type { Pregunta } from "@/lib/faq";
 import { CONTACTO, HISTORIA, MARCA, MENU, NOCHE, OFERTAS, REDES, SEDE } from "@/lib/sitio";
@@ -389,7 +390,7 @@ export function Argumentos({ ante, titulo, texto, puntos, oscura }: { ante: stri
 export function Ambiente() {
   const [a, b, c, d] = MOSAICO;
   return (
-    <section aria-label="Fotos de ambiente" className="bg-marfil pt-14 sm:pt-20">
+    <section aria-label="Fotos de ambiente" className="bg-marfil py-14 sm:py-20">
       <div className="contenedor grid grid-cols-2 gap-3 sm:gap-4 lg:h-[520px] lg:grid-cols-4 lg:grid-rows-2">
         {[a, b, c, d].map((f, i) => (
           <div key={f.src} className={`relative overflow-hidden rounded-2xl bg-arena ${i === 0 ? "col-span-2 lg:row-span-2" : ""} ${i === 3 ? "lg:col-span-2" : ""} aspect-[3/2] lg:aspect-auto`}>
@@ -404,7 +405,7 @@ export function Ambiente() {
 /* ── Banda de fotos (2 o 3) para dar color a cada página ───────────── */
 export function BandaFotos({ fotos }: { fotos: Foto[] }) {
   return (
-    <section aria-label="Fotos" className="bg-marfil pt-14 sm:pt-20">
+    <section aria-label="Fotos" className="bg-marfil pb-14 sm:pb-20">
       <ul className={`contenedor grid gap-3 sm:gap-4 ${fotos.length === 3 ? "grid-cols-2 lg:grid-cols-3" : "grid-cols-2"}`}>
         {fotos.map((f, i) => (
           <li key={f.src} className={`relative aspect-[4/3] overflow-hidden rounded-2xl bg-arena ${fotos.length === 3 && i === 0 ? "col-span-2 aspect-[16/9] lg:col-span-1 lg:aspect-[4/3]" : ""}`}>
@@ -418,6 +419,8 @@ export function BandaFotos({ fotos }: { fotos: Foto[] }) {
 
 /* ── Prueba social: la comunidad de Facebook ───────────────────────── */
 export function PruebaSocial() {
+  const reales = fotosNoches();
+  const fotos = reales.length >= 4 ? reales.slice(0, 6) : GALERIA;
   return (
     <Seccion oscura>
       <div className="grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:items-center">
@@ -432,14 +435,35 @@ export function PruebaSocial() {
             <a href={REDES.facebook} className="btn-linea" target="_blank" rel="noopener">Seguir la página</a>
           </div>
         </div>
-        <ul className="grid grid-cols-2 gap-3">
-          {GALERIA.map((f) => (
+        <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {fotos.map((f) => (
             <li key={f.src} className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-white/10">
               <Image src={f.src} alt={f.alt} fill sizes="(min-width: 1024px) 300px, 50vw" className="object-cover" />
             </li>
           ))}
         </ul>
       </div>
+    </Seccion>
+  );
+}
+
+/* ── Galería de noches reales (aparece sola cuando hay fotos en public/fotos/noches/) ── */
+export function GaleriaNoches({ titulo = "Así son nuestras noches" }: { titulo?: string }) {
+  const fotos = fotosNoches();
+  if (fotos.length < 4) return null;
+  return (
+    <Seccion>
+      <Titulo ante="Fotos reales" titulo={titulo} texto="Grupos de cumpleaños, empresas y despedidas que vinieron a cenar y acabaron cerrando la pista." />
+      <ul className="mt-10 columns-2 gap-3 sm:columns-3 lg:columns-4 [&>li]:mb-3">
+        {fotos.map((f) => (
+          <li key={f.src} className="break-inside-avoid overflow-hidden rounded-2xl bg-arena">
+            <Image src={f.src} alt={f.alt} width={800} height={600} sizes="(min-width: 1024px) 280px, 50vw" className="h-auto w-full" loading="lazy" />
+          </li>
+        ))}
+      </ul>
+      <p className="mt-6 text-center">
+        <a href={REDES.facebookFotos} className="enlace" target="_blank" rel="noopener">Ver más fotos en Facebook</a>
+      </p>
     </Seccion>
   );
 }

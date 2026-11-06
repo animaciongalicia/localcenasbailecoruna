@@ -54,6 +54,7 @@ export default function EventosPrivados() {
       <Prosa ante="Local para fiestas privadas en A Coruña" titulo="Cuando la celebración es solo vuestra">
         <p>Hay fiestas que piden la sala para vosotros: un cumpleaños redondo con cien invitados, la jubilación de alguien muy querido, la plantilla entera de la empresa o un aniversario que merece algo más que una comida.</p>
         <p>Para esas, el formato que funciona en las cenas baile <strong>se monta solo para tu grupo</strong>: comida o cena, DJ, show cómico y fiesta. Y no depende de la temporada ni del sitio: <strong>cualquier día del año, en el {SEDE.nombre}, en otro espacio o en tu propio local</strong>, restaurante, empresa o finca.</p>
+        <p>En el {SEDE.nombre} caben <strong>unas {SEDE.sentados} personas sentadas o cerca de {SEDE.dePie} en catering de pie</strong>, y se puede traer <strong>grupo de música en directo</strong>, algo que pocos locales permiten.</p>
         <p>El DJ y el show son propios, sin subcontratas. Por eso cada fecha depende de la agenda: cuanto antes preguntes, más opciones.</p>
       </Prosa>
 

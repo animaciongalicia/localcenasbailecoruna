@@ -1,4 +1,4 @@
-import { PruebaSocial, Ambiente, CtaFinal, DosModalidades, Espacio, Faq, Hero, Incluye, LineaNoche, MenuResumen, Ocasiones, Trayectoria } from "@/components/Bloques";
+import { GaleriaNoches, PruebaSocial, Ambiente, CtaFinal, DosModalidades, Espacio, Faq, Hero, Incluye, LineaNoche, MenuResumen, Ocasiones, Trayectoria } from "@/components/Bloques";
 import { MejorPeor, Pasos, PostsRelacionados, Prosa } from "@/components/Contenido";
 import { JsonLdFaq } from "@/components/JsonLd";
 import { FAQ_HOME } from "@/lib/faq";
@@ -68,6 +68,7 @@ export default function Inicio() {
       <Espacio />
       <Trayectoria />
       <PruebaSocial />
+      <GaleriaNoches />
       <Faq preguntas={FAQ_HOME} />
       <PostsRelacionados slugs={["organizar-cena-empresa-navidad-coruna", "celebrar-50-cumpleanos-coruna", "personajes-cena-empresa-navidad"]} titulo="Consejos para organizar (y reírse un poco)" />
       <CtaFinal />

@@ -6,6 +6,7 @@
 // Antes de publicar uno nuevo, revisa que no compita con la palabra clave principal de una página de venta.
 import { FOTOS, type Foto } from "./fotos";
 import { POSTS_NAVIDAD } from "./posts-navidad";
+import { POSTS_DESPEDIDAS } from "./posts-despedidas";
 
 export type Bloque =
   | { tipo: "p"; texto: string }
@@ -18,7 +19,7 @@ export type Post = {
   slug: string;
   titulo: string;
   descripcion: string;
-  categoria: "Empresas" | "Cumpleaños" | "Humor" | "Jubilaciones" | "Novedades";
+  categoria: "Empresas" | "Cumpleaños" | "Humor" | "Jubilaciones" | "Despedidas" | "Novedades";
   fecha: string; // yyyy-mm-dd
   lectura: number; // minutos
   foto?: Foto;
@@ -27,6 +28,7 @@ export type Post = {
 
 export const POSTS: Post[] = [
   ...POSTS_NAVIDAD,
+  ...POSTS_DESPEDIDAS,
   {
     slug: "organizar-cena-empresa-navidad-coruna",
     titulo: "Cómo organizar la cena de empresa de Navidad (y no morir en el intento)",

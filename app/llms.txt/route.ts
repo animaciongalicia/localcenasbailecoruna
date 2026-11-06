@@ -20,7 +20,7 @@ export function GET() {
 - Menú: ${[...MENU.entrantes, ...MENU.principal, ...MENU.postre].join(", ")}. ${MENU.dietas}
 - ${MENU.copas}
 - Horario: ${NOCHE.map((n) => `${n.hora}–${n.fin} ${n.titulo}`).join("; ")}.
-- Aparcamiento: ${SEDE.aparcamiento}
+- El local: ${SEDE.caracteristicas.map((c) => `${c.t}: ${c.d}`).join(" ")}
 
 ## Para qué celebraciones
 ${CELEBRACIONES_NAV.map((c) => `- [${c.texto}](${SITE_URL}${c.href}): ${c.descripcion}`).join("\n")}

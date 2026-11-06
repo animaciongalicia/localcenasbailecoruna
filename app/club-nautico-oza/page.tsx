@@ -1,4 +1,4 @@
-import { CtaFinal, Faq, Galeria, Hero, Migas, Seccion, Titulo, Trayectoria } from "@/components/Bloques";
+import { GaleriaNoches, CtaFinal, Faq, Galeria, Hero, Migas, Seccion, Titulo, Trayectoria } from "@/components/Bloques";
 import { IconoUbicacion } from "@/components/Iconos";
 import { JsonLdFaq, JsonLdMigas } from "@/components/JsonLd";
 import { Pasos, Prosa } from "@/components/Contenido";
@@ -28,10 +28,23 @@ export default function Espacio() {
         ctaSecundario={{ href: SEDE.mapsUrl, texto: "Cómo llegar" }}
       />
       <Prosa ante="Dónde se celebran las cenas baile" titulo={`El ${SEDE.nombre}, junto a la playa de Oza`}>
-        <p>Las cenas baile de Los7pc se celebran en el {SEDE.nombre}, en la zona de la playa de Oza, en A Coruña. Un salón para cenar en grupo, espacio para la pista y <strong>aparcamiento en el propio club</strong>, algo que se agradece cuando vienes con un grupo.</p>
+        <p>Las cenas baile de Los7pc se celebran en el {SEDE.nombre}, junto a la playa de Oza, en A Coruña. Un local <strong>amplio y cómodo: unas {SEDE.sentados} personas sentadas y cerca de {SEDE.dePie} en catering de pie</strong>, con pista de baile, terraza de fumadores con vistas a los pantalanes de los barcos y, en verano, terraza para el aperitivo.</p>
+        <p>Está dentro de la ciudad, pero <strong>apartado de las viviendas</strong>: la fiesta puede alargarse sin molestar a los vecinos. Por eso aquí se puede hacer algo que muy pocos locales permiten: <strong>traer un grupo de música en directo</strong>. Y con aparcamiento en el propio club.</p>
         <p>Antes, durante más de diez años, las cenas baile pasaron por hoteles y salas de la ciudad. Desde hace dos temporadas, Oza es la casa. <strong>Los7pc organiza la noche</strong> (cena, show, DJ y atención a los grupos) en las instalaciones del club.</p>
         <p>¿Preferís otro sitio? Los eventos en exclusiva se pueden hacer también en otros espacios o en vuestro propio local.</p>
       </Prosa>
+
+      <Seccion arena>
+        <Titulo ante="El local en seis claves" titulo="Por qué el Club Náutico de Oza funciona tan bien para celebrar" />
+        <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {SEDE.caracteristicas.map((c) => (
+            <li key={c.t} className="tarjeta p-6">
+              <h3 className="font-serif text-2xl font-semibold">{c.t}</h3>
+              <p className="mt-2 leading-relaxed text-tinta-suave">{c.d}</p>
+            </li>
+          ))}
+        </ul>
+      </Seccion>
 
       <Pasos
         ante="Antes de venir"
@@ -66,6 +79,7 @@ export default function Espacio() {
           <Galeria fotos={GALERIA} />
         </div>
       </Seccion>
+      <GaleriaNoches titulo="Noches reales en las cenas baile" />
       <Trayectoria />
       <Faq preguntas={FAQ_ESPACIO} titulo="Dudas sobre el lugar" />
       <CtaFinal />

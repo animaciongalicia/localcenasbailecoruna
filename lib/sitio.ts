@@ -42,6 +42,17 @@ export const SEDE = {
   aparcamiento: "Zona de aparcamiento en el propio club.",
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=Club+N%C3%A1utico+de+Oza%2C+A+Coru%C3%B1a",
   desde: "Desde hace dos temporadas",
+  // Datos del local confirmados por Pablo (nov. 2026)
+  sentados: 120,
+  dePie: 150,
+  caracteristicas: [
+    { t: "Amplio y cómodo", d: "Salón para unas 120 personas sentadas y cerca de 150 en formato catering de pie." },
+    { t: "Música en directo", d: "Se puede traer grupo de música en directo, algo que muy pocos locales permiten." },
+    { t: "Terraza de fumadores", d: "Con vistas a los pantalanes de los barcos del club." },
+    { t: "Terraza en verano", d: "En temporada, terraza para el aperitivo o para tomar el aire entre baile y baile." },
+    { t: "En la ciudad, sin vecinos encima", d: "Dentro de A Coruña, pero apartado de las viviendas: la fiesta no molesta a nadie." },
+    { t: "Aparcamiento", d: "Zona de aparcamiento en el propio club." },
+  ],
 } as const;
 
 /** Sedes anteriores: solo como trayectoria, nunca como sede actual. */

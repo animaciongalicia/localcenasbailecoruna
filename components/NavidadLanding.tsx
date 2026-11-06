@@ -4,7 +4,7 @@ import { Casos, MejorPeor, Pasos, PostsRelacionados, Prosa } from "./Contenido";
 import { IconoMail, IconoTelefono, IconoWhatsapp } from "./Iconos";
 import { JsonLdFaq, JsonLdMigas, ORG_ID } from "./JsonLd";
 import { FOTOS } from "@/lib/fotos";
-import { getADemanda, getConfirmadas, type Noche } from "@/lib/navidad";
+import { getADemanda, getConfirmadas } from "@/lib/navidad";
 import type { Pregunta } from "@/lib/faq";
 import { CONTACTO, EXCLUSIVO, MENU, OFERTAS, SEDE, SITE_URL } from "@/lib/sitio";
 import { COPY_NAVIDAD, type Variante } from "@/lib/variantes";
@@ -14,29 +14,6 @@ export const RUTA_NAVIDAD = "/cenas-navidad-coruna/";
 const N = OFERTAS.navidad;
 const WA_NAVIDAD = `Hola, quiero consultar una cena de Navidad ${N.anio} en el ${SEDE.nombre}.\nNoche que nos interesa: \nPersonas: `;
 const MAIL_NAVIDAD = mailUrl(`Cena de Navidad ${N.anio}`, "Hola, queremos consultar una cena de Navidad.\nNoche: \nPersonas: \nNombre y teléfono: \n");
-
-/** Agrupa las noches por mes: [["noviembre", [...]], ["diciembre", [...]]]. */
-function porMes(noches: Noche[]): [string, Noche[]][] {
-  const grupos = new Map<string, Noche[]>();
-  for (const f of noches) {
-    const mes = f.etiqueta.split(" de ").pop() || "";
-    grupos.set(mes, [...(grupos.get(mes) || []), f]);
-  }
-  return [...grupos.entries()];
-}
-
-/** Bajo las fechas: los dos canales de consulta, sin botones por noche. */
-function ContactoNavidad() {
-  return (
-    <div className="mt-10 flex flex-col gap-4 rounded-2xl bg-white p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
-      <p className="font-semibold">¿Te encaja alguna noche? Escribe con la fecha y cuántos sois.</p>
-      <div className="flex flex-col gap-3 sm:flex-row">
-        <a href={whatsappUrl(WA_NAVIDAD)} className="btn-wa" target="_blank" rel="noopener" data-ubicacion="navidad-fechas" data-campana={N.id}><IconoWhatsapp /> WhatsApp</a>
-        <a href={MAIL_NAVIDAD} className="btn-linea" data-ubicacion="navidad-fechas"><IconoMail /> Email</a>
-      </div>
-    </div>
-  );
-}
 
 export const FAQ_NAVIDAD: Pregunta[] = [
   { p: "¿Dónde hacer la cena de empresa de Navidad en A Coruña?", r: `Si buscáis algo más que cenar, la cena baile del ${SEDE.nombre} junta en un solo sitio la cena, una hora de show cómico y DJ hasta las 3. Nadie tiene que decidir a dónde ir después.` },
@@ -79,47 +56,50 @@ function Fechas() {
   const confirmadas = getConfirmadas();
   const aDemanda = getADemanda();
   return (
-    <Seccion id="fechas" arena>
-      <Titulo ante={`Navidad ${N.anio} · ${SEDE.nombre}`} titulo="Noches abiertas para cenas de empresa" texto="Cada grupo con su mesa y la noche compartida con otros grupos. ¿Ninguna os encaja? En exclusiva, el día que queráis." />
-      {confirmadas.length > 0 ? (
-        <div className="mt-10 space-y-8">
-          {porMes(confirmadas).map(([mes, noches]) => (
-            <div key={mes}>
-              <h3 className="font-serif text-2xl font-semibold capitalize">{mes}</h3>
-              <ul className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-6">
-                {noches.map((f) => {
-                  const [dia, num] = f.etiqueta.split(" ");
+    <section id="fechas" className="bg-arena py-12 sm:py-14">
+      <div className="contenedor">
+        <div className="flex flex-col gap-6 rounded-3xl bg-white p-6 shadow-sm sm:p-8 lg:flex-row lg:items-center lg:gap-10">
+          <div className="lg:w-64 lg:shrink-0">
+            <p className="antetitulo">Navidad {N.anio} · {SEDE.nombre}</p>
+            <h2 className="mt-2 font-serif text-2xl font-semibold leading-tight sm:text-3xl">Noches abiertas</h2>
+            <p className="mt-2 text-sm text-tinta-suave">¿Ninguna os encaja? En exclusiva, el día que queráis.</p>
+          </div>
+          <div className="flex-1">
+            {confirmadas.length > 0 ? (
+              <ul className="flex flex-wrap gap-2">
+                {confirmadas.map((f) => {
+                  const [dia, num, , mes] = f.etiqueta.split(" ");
                   return (
-                    <li key={f.fecha} className={`tarjeta flex flex-col items-center px-3 py-4 text-center ${f.completa ? "opacity-60" : ""}`}>
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-tinta-suave">{dia}</span>
-                      <span className="mt-1 font-serif text-4xl font-semibold leading-none text-acento">{num}</span>
-                      <span className="mt-2 text-xs font-semibold text-tinta-suave">{f.completa ? "Completa" : f.nota ?? "Confirmada"}</span>
+                    <li key={f.fecha} className={`flex items-baseline gap-1.5 rounded-full border px-4 py-2 ${f.completa ? "border-linea text-tinta-suave line-through" : "border-acento/30 bg-acento/5"}`}>
+                      <span className="text-xs font-semibold uppercase tracking-wide text-tinta-suave">{dia.slice(0, 3)}</span>
+                      <span className="font-serif text-xl font-semibold text-acento">{num}</span>
+                      <span className="text-sm text-tinta-suave">{mes.slice(0, 3)}</span>
+                      {f.nota && <span className="ml-1 rounded-full bg-acento px-2 py-0.5 text-[10px] font-semibold uppercase text-white">{f.nota}</span>}
+                    </li>
+                  );
+                })}
+                {aDemanda.map((f) => {
+                  const [dia, num, , mes] = f.etiqueta.split(" ");
+                  return (
+                    <li key={f.fecha} className="flex items-baseline gap-1.5 rounded-full border border-dashed border-tinta/25 px-4 py-2" title="Se abre si se juntan grupos">
+                      <span className="text-xs font-semibold uppercase tracking-wide text-tinta-suave">{dia.slice(0, 3)}</span>
+                      <span className="font-serif text-xl font-semibold">{num}</span>
+                      <span className="text-sm text-tinta-suave">{mes.slice(0, 3)} · a demanda</span>
                     </li>
                   );
                 })}
               </ul>
+            ) : (
+              <p className="text-tinta-suave">Ahora mismo no hay noches publicadas. Escribe con tu fecha y te digo qué hay.</p>
+            )}
+            <div className="mt-5 flex flex-col gap-2 sm:flex-row">
+              <a href={whatsappUrl(WA_NAVIDAD)} className="btn-wa min-h-[44px] px-5 text-sm" target="_blank" rel="noopener" data-ubicacion="navidad-fechas" data-campana={N.id}><IconoWhatsapp /> Consultar por WhatsApp</a>
+              <a href={MAIL_NAVIDAD} className="btn-linea min-h-[44px] px-5 text-sm" data-ubicacion="navidad-fechas"><IconoMail /> Email</a>
             </div>
-          ))}
+          </div>
         </div>
-      ) : (
-        <p className="tarjeta mt-8 p-6 text-tinta-suave">Ahora mismo no hay noches publicadas. Escribe con tu fecha y te digo qué hay.</p>
-      )}
-      {aDemanda.length > 0 && (
-        <div className="mt-10">
-          <h3 className="font-serif text-2xl font-semibold">Se abren si se juntan grupos</h3>
-          <ul className="mt-5 grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-6">
-            {aDemanda.map((f) => (
-              <li key={f.fecha} className="flex flex-col items-center rounded-2xl border border-linea bg-marfil px-3 py-4 text-center">
-                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-tinta-suave">{f.etiqueta.split(" ")[0]}</span>
-                <span className="mt-1 font-serif text-2xl font-semibold">{f.etiqueta.split(" ")[1]}</span>
-                <span className="mt-2 text-xs font-semibold text-tinta-suave">{f.completa ? "Completa" : "A demanda"}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      <ContactoNavidad />
-    </Seccion>
+      </div>
+    </section>
   );
 }
 

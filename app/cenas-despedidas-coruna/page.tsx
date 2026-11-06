@@ -1,5 +1,5 @@
 import { BandaFotos, Ambiente, CtaFinal, Faq, Hero, Incluye, LineaNoche, MenuResumen, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
-import { MejorPeor, Pasos, Prosa } from "@/components/Contenido";
+import { MejorPeor, Pasos, PostsRelacionados, Prosa } from "@/components/Contenido";
 import { JsonLdFaq, JsonLdMigas } from "@/components/JsonLd";
 import { FAQ_DESPEDIDA } from "@/lib/faq";
 import { FOTOS } from "@/lib/fotos";
@@ -79,6 +79,7 @@ export default function Despedidas() {
         </div>
       </Seccion>
       <Faq preguntas={FAQ_DESPEDIDA} titulo="Dudas de despedida" />
+      <PostsRelacionados slugs={["despedida-soltera-coruna-plan-noche", "retos-despedida-soltero", "despedidas-mixtas-como-organizarlas", "organizar-despedida-grupo-whatsapp", "cuando-reservar-despedida"]} titulo="Ideas para tu despedida" />
       <Ocasiones excluir={RUTA} />
       <CtaFinal titulo="La despedida, en buenas manos" />
       <JsonLdMigas nombre="Despedidas" ruta={RUTA} />
