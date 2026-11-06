@@ -16,7 +16,7 @@ export const generateStaticParams = () => POSTS.map((p) => ({ slug: p.slug }));
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const p = getPost((await params).slug);
   if (!p) return {};
-  return meta({ titulo: `${p.titulo} · Los7pc`, descripcion: p.descripcion, ruta: `/noticias/${p.slug}/`, imagen: FOTOS.baile.src });
+  return meta({ titulo: p.titulo.length > 52 ? p.titulo : `${p.titulo} · Los7pc`, descripcion: p.descripcion, ruta: `/noticias/${p.slug}/`, imagen: FOTOS.baile.src });
 }
 
 export default async function Articulo({ params }: { params: Promise<{ slug: string }> }) {

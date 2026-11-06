@@ -10,8 +10,8 @@ const RUTA = "/cenas-despedidas-coruna/";
 const T = OFERTAS.temporada;
 
 export const metadata = meta({
-  titulo: "Cena de despedida en A Coruña con show y fiesta hasta las 3 · Los7pc",
-  descripcion: `Cena de despedida de soltero o soltera en A Coruña: cena con bebida, show cómico y DJ hasta las 3 en el ${SEDE.nombre}, con otros grupos de celebración. Temporada ${T.temporada}.`,
+  titulo: "Cena de despedida en A Coruña con show y fiesta · Los7pc",
+  descripcion: `Cena de despedida de soltero o soltera en A Coruña: cena con bebida, show cómico y DJ hasta las 3, con otros grupos de celebración.`,
   ruta: RUTA,
   imagen: FOTOS.despedidas.src,
 });

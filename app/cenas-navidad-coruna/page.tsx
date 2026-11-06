@@ -10,8 +10,8 @@ export const revalidate = 3600;
 
 // URL estable sin año: cada campaña actualiza el año en lib/sitio.ts → OFERTAS.navidad y las fechas en data/navidad.json.
 export const metadata = meta({
-  titulo: `Cenas de empresa de Navidad en A Coruña ${N.anio} · Cena, show y baile · Los7pc`,
-  descripcion: `Cena de empresa de Navidad en A Coruña: cena con bebida, show cómico y DJ hasta las 3 en el ${SEDE.nombre}. Para equipos de 6 a 80+, también comidas y en exclusiva. Guía para organizarla.`,
+  titulo: `Cenas de empresa de Navidad en A Coruña ${N.anio} · Los7pc`,
+  descripcion: `Cena de empresa de Navidad en A Coruña: cena, show cómico y DJ hasta las 3 en el ${SEDE.nombre}. Para equipos de 6 a 80+, también comidas.`,
   ruta: RUTA_NAVIDAD,
   imagen: FOTOS.navidad.src,
 });

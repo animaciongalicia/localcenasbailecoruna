@@ -11,7 +11,7 @@ const RUTA = "/cumpleanos-coruna/";
 
 export const metadata = meta({
   titulo: "Dónde celebrar un cumpleaños de adultos en A Coruña · Los7pc",
-  descripcion: `Celebra tu cumpleaños (30, 40, 50, 60…) en A Coruña con cena, show cómico y DJ hasta las 3 en el ${SEDE.nombre}. Con otros grupos o en exclusiva para tus invitados.`,
+  descripcion: `Celebra tu cumpleaños (30, 40, 50…) en A Coruña con cena, show cómico y DJ hasta las 3. Con otros grupos o en exclusiva para tus invitados.`,
   ruta: RUTA,
   imagen: FOTOS.cumpleanos.src,
 });

@@ -24,8 +24,14 @@ export function JsonLdOrganizacion() {
         url: `${SITE_URL}/`,
         telephone: CONTACTO.telefono,
         email: CONTACTO.email,
-        areaServed: { "@type": "City", name: "A Coruña" },
+        logo: `${SITE_URL}/icon.svg`,
+        image: `${SITE_URL}/fotos/ambiente-baile.jpg`,
+        address: { "@type": "PostalAddress", addressLocality: "A Coruña", addressRegion: "Galicia", addressCountry: "ES" },
+        areaServed: [{ "@type": "City", name: "A Coruña" }, { "@type": "AdministrativeArea", name: "Galicia" }],
+        contactPoint: { "@type": "ContactPoint", telephone: CONTACTO.telefono, email: CONTACTO.email, contactType: "reservations", availableLanguage: ["es", "gl"] },
+        knowsAbout: ["cenas baile", "cenas de empresa", "cenas de Navidad", "cumpleaños de adultos", "despedidas", "jubilaciones", "fiestas privadas"],
         description: `${MARCA.trayectoria}. Cenas con show cómico y baile con DJ.`,
+        // sameAs: añadir aquí las URLs de Google Business Profile, Instagram y Facebook cuando estén confirmadas.
       }}
     />
   );

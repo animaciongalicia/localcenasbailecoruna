@@ -140,6 +140,11 @@ export function Ocasiones({ excluir, titulo = "¿Qué celebráis?", ante = "Para
     <Seccion>
       <Titulo ante={ante} titulo={titulo} texto={texto} />
       <TarjetasFoto items={lista.map((o) => ({ href: o.href, titulo: o.titulo, texto: o.texto, foto: o.foto }))} />
+      {excluir !== "/celebraciones-coruna/" && (
+        <p className="mt-8 text-center">
+          <Link href="/celebraciones-coruna/" className="enlace">Ver todas las celebraciones en A Coruña</Link>
+        </p>
+      )}
     </Seccion>
   );
 }

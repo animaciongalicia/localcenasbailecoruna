@@ -11,7 +11,7 @@ const FAQ = FAQ_HOME.filter((q) => !/aparcar/.test(q.p));
 
 export const metadata = meta({
   titulo: "Celebraciones en A Coruña con cena, show y baile · Los7pc",
-  descripcion: `Cumpleaños, cenas de empresa, Navidad, despedidas, jubilaciones y eventos privados en A Coruña: cena, show cómico y DJ hasta las 3 en el ${SEDE.nombre} o en exclusiva donde quieras.`,
+  descripcion: `Cumpleaños, empresas, Navidad, despedidas, jubilaciones y eventos privados en A Coruña: cena, show cómico y DJ hasta las 3.`,
   ruta: RUTA,
   imagen: FOTOS.baile.src,
 });
@@ -26,7 +26,7 @@ export default function Celebraciones() {
         texto="Cumpleaños, cenas de empresa, Navidad, despedidas, jubilaciones o una fiesta solo vuestra. La fórmula es la misma: cena, show cómico y baile hasta las tres. Lo que cambia es tu motivo."
         foto={FOTOS.baile}
       />
-      <Ocasiones ante="Elige tu motivo" titulo="¿Qué celebráis?" texto="Cada página explica cómo organizarlo, qué incluye y lo que conviene saber antes." />
+      <Ocasiones excluir="/celebraciones-coruna/" ante="Elige tu motivo" titulo="¿Qué celebráis?" texto="Cada página explica cómo organizarlo, qué incluye y lo que conviene saber antes." />
 
       <Prosa ante="Una fórmula, muchos motivos" titulo="Por qué funciona para cualquier celebración">
         <p>Da igual que sea el cumpleaños de tu madre, la cena de la oficina o la despedida de tu mejor amigo. <strong>Lo que hace buena una celebración es lo mismo:</strong> comer bien, reírse juntos y acabar la noche sin que nadie tenga que decidir «a dónde vamos ahora».</p>

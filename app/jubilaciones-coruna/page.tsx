@@ -9,8 +9,8 @@ import { SEDE } from "@/lib/sitio";
 const RUTA = "/jubilaciones-coruna/";
 
 export const metadata = meta({
-  titulo: "Fiesta de jubilación en A Coruña: cena, show y baile · Los7pc",
-  descripcion: `Organiza la fiesta de jubilación de un compañero en A Coruña: comida o cena, show cómico y baile. Con otros grupos en el ${SEDE.nombre} o en exclusiva, cualquier día del año. También aniversarios y reencuentros.`,
+  titulo: "Fiesta de jubilación en A Coruña con cena y baile · Los7pc",
+  descripcion: `Organiza la fiesta de jubilación de un compañero en A Coruña: comida o cena, show cómico y baile, con la empresa y la familia. También aniversarios.`,
   ruta: RUTA,
   imagen: FOTOS.jubilaciones.src,
 });

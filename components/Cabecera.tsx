@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { CELEBRACIONES_NAV, NAV } from "@/lib/paginas";
-import { MARCA } from "@/lib/sitio";
 import { IconoAbajo, IconoCerrar, IconoFlecha, IconoMenu } from "./Iconos";
 
 /** Cabecera fija. Todos los enlaces están en el HTML (rastreables) aunque el desplegable esté cerrado. */
@@ -53,7 +52,7 @@ export default function Cabecera() {
   return (
     <header ref={cabecera} className="sticky top-0 z-50 border-b border-linea bg-marfil">
       <div className="contenedor flex h-[68px] items-center justify-between gap-4">
-        <Link href="/" className="flex shrink-0 flex-col leading-none" aria-label={`${MARCA.nombre}, inicio`}>
+        <Link href="/" className="flex shrink-0 flex-col leading-none" title="Inicio">
           <span className="font-serif text-[1.7rem] font-semibold text-tinta">
             Los<span className="text-acento">7</span>pc
           </span>

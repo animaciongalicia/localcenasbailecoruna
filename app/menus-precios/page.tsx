@@ -12,7 +12,7 @@ const N = OFERTAS.navidad;
 
 export const metadata = meta({
   titulo: `Menú y precio de la cena baile ${T.anio} en A Coruña · Los7pc`,
-  descripcion: `Cena baile conjunta: ${T.precio} € por persona, IVA incluido. Empanada, croquetas, langostinos, carne asada, postre y bebida en la cena. Show cómico y DJ hasta las 3 en el ${SEDE.nombre}.`,
+  descripcion: `Menú y precio de la cena baile en A Coruña: empanada, croquetas, langostinos, carne asada, postre y bebida en la cena. Show y DJ hasta las 3.`,
   ruta: RUTA,
   imagen: FOTOS.menus.src,
 });

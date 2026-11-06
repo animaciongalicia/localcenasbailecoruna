@@ -47,5 +47,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/|fotos/|api/|icon|opengraph-image|robots.txt|sitemap.xml).*)"],
+  matcher: ["/((?!_next/|fotos/|api/|icon|opengraph-image|robots.txt|sitemap.xml|llms.txt).*)"],
 };

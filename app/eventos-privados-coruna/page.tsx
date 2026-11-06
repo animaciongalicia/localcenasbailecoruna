@@ -9,8 +9,8 @@ import { EXCLUSIVO, MENU, SEDE, SITE_URL } from "@/lib/sitio";
 const RUTA = "/eventos-privados-coruna/";
 
 export const metadata = meta({
-  titulo: "Eventos y fiestas privadas en A Coruña con cena, DJ y show · Los7pc",
-  descripcion: `Fiesta privada en exclusiva para tu grupo: comida o cena, DJ, show cómico y baile. En el ${SEDE.nombre}, en otro espacio o en tu propio local. Cualquier día del año.`,
+  titulo: "Fiestas privadas en A Coruña con cena, DJ y show · Los7pc",
+  descripcion: `Fiesta privada solo para tu grupo: comida o cena, DJ, show y baile. En el ${SEDE.nombre}, en otro espacio o en tu local, cualquier día del año.`,
   ruta: RUTA,
   imagen: FOTOS.privados.src,
 });
