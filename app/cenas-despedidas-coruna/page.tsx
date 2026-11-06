@@ -1,4 +1,4 @@
-import { Ambiente, CtaFinal, Faq, Hero, Incluye, LineaNoche, MenuResumen, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
+import { BandaFotos, Ambiente, CtaFinal, Faq, Hero, Incluye, LineaNoche, MenuResumen, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
 import { MejorPeor, Pasos, Prosa } from "@/components/Contenido";
 import { JsonLdFaq, JsonLdMigas } from "@/components/JsonLd";
 import { FAQ_DESPEDIDA } from "@/lib/faq";
@@ -32,6 +32,8 @@ export default function Despedidas() {
         <p>Cenáis en vuestra mesa, el show cómico pone a todo el mundo en modo fiesta y el DJ hace el resto hasta las tres. Y como compartís sala con otras despedidas, cumpleaños y cuadrillas, el ambiente viene hecho desde el primer minuto.</p>
         <p>Más de quince años organizando cenas de despedida en A Coruña dan para saber una cosa: <strong>lo que se recuerda no es el menú, es la noche.</strong></p>
       </Prosa>
+
+      <BandaFotos fotos={[FOTOS.baile, FOTOS.cumpleanosFiesta, FOTOS.celebrando]} />
 
       <Incluye titulo="Qué incluye la cena de despedida" />
 

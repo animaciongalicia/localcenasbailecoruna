@@ -1,4 +1,4 @@
-import { Ambiente, CtaFinal, DosModalidades, Espacio, Faq, Hero, Incluye, LineaNoche, MenuResumen, Ocasiones, Trayectoria } from "@/components/Bloques";
+import { PruebaSocial, Ambiente, CtaFinal, DosModalidades, Espacio, Faq, Hero, Incluye, LineaNoche, MenuResumen, Ocasiones, Trayectoria } from "@/components/Bloques";
 import { MejorPeor, Pasos, PostsRelacionados, Prosa } from "@/components/Contenido";
 import { JsonLdFaq } from "@/components/JsonLd";
 import { FAQ_HOME } from "@/lib/faq";
@@ -22,9 +22,10 @@ export default function Inicio() {
         texto={`Celebra tu cumpleaños, reúne a tus compañeros o ven con tu grupo a una noche de cena, show cómico y DJ hasta las tres. En el ${SEDE.nombre}.`}
       />
 
-      <Prosa ante="Cenas temáticas con fiesta" titulo="Ni restaurante normal, ni discoteca">
+      <Prosa ante="Restaurante de cenas baile en A Coruña" titulo="Ni restaurante normal, ni discoteca">
         <p>Seguro que te suena: cena en un restaurante, sobremesa larga y, a la una, el camarero apilando sillas. Medio grupo se va a casa, el otro medio se reparte por tres bares y la celebración se acaba sin que nadie lo decida.</p>
         <p><strong>Aquí la noche no se rompe.</strong> Cenas en tu mesa, te ríes una hora con el show cómico y el DJ se encarga de que nadie mire el reloj hasta las tres. Todo en el mismo sitio, con otros grupos que también vienen a celebrar.</p>
+        <p>Por eso, cuando alguien busca <strong>cenas con show en Coruña</strong> o un <strong>restaurante con espectáculo</strong> para su grupo, lo que de verdad quiere es esto: una cena temática con fiesta, de las que se recuerdan.</p>
         <p>Llevamos más de quince años haciéndolo en A Coruña. Primero en hoteles y salas de la ciudad; ahora, en el {SEDE.nombre}. Y la fórmula sigue siendo la misma: <strong>tú pones la gente, la noche ya está montada.</strong></p>
       </Prosa>
 
@@ -66,6 +67,7 @@ export default function Inicio() {
       <MenuResumen />
       <Espacio />
       <Trayectoria />
+      <PruebaSocial />
       <Faq preguntas={FAQ_HOME} />
       <PostsRelacionados slugs={["organizar-cena-empresa-navidad-coruna", "celebrar-50-cumpleanos-coruna", "personajes-cena-empresa-navidad"]} titulo="Consejos para organizar (y reírse un poco)" />
       <CtaFinal />

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Ambiente, CtaFinal, DosModalidades, Faq, Hero, LineaNoche, ListaMenu, Migas, Ocasiones, Seccion, Titulo } from "./Bloques";
+import { BandaFotos, Ambiente, CtaFinal, DosModalidades, Faq, Hero, LineaNoche, ListaMenu, Migas, Ocasiones, Seccion, Titulo } from "./Bloques";
 import { Casos, MejorPeor, Pasos, PostsRelacionados, Prosa } from "./Contenido";
 import { IconoMail, IconoTelefono, IconoWhatsapp } from "./Iconos";
 import { JsonLdFaq, JsonLdMigas, ORG_ID } from "./JsonLd";
@@ -66,7 +66,7 @@ function JsonLdEventos() {
       eventStatus: "https://schema.org/EventScheduled",
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
       location: { "@type": "Place", name: SEDE.nombre, address: { "@type": "PostalAddress", streetAddress: SEDE.direccion, addressLocality: SEDE.ciudad, addressCountry: "ES" } },
-      image: [`${SITE_URL}${FOTOS.salon.src}`],
+      image: [`${SITE_URL}${FOTOS.navidad.src}`],
       organizer: { "@id": ORG_ID },
       url: `${SITE_URL}${RUTA_NAVIDAD}`,
     };
@@ -159,6 +159,8 @@ export default function NavidadLanding({ variante }: { variante: Variante }) {
         <p>Por eso aquí la noche está montada de principio a fin: cenáis en vuestra mesa, os reís una hora con el show y el DJ se encarga del resto hasta las tres. <strong>Nadie tiene que decidir «a dónde vamos ahora».</strong> Tú solo tienes que poner la fecha y el número de personas.</p>
       </Prosa>
 
+      <BandaFotos fotos={[FOTOS.navidadMesa, FOTOS.navidadBrindis, FOTOS.empresas]} />
+
       <LineaNoche />
 
       <Pasos
@@ -223,7 +225,7 @@ export default function NavidadLanding({ variante }: { variante: Variante }) {
       />
 
       <Faq preguntas={FAQ_NAVIDAD} titulo="Cenas de empresa de Navidad: lo que todo el mundo pregunta" />
-      <PostsRelacionados slugs={["organizar-cena-empresa-navidad-coruna", "personajes-cena-empresa-navidad"]} />
+      <PostsRelacionados slugs={["ideas-cena-empresa-navidad-coruna", "organizar-cena-empresa-navidad-coruna", "juegos-animar-cena-empresa", "personajes-cena-empresa-navidad", "discurso-jefe-cena-navidad"].slice(0, 6)} />
       <Ocasiones excluir={RUTA_NAVIDAD} />
       <CtaFinal titulo="¿Cerramos la cena de Navidad de tu empresa?" texto="Dime la fecha que tenéis en mente y cuántos sois. Te respondo con disponibilidad." />
       <JsonLdMigas nombre="Cenas de empresa de Navidad" ruta={RUTA_NAVIDAD} />

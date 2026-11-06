@@ -1,4 +1,4 @@
-import { Ambiente, Argumentos, CtaFinal, DosModalidades, Espacio, Faq, Hero, Migas, Ocasiones } from "@/components/Bloques";
+import { BandaFotos, Ambiente, Argumentos, CtaFinal, DosModalidades, Espacio, Faq, Hero, Migas, Ocasiones } from "@/components/Bloques";
 import { MejorPeor, Pasos, Prosa } from "@/components/Contenido";
 import { JsonLdFaq, JsonLdMigas } from "@/components/JsonLd";
 import { FAQ_CELEBRACIONES } from "@/lib/faq";
@@ -31,6 +31,8 @@ export default function Celebraciones() {
         <p><strong>La fórmula que funciona es sencilla:</strong> una buena comida o cena, un momento para las palabras y el regalo, una hora de humor para que todo el mundo se relaje y música para distintas generaciones. Ni discursos eternos ni tardes que se apagan a las seis.</p>
         <p>Podéis uniros a una cena baile con otros grupos en el {SEDE.nombre} o hacerlo en exclusiva, <strong>cualquier día del año, en comida o en cena</strong>, en Oza, en otro espacio o en la propia empresa.</p>
       </Prosa>
+
+      <BandaFotos fotos={[FOTOS.jubilacionesBengalas, FOTOS.brindis, FOTOS.menus]} />
 
       <Pasos
         ante="Para quien organiza la jubilación"

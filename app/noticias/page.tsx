@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import { FOTOS } from "@/lib/fotos";
 import { Migas, Seccion, Titulo } from "@/components/Bloques";
 import { IconoFlecha } from "@/components/Iconos";
 import { JsonLdMigas } from "@/components/JsonLd";
@@ -7,6 +9,7 @@ import { fechaPost, postsOrdenados } from "@/lib/noticias";
 import { meta } from "@/lib/seo";
 
 const RUTA = "/noticias/";
+export const revalidate = 3600;
 
 export const metadata = meta({
   titulo: "Noticias y consejos para celebrar en A Coruña · Los7pc",
@@ -25,13 +28,18 @@ export default function Noticias() {
         <ul className="grid content-start gap-5 md:grid-cols-2">
           {posts.map((p) => (
             <li key={p.slug}>
-              <Link href={`/noticias/${p.slug}/`} className="tarjeta group flex h-full flex-col p-6 hover:border-acento">
+              <Link href={`/noticias/${p.slug}/`} className="tarjeta group flex h-full flex-col overflow-hidden hover:border-acento">
+                <span className="relative block aspect-[16/9] bg-arena">
+                  <Image src={(p.foto ?? FOTOS.baile).src} alt="" fill sizes="(min-width: 768px) 380px, 100vw" className="object-cover" />
+                </span>
+                <span className="flex flex-1 flex-col p-6">
                 <span className="antetitulo">{p.categoria}</span>
                 <h2 className="mt-2 font-serif text-2xl font-semibold group-hover:text-acento">{p.titulo}</h2>
                 <p className="mt-2 flex-1 leading-relaxed text-tinta-suave">{p.descripcion}</p>
                 <span className="mt-5 flex items-center justify-between text-sm text-tinta-suave">
                   <time dateTime={p.fecha}>{fechaPost(p.fecha)} · {p.lectura} min</time>
                   <IconoFlecha className="h-5 w-5 text-acento" />
+                </span>
                 </span>
               </Link>
             </li>

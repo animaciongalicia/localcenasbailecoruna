@@ -6,25 +6,31 @@ import BarraNoticias from "@/components/BarraNoticias";
 import { IconoFlecha, IconoWhatsapp } from "@/components/Iconos";
 import { ORG_ID } from "@/components/JsonLd";
 import { FOTOS } from "@/lib/fotos";
-import { POSTS, fechaPost, getPost } from "@/lib/noticias";
+import { fechaPost, getPost, postsOrdenados } from "@/lib/noticias";
+import Image from "next/image";
+import TextoEnlazado from "@/components/TextoEnlazado";
 import { meta } from "@/lib/seo";
 import { SITE_URL } from "@/lib/sitio";
 
-export const dynamicParams = false;
-export const generateStaticParams = () => POSTS.map((p) => ({ slug: p.slug }));
+// Programados: los artículos con fecha futura no existen hasta su día (la página se regenera cada hora).
+export const revalidate = 3600;
+export const dynamicParams = true;
+export const generateStaticParams = () => postsOrdenados().map((p) => ({ slug: p.slug }));
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const p = getPost((await params).slug);
   if (!p) return {};
-  return meta({ titulo: p.titulo.length > 52 ? p.titulo : `${p.titulo} · Los7pc`, descripcion: p.descripcion, ruta: `/noticias/${p.slug}/`, imagen: FOTOS.baile.src });
+  return meta({ titulo: p.titulo.length > 52 ? p.titulo : `${p.titulo} · Los7pc`, descripcion: p.descripcion, ruta: `/noticias/${p.slug}/`, imagen: (p.foto ?? FOTOS.baile).src });
 }
 
 export default async function Articulo({ params }: { params: Promise<{ slug: string }> }) {
   const p = getPost((await params).slug);
   if (!p) notFound();
-  const i = POSTS.findIndex((x) => x.slug === p.slug);
-  const anterior = POSTS[i - 1];
-  const siguiente = POSTS[i + 1];
+  const lista = postsOrdenados();
+  const i = lista.findIndex((x) => x.slug === p.slug);
+  const siguiente = lista[i - 1]; // más reciente
+  const anterior = lista[i + 1]; // más antiguo
+  const foto = p.foto ?? FOTOS.baile;
   const url = `${SITE_URL}/noticias/${p.slug}/`;
   const datos = [
     {
@@ -37,7 +43,7 @@ export default async function Articulo({ params }: { params: Promise<{ slug: str
       author: { "@id": ORG_ID },
       publisher: { "@id": ORG_ID },
       mainEntityOfPage: url,
-      image: [`${SITE_URL}${FOTOS.baile.src}`],
+      image: [`${SITE_URL}${foto.src}`],
       inLanguage: "es-ES",
     },
     {
@@ -66,15 +72,18 @@ export default async function Articulo({ params }: { params: Promise<{ slug: str
         <h1 className="mt-3 font-serif text-[2.2rem] font-semibold leading-tight sm:text-5xl">{p.titulo}</h1>
         <p className="mt-4 text-lg text-tinta-suave">{p.descripcion}</p>
         <p className="mt-4 text-sm text-tinta-suave"><time dateTime={p.fecha}>{fechaPost(p.fecha)}</time> · {p.lectura} min de lectura</p>
+        <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-3xl bg-arena">
+          <Image src={foto.src} alt={foto.alt} fill priority sizes="(min-width: 1024px) 760px, 100vw" className="object-cover" />
+        </div>
         <div className="mt-10 space-y-5 text-lg leading-relaxed text-tinta/90">
           {p.bloques.map((b, i) => {
             switch (b.tipo) {
               case "p":
-                return <p key={i}>{b.texto}</p>;
+                return <p key={i}><TextoEnlazado texto={b.texto} /></p>;
               case "h2":
                 return <h2 key={i} className="pt-4 font-serif text-2xl font-semibold text-tinta sm:text-3xl">{b.texto}</h2>;
               case "lista":
-                return <ul key={i} className="lista-check space-y-2">{b.items.map((it) => <li key={it}>{it}</li>)}</ul>;
+                return <ul key={i} className="lista-check space-y-2">{b.items.map((it) => <li key={it}><TextoEnlazado texto={it} /></li>)}</ul>;
               case "cita":
                 return <blockquote key={i} className="border-l-4 border-acento py-2 pl-5 font-serif text-2xl font-semibold text-tinta">{b.texto}</blockquote>;
               case "cta":

@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   formatDetection: { telephone: false },
 };
 
+// Se regenera cada hora: así aparecen solos los artículos programados y desaparecen las noches pasadas.
+export const revalidate = 3600;
+
 export const viewport: Viewport = { themeColor: "#1C1A27", width: "device-width", initialScale: 1 };
 
 // Consent Mode v2: todo denegado por defecto ANTES de cargar cualquier etiqueta.

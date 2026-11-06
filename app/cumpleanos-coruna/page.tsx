@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Ambiente, CtaFinal, DosModalidades, Faq, Hero, Incluye, LineaNoche, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
+import { BandaFotos, Ambiente, CtaFinal, DosModalidades, Faq, Hero, Incluye, LineaNoche, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
 import { MejorPeor, Pasos, PostsRelacionados, Prosa } from "@/components/Contenido";
 import { JsonLdFaq, JsonLdMigas } from "@/components/JsonLd";
 import { FAQ_CUMPLE } from "@/lib/faq";
@@ -31,7 +31,7 @@ export default function Cumpleanos() {
         antetitulo="Cumpleaños de adultos en A Coruña"
         titulo="Celebra tu cumpleaños en A Coruña con cena, show y baile"
         texto="Tú pones a la gente. La cena, las risas y la pista de baile ya están montadas. Sin cocinar, sin recoger y sin buscar dónde seguir la fiesta."
-        foto={FOTOS.cumpleanos}
+        foto={FOTOS.cumpleanosFiesta}
       />
 
       <Prosa ante="Sitios para celebrar un cumpleaños de adultos" titulo="Tu cumpleaños no se merece un «ya si eso lo celebramos»">
@@ -39,6 +39,8 @@ export default function Cumpleanos() {
         <p>Aquí funciona al revés. <strong>Tú invitas; la noche está hecha.</strong> Cena en tu mesa, una hora de show cómico para romper el hielo y DJ hasta las tres. Da igual que tus invitados no se conozcan: entre el show y la pista, a la una ya parecen amigos de toda la vida.</p>
         <p>Y si el cumpleaños es grande o lo quieres solo para los tuyos, existe la versión en exclusiva: cualquier día del año, en el {SEDE.nombre}, en otro espacio o incluso en tu casa o finca.</p>
       </Prosa>
+
+      <BandaFotos fotos={[FOTOS.cumpleanos, FOTOS.cumpleanosDeco, FOTOS.brindis]} />
 
       <Seccion arena>
         <Titulo ante="Cumpleaños redondos" titulo="30, 40, 50, 60… cada década se celebra distinto" />

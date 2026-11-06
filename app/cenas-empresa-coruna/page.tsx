@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Ambiente, CtaFinal, DosModalidades, Espacio, Faq, Hero, Incluye, Migas, Ocasiones, Seccion } from "@/components/Bloques";
+import { BandaFotos, Ambiente, CtaFinal, DosModalidades, Espacio, Faq, Hero, Incluye, Migas, Ocasiones, Seccion } from "@/components/Bloques";
 import { Casos, MejorPeor, Pasos, PostsRelacionados, Prosa } from "@/components/Contenido";
 import { JsonLdFaq, JsonLdMigas } from "@/components/JsonLd";
 import { FAQ_EMPRESA } from "@/lib/faq";
@@ -33,6 +33,8 @@ export default function Empresas() {
         <p><strong>Aquí el plan viene completo.</strong> Cena con bebida, una hora de show cómico que rompe el hielo entre departamentos y DJ hasta las tres. Quien quiere cenar y charlar, cena. Quien quiere bailar, baila. Y nadie tiene que montar el después.</p>
         <p>Para equipos pequeños, la cena con otros grupos da un ambiente que una mesa de ocho no consigue sola. Para la plantilla entera, la opción en exclusiva: <strong>cualquier día del año, en comida o en cena, en el {SEDE.nombre}, en otro espacio o en vuestras instalaciones.</strong></p>
       </Prosa>
+
+      <BandaFotos fotos={[FOTOS.navidadBrindis, FOTOS.brindis, FOTOS.canapes]} />
 
       <Incluye titulo="Qué tiene la noche de tu equipo" />
 
@@ -91,7 +93,7 @@ export default function Empresas() {
       />
       <Espacio />
       <Faq preguntas={FAQ_EMPRESA} titulo="Lo que suelen preguntar las empresas" />
-      <PostsRelacionados slugs={["organizar-cena-empresa-navidad-coruna", "personajes-cena-empresa-navidad"]} />
+      <PostsRelacionados slugs={["como-animar-cena-empresa", "comida-o-cena-de-empresa", "cena-empresa-con-clientes", "organizar-cena-empresa-navidad-coruna"]} />
       <Ocasiones excluir={RUTA} />
       <CtaFinal titulo="La cena de empresa que la gente sí quiere repetir" />
       <JsonLdMigas nombre="Cenas de empresa" ruta={RUTA} />

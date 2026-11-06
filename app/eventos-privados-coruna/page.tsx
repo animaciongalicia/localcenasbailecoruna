@@ -1,4 +1,4 @@
-import { Ambiente, Argumentos, CtaFinal, Faq, Hero, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
+import { BandaFotos, Ambiente, Argumentos, CtaFinal, Faq, Hero, Migas, Ocasiones, Seccion, Titulo } from "@/components/Bloques";
 import { MejorPeor, Pasos, Prosa } from "@/components/Contenido";
 import { JsonLdFaq, JsonLdMigas, ORG_ID } from "@/components/JsonLd";
 import { FOTOS } from "@/lib/fotos";
@@ -51,11 +51,13 @@ export default function EventosPrivados() {
         ctaSecundario={{ href: "#donde", texto: "Dónde se puede hacer" }}
       />
 
-      <Prosa ante="Fiestas privadas en A Coruña" titulo="Cuando la celebración es solo vuestra">
+      <Prosa ante="Local para fiestas privadas en A Coruña" titulo="Cuando la celebración es solo vuestra">
         <p>Hay fiestas que piden la sala para vosotros: un cumpleaños redondo con cien invitados, la jubilación de alguien muy querido, la plantilla entera de la empresa o un aniversario que merece algo más que una comida.</p>
         <p>Para esas, el formato que funciona en las cenas baile <strong>se monta solo para tu grupo</strong>: comida o cena, DJ, show cómico y fiesta. Y no depende de la temporada ni del sitio: <strong>cualquier día del año, en el {SEDE.nombre}, en otro espacio o en tu propio local</strong>, restaurante, empresa o finca.</p>
         <p>El DJ y el show son propios, sin subcontratas. Por eso cada fecha depende de la agenda: cuanto antes preguntes, más opciones.</p>
       </Prosa>
+
+      <BandaFotos fotos={[FOTOS.buffet, FOTOS.canapes, FOTOS.baile]} />
 
       <Seccion id="donde" arena>
         <Titulo ante="Tú eliges el sitio" titulo="Tres maneras de montarla" texto="El formato viaja: la comida o la cena, el DJ, el show y la fiesta van donde esté tu grupo." />

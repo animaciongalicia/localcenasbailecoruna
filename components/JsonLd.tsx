@@ -1,5 +1,5 @@
 import type { Pregunta } from "@/lib/faq";
-import { CONTACTO, LEGAL, MARCA, OFERTAS, SEDE, SITE_URL } from "@/lib/sitio";
+import { CONTACTO, LEGAL, MARCA, OFERTAS, REDES, SEDE, SITE_URL } from "@/lib/sitio";
 
 // Datos estructurados que reflejan SOLO información real y visible:
 // - Los7pc es el ORGANIZADOR, no el propietario del Club Náutico.
@@ -31,7 +31,7 @@ export function JsonLdOrganizacion() {
         contactPoint: { "@type": "ContactPoint", telephone: CONTACTO.telefono, email: CONTACTO.email, contactType: "reservations", availableLanguage: ["es", "gl"] },
         knowsAbout: ["cenas baile", "cenas de empresa", "cenas de Navidad", "cumpleaños de adultos", "despedidas", "jubilaciones", "fiestas privadas"],
         description: `${MARCA.trayectoria}. Cenas con show cómico y baile con DJ.`,
-        // sameAs: añadir aquí las URLs de Google Business Profile, Instagram y Facebook cuando estén confirmadas.
+        sameAs: [REDES.facebook, REDES.googleBusiness],
       }}
     />
   );

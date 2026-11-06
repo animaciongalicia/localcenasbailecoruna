@@ -1,25 +1,41 @@
 // Fotos de la web. Para cambiar una, sustituye el archivo en public/fotos/ con EL MISMO NOMBRE
 // (horizontal, mínimo 1200 px de ancho, menos de 500 KB). Next.js la optimiza sola.
-// Hay una foto por celebración: así cada página tiene su propio color.
-// Solo fotos reales con permiso de las personas que salen. Nada de bancos de imágenes.
+// Las fotos de ambiente se usan como ilustración: los textos alternativos NO dicen que sean
+// del local ni de clientes concretos. En "El local" solo van fotos reales de las cenas.
 
 export type Foto = { src: string; alt: string };
 
 export const FOTOS = {
-  // Ambiente general
-  baile: { src: "/fotos/ambiente-baile.jpg", alt: "Grupos bailando en la pista durante una cena baile de Los7pc" },
+  // Fotos reales de cenas baile de Los7pc
+  baileReal: { src: "/fotos/ambiente-baile.jpg", alt: "Grupos bailando en la pista durante una cena baile de Los7pc" },
   salon: { src: "/fotos/cena-salon.jpg", alt: "Salón con mesas de grupos durante una cena baile en A Coruña" },
   grupos: { src: "/fotos/cena-grupos.jpg", alt: "Mesas de grupos cenando antes del show y el baile" },
   celebrando: { src: "/fotos/grupo-celebrando.jpg", alt: "Grupo de amigas celebrando en su mesa durante la cena" },
-  // Una por celebración (sustituibles)
-  navidad: { src: "/fotos/navidad.jpg", alt: "Cena de empresa de Navidad con grupos en el salón" },
-  cumpleanos: { src: "/fotos/cumpleanos.jpg", alt: "Grupo celebrando un cumpleaños en su mesa" },
-  empresas: { src: "/fotos/empresas.jpg", alt: "Mesas de una cena de empresa en A Coruña" },
-  despedidas: { src: "/fotos/despedidas.jpg", alt: "Grupo de despedida celebrando durante la cena" },
-  jubilaciones: { src: "/fotos/jubilaciones.jpg", alt: "Compañeros celebrando una jubilación en la cena" },
-  privados: { src: "/fotos/eventos-privados.jpg", alt: "Fiesta privada con pista de baile llena" },
-  local: { src: "/fotos/local.jpg", alt: "Salón del Club Náutico de Oza preparado para una cena baile" },
-  menus: { src: "/fotos/menus.jpg", alt: "Grupos cenando el menú de la cena baile" },
+
+  // Ambiente por celebración
+  baile: { src: "/fotos/baile.jpeg", alt: "Gente bailando de noche en una fiesta con luces" },
+  fiesta: { src: "/fotos/fiesta.jpg", alt: "Amigas bailando entre confeti en una celebración" },
+  brindis: { src: "/fotos/celebracion-jubilacion.jpg", alt: "Copas de vino brindando en una celebración" },
+  navidad: { src: "/fotos/comidas-y-cenas-de-navidad.jpeg", alt: "Mesa de cena de Navidad con copas, velas y árbol iluminado" },
+  navidadMesa: { src: "/fotos/navidad.jpg", alt: "Mesa navideña con velas y árbol de Navidad" },
+  navidadBrindis: { src: "/fotos/celebracion-navidad.jpeg", alt: "Brindis con cava bajo luces en una cena de Navidad" },
+  cumpleanos: { src: "/fotos/fiesta.jpeg", alt: "Celebración de cumpleaños con tarta y amigas aplaudiendo" },
+  cumpleanosFiesta: { src: "/fotos/cumpleanos.jpg", alt: "Grupo de amigos en una fiesta de cumpleaños bajo guirnaldas de luces" },
+  cumpleanosDeco: { src: "/fotos/cumpleanos-3.jpg", alt: "Mesa de cumpleaños con globos y tarta" },
+  empresas: { src: "/fotos/cena-de-empresa.jpg", alt: "Compañeros de trabajo brindando en una cena de empresa" },
+  despedidas: { src: "/fotos/fiesta.jpg", alt: "Grupo de amigas celebrando una despedida entre confeti" },
+  jubilaciones: { src: "/fotos/jubilacion-coruna.jpg", alt: "Compañeros celebrando una jubilación con regalo y confeti" },
+  jubilacionesBengalas: { src: "/fotos/fiesta-jubilacion-idea.jpg", alt: "Grupo con bengalas celebrando una fiesta de jubilación" },
+  privados: { src: "/fotos/eventos-privados.webp", alt: "Copas brindando entre confeti dorado en una fiesta privada" },
+  menus: { src: "/fotos/local.jpg", alt: "Grupo cenando en una mesa larga con vino y platos para compartir" },
+  canapes: { src: "/fotos/catering-3.jpg", alt: "Camarero sirviendo una bandeja de canapés" },
+  buffet: { src: "/fotos/catering.jpg", alt: "Mesa de catering de pie con embutidos, panes y quesos" },
+  // El local: fotos reales
+  local: { src: "/fotos/cena-salon.jpg", alt: "Salón con mesas de grupos durante una cena baile de Los7pc" },
 } satisfies Record<string, Foto>;
 
-export const GALERIA: Foto[] = [FOTOS.salon, FOTOS.baile, FOTOS.grupos, FOTOS.celebrando];
+/** Galería de "El local": solo fotos reales. */
+export const GALERIA: Foto[] = [FOTOS.salon, FOTOS.baileReal, FOTOS.grupos, FOTOS.celebrando];
+
+/** Mosaico de ambiente: mezcla de fotos reales y de ambiente. */
+export const MOSAICO: Foto[] = [FOTOS.fiesta, FOTOS.navidadBrindis, FOTOS.baileReal, FOTOS.jubilacionesBengalas];

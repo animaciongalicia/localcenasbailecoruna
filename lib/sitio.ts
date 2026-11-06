@@ -141,4 +141,11 @@ export const GRUPO = {
   ],
 } as const;
 
+/** Perfiles oficiales. Se usan en la web y en los datos estructurados (sameAs). */
+export const REDES = {
+  googleBusiness: "https://share.google/cUdnnVFQZdpbY6PlR",
+  facebook: "https://www.facebook.com/LocalDespedidasCoruna",
+  facebookFotos: "https://www.facebook.com/LocalDespedidasCoruna/photos",
+} as const;
+
 export const GOOGLE_SITE_VERIFICATION = "bJM1pCcura3K8PKgWS-vjTgBWO3ADOEBuOryLC1OpL8";

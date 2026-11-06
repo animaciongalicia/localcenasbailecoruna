@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FOTOS, type Foto } from "@/lib/fotos";
+import { FOTOS, GALERIA, MOSAICO, type Foto } from "@/lib/fotos";
 import { OCASIONES } from "@/lib/paginas";
 import type { Pregunta } from "@/lib/faq";
-import { CONTACTO, HISTORIA, MARCA, MENU, NOCHE, OFERTAS, SEDE } from "@/lib/sitio";
+import { CONTACTO, HISTORIA, MARCA, MENU, NOCHE, OFERTAS, REDES, SEDE } from "@/lib/sitio";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { IconoBaile, IconoCena, IconoFlecha, IconoMas, IconoShow, IconoTelefono, IconoUbicacion, IconoWhatsapp } from "./Iconos";
 
@@ -387,7 +387,7 @@ export function Argumentos({ ante, titulo, texto, puntos, oscura }: { ante: stri
 
 /* ── Mosaico de ambiente (fotos reales) ─────────────────────────────── */
 export function Ambiente() {
-  const [a, b, c, d] = [FOTOS.baile, FOTOS.celebrando, FOTOS.salon, FOTOS.grupos];
+  const [a, b, c, d] = MOSAICO;
   return (
     <section aria-label="Fotos de ambiente" className="bg-marfil pt-14 sm:pt-20">
       <div className="contenedor grid grid-cols-2 gap-3 sm:gap-4 lg:h-[520px] lg:grid-cols-4 lg:grid-rows-2">
@@ -398,5 +398,48 @@ export function Ambiente() {
         ))}
       </div>
     </section>
+  );
+}
+
+/* ── Banda de fotos (2 o 3) para dar color a cada página ───────────── */
+export function BandaFotos({ fotos }: { fotos: Foto[] }) {
+  return (
+    <section aria-label="Fotos" className="bg-marfil pt-14 sm:pt-20">
+      <ul className={`contenedor grid gap-3 sm:gap-4 ${fotos.length === 3 ? "grid-cols-2 lg:grid-cols-3" : "grid-cols-2"}`}>
+        {fotos.map((f, i) => (
+          <li key={f.src} className={`relative aspect-[4/3] overflow-hidden rounded-2xl bg-arena ${fotos.length === 3 && i === 0 ? "col-span-2 aspect-[16/9] lg:col-span-1 lg:aspect-[4/3]" : ""}`}>
+            <Image src={f.src} alt={f.alt} fill sizes="(min-width: 1024px) 380px, 50vw" className="object-cover" />
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+/* ── Prueba social: la comunidad de Facebook ───────────────────────── */
+export function PruebaSocial() {
+  return (
+    <Seccion oscura>
+      <div className="grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:items-center">
+        <div>
+          <p className="antetitulo">Miles de noches de fiesta</p>
+          <h2 className="titulo-seccion mt-3">Más de 2.500 personas siguen la fiesta en Facebook</h2>
+          <p className="entradilla">
+            Cumpleaños, despedidas, cenas de empresa y Navidades: años de fotos de grupos que vinieron a cenar y acabaron cerrando la pista. Échales un vistazo y decide si tu grupo encaja.
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <a href={REDES.facebookFotos} className="btn-principal" target="_blank" rel="noopener">Ver las fotos en Facebook</a>
+            <a href={REDES.facebook} className="btn-linea" target="_blank" rel="noopener">Seguir la página</a>
+          </div>
+        </div>
+        <ul className="grid grid-cols-2 gap-3">
+          {GALERIA.map((f) => (
+            <li key={f.src} className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-white/10">
+              <Image src={f.src} alt={f.alt} fill sizes="(min-width: 1024px) 300px, 50vw" className="object-cover" />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Seccion>
   );
 }

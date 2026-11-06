@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CtaFinal, Faq, Hero, ListaMenu, Migas, Seccion, Titulo } from "@/components/Bloques";
+import { BandaFotos, CtaFinal, Faq, Hero, ListaMenu, Migas, Seccion, Titulo } from "@/components/Bloques";
 import { JsonLdFaq, JsonLdMigas, JsonLdServicio } from "@/components/JsonLd";
 import { FAQ_PRECIOS } from "@/lib/faq";
 import { FOTOS } from "@/lib/fotos";
@@ -86,6 +86,7 @@ export default function MenusPrecios() {
         />
       </Seccion>
 
+      <BandaFotos fotos={[FOTOS.navidadMesa, FOTOS.canapes, FOTOS.buffet]} />
       <Faq preguntas={FAQ_PRECIOS} titulo="Dudas sobre el precio" />
       <CtaFinal />
       <JsonLdMigas nombre="Menús" ruta={RUTA} />

@@ -34,7 +34,7 @@ Documentación:
 | Menú de navegación y tarjetas de celebraciones | `lib/paginas.ts` |
 | Fotos | `public/fotos/`: sustituye el archivo **con el mismo nombre** (ver tabla de fotos) |
 | Texto de cada página | `app/<ruta>/page.tsx` |
-| Noticias (artículos) | `lib/noticias.ts`: copia un artículo, cambia `slug`, título, fecha y bloques |
+| Noticias (artículos) | `lib/noticias.ts` y `lib/posts-*.ts` · calendario en `docs/CALENDARIO-EDITORIAL.md` |
 
 Cambiar el precio en `OFERTAS.temporada.precio` lo actualiza en todas las páginas, en los datos estructurados
 y en la meta descripción. Navidad (`OFERTAS.navidad`) es independiente: no hereda el precio de temporada.
@@ -52,21 +52,12 @@ y en la meta descripción. Navidad (`OFERTAS.navidad`) es independiente: no here
 
 Haz commit y Vercel redespliega solo.
 
-## Fotos por celebración
-Cada página tiene su foto. Para cambiarla, sube a `public/fotos/` un archivo con **exactamente** este nombre
-(horizontal, mínimo 1200 px de ancho, menos de 500 KB; solo fotos reales con permiso de quien sale):
-
-| Archivo | Dónde sale |
-|---|---|
-| `navidad.jpg` | Cenas de empresa de Navidad, menú y tarjetas |
-| `cumpleanos.jpg` | Cumpleaños |
-| `empresas.jpg` | Cenas de empresa |
-| `despedidas.jpg` | Despedidas |
-| `jubilaciones.jpg` | Jubilaciones y aniversarios |
-| `eventos-privados.jpg` | Eventos privados |
-| `local.jpg` | El local |
-| `menus.jpg` | Menús |
-| `ambiente-baile.jpg`, `cena-salon.jpg`, `cena-grupos.jpg`, `grupo-celebrando.jpg` | Portada, galerías y ambiente |
+## Fotos
+Todas las fotos están en `public/fotos/` y se asignan en `lib/fotos.ts` (una línea por foto, con su texto alternativo).
+Para cambiar una, sustituye el archivo **con el mismo nombre** (horizontal, mínimo 1200 px de ancho, menos de 500 KB).
+- Las fotos de ambiente ilustran cada celebración; sus textos alternativos no dicen que sean del local ni de clientes.
+- En "El local" y en la sección de Facebook solo van **fotos reales** de las cenas (`ambiente-baile.jpg`, `cena-salon.jpg`,
+  `cena-grupos.jpg`, `grupo-celebrando.jpg`).
 
 ## Noticias
 Cada artículo vive en `lib/noticias.ts` como una lista de bloques (párrafo, subtítulo, lista, cita y llamada a la acción).

@@ -1,10 +1,10 @@
-import { POSTS } from "@/lib/noticias";
+import { postsOrdenados } from "@/lib/noticias";
 import { CELEBRACIONES_NAV } from "@/lib/paginas";
 import { CONTACTO, EXCLUSIVO, MARCA, MENU, NOCHE, OFERTAS, SEDE, SITE_URL } from "@/lib/sitio";
 
 // /llms.txt: resumen en texto plano para asistentes de IA (ChatGPT, Gemini, Perplexity…).
 // Se genera desde lib/sitio.ts, así que siempre coincide con la web.
-export const dynamic = "force-static";
+export const revalidate = 3600;
 
 export function GET() {
   const T = OFERTAS.temporada;
@@ -32,7 +32,7 @@ ${CELEBRACIONES_NAV.map((c) => `- [${c.texto}](${SITE_URL}${c.href}): ${c.descri
 - [Consultar disponibilidad](${SITE_URL}/reservas/)
 
 ## Noticias y guías
-${POSTS.map((p) => `- [${p.titulo}](${SITE_URL}/noticias/${p.slug}/): ${p.descripcion}`).join("\n")}
+${postsOrdenados().map((p) => `- [${p.titulo}](${SITE_URL}/noticias/${p.slug}/): ${p.descripcion}`).join("\n")}
 
 ## Contacto
 - WhatsApp y teléfono: ${CONTACTO.telefono}

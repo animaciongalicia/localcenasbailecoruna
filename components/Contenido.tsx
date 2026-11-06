@@ -83,7 +83,7 @@ export function Casos({ ante, titulo, texto, casos }: { ante: string; titulo: st
 
 /** Enlaces a artículos de Noticias relacionados con la página. */
 export function PostsRelacionados({ slugs, titulo = "Para leer antes de organizarlo" }: { slugs: string[]; titulo?: string }) {
-  const posts = postsPorSlug(slugs);
+  const posts = postsPorSlug(slugs).slice(0, 3);
   if (!posts.length) return null;
   return (
     <Seccion arena>
