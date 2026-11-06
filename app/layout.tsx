@@ -9,6 +9,7 @@ import AvisoNavidad from "@/components/AvisoNavidad";
 import Tracking from "@/components/Tracking";
 import CookieBanner from "@/components/CookieBanner";
 import { JsonLdOrganizacion } from "@/components/JsonLd";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const serif = Fraunces({ subsets: ["latin"], weight: ["600"], display: "swap", variable: "--font-serif" });
 const sans = Inter({ subsets: ["latin"], display: "swap", variable: "--font-sans" });
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <BarraMovil />
         <Tracking />
         <CookieBanner />
+        <SpeedInsights />
       </body>
     </html>
   );
