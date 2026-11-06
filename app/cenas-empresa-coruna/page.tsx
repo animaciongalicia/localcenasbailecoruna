@@ -11,7 +11,7 @@ const RUTA = "/cenas-empresa-coruna/";
 
 export const metadata = meta({
   titulo: "Cenas de empresa en A Coruña con show y baile · Los7pc",
-  descripcion: `Cenas y comidas de empresa en A Coruña con show cómico y DJ. En el ${SEDE.nombre} o en vuestras instalaciones, de 6 personas a toda la plantilla.`,
+  descripcion: `Cenas de empresa en A Coruña todo el año: cena, show cómico y DJ en el ${SEDE.nombre} o en vuestras instalaciones. También comidas de empresa.`,
   ruta: RUTA,
   imagen: FOTOS.empresas.src,
 });
@@ -22,14 +22,14 @@ export default function Empresas() {
       <Migas actual="Cenas de empresa" />
       <Hero
         antetitulo="Empresas · A Coruña"
-        titulo="Cenas y comidas de empresa con show y baile en A Coruña"
+        titulo="Cenas de empresa en A Coruña con show y baile"
         texto="La cena de equipo que no se queda en el postre. Cena, una hora de humor y pista de baile, con una sola persona de contacto para todo."
         foto={FOTOS.empresas}
         ctaSecundario={{ href: "/reservas/?modalidad=medida&celebracion=empresa", texto: "Pedir propuesta para mi empresa" }}
       />
 
       <Prosa ante="Para quien organiza en la empresa" titulo="Organizar la cena de empresa no debería ser otro proyecto">
-        <p>Si te ha tocado organizar la cena del equipo, ya sabes lo que viene: encuestas de fechas, menús que no convencen a nadie y la eterna pregunta de las doce y media: «¿y ahora a dónde vamos?».</p>
+        <p>Las <strong>cenas de empresa en A Coruña</strong> suelen tener el mismo guion. Si te ha tocado organizar la del equipo, ya sabes lo que viene: encuestas de fechas, menús que no convencen a nadie y la eterna pregunta de las doce y media: «¿y ahora a dónde vamos?».</p>
         <p><strong>Aquí el plan viene completo.</strong> Cena con bebida, una hora de show cómico que rompe el hielo entre departamentos y DJ hasta las tres. Quien quiere cenar y charlar, cena. Quien quiere bailar, baila. Y nadie tiene que montar el después.</p>
         <p>Para equipos pequeños, la cena con otros grupos da un ambiente que una mesa de ocho no consigue sola. Para la plantilla entera, la opción en exclusiva: <strong>cualquier día del año, en comida o en cena, en el {SEDE.nombre}, en otro espacio o en vuestras instalaciones.</strong></p>
       </Prosa>
@@ -53,7 +53,7 @@ export default function Empresas() {
 
       <Pasos
         ante="Paso a paso"
-        titulo="Cómo organizar una cena de empresa que la gente quiera repetir"
+        titulo="Cómo organizar cenas de empresa que la gente quiera repetir"
         pasos={[
           { t: "Fecha: propón dos, no diez", d: "Un viernes y una alternativa. Las encuestas abiertas solo generan debate." },
           { t: "Número aproximado", d: "Con «somos unos 20» ya se puede consultar. El número final se cierra después." },

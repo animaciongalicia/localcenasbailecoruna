@@ -10,8 +10,8 @@ const RUTA = "/cenas-despedidas-coruna/";
 const T = OFERTAS.temporada;
 
 export const metadata = meta({
-  titulo: "Cena de despedida en A Coruña con show y fiesta · Los7pc",
-  descripcion: `Cena de despedida de soltero o soltera en A Coruña: cena con bebida, show cómico y DJ hasta las 3, con otros grupos de celebración.`,
+  titulo: "Despedidas de soltera y soltero en Coruña · Los7pc",
+  descripcion: `Despedidas de soltera y de soltero en A Coruña: cena con bebida, show cómico y DJ hasta las 3 en el ${SEDE.nombre}, con otros grupos de fiesta.`,
   ruta: RUTA,
   imagen: FOTOS.despedidas.src,
 });
@@ -22,20 +22,20 @@ export default function Despedidas() {
       <Migas actual="Despedidas" />
       <Hero
         antetitulo={`Despedidas · temporada ${T.temporada}`}
-        titulo="Cena de despedida en A Coruña, con show y fiesta hasta las tres"
+        titulo="Despedidas de soltera y soltero en A Coruña: cena, show y fiesta"
         texto="La parte de la noche, resuelta: cena con bebida, show cómico y baile con otros grupos que también vienen a darlo todo. Sin cambiar de local a medianoche."
         foto={FOTOS.despedidas}
       />
 
-      <Prosa ante="Cenas de despedida de soltero y soltera" titulo="La noche que el grupo necesita (y que el organizador agradece)">
-        <p>Una despedida tiene dos momentos críticos: dónde cenar todos juntos y dónde seguir después sin perder a la mitad por el camino. <strong>Aquí son el mismo sitio.</strong></p>
+      <Prosa ante="Despedidas en A Coruña" titulo="La noche de la despedida de soltera o de soltero, resuelta">
+        <p>Da igual que sea una <strong>despedida de soltera</strong>, una <strong>despedida de soltero</strong> o mixta: tiene dos momentos críticos: dónde cenar todos juntos y dónde seguir después sin perder a la mitad por el camino. <strong>Aquí son el mismo sitio.</strong></p>
         <p>Cenáis en vuestra mesa, el show cómico pone a todo el mundo en modo fiesta y el DJ hace el resto hasta las tres. Y como compartís sala con otras despedidas, cumpleaños y cuadrillas, el ambiente viene hecho desde el primer minuto.</p>
         <p>Más de quince años organizando cenas de despedida en A Coruña dan para saber una cosa: <strong>lo que se recuerda no es el menú, es la noche.</strong></p>
       </Prosa>
 
       <BandaFotos fotos={[FOTOS.baile, FOTOS.cumpleanosFiesta, FOTOS.celebrando]} />
 
-      <Incluye titulo="Qué incluye la cena de despedida" />
+      <Incluye titulo="Qué incluye la noche de despedida" />
 
       <Pasos
         ante="Para el que organiza la despedida"

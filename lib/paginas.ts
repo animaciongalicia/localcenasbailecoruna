@@ -23,12 +23,12 @@ export const NAV: (Enlace & { hijos?: Enlace[]; destacado?: boolean })[] = [
 
 /** Tarjetas con foto de "¿Qué celebráis?". Navidad primero mientras esté destacada. */
 export const OCASIONES = [
-  { href: "/cenas-navidad-coruna/", titulo: "Navidad en la empresa", texto: "La cena de empresa de Navidad que el equipo sí quiere.", foto: FOTOS.navidad, navidad: true },
-  { href: "/cumpleanos-coruna/", titulo: "Cumpleaños", texto: "Cena con tu gente y fiesta hasta las tres. Sin montar nada en casa.", foto: FOTOS.cumpleanos },
-  { href: "/cenas-empresa-coruna/", titulo: "Empresas", texto: "Un plan que funciona para todo el equipo, de 6 a muchos más.", foto: FOTOS.empresas },
-  { href: "/cenas-despedidas-coruna/", titulo: "Despedidas", texto: "Cena, show cómico y baile. La parte de la noche, resuelta.", foto: FOTOS.despedidas },
-  { href: "/jubilaciones-coruna/", titulo: "Jubilaciones", texto: "Despedir a un compañero como se merece. Y aniversarios, reencuentros…", foto: FOTOS.jubilaciones },
-  { href: "/eventos-privados-coruna/", titulo: "Evento privado", texto: "Solo tu grupo, cualquier día: en Oza, en otro espacio o en tu local.", foto: FOTOS.privados },
+  { href: "/cenas-navidad-coruna/", titulo: "Cenas de empresa de Navidad", texto: "La cena de empresa de Navidad que el equipo sí quiere.", foto: FOTOS.navidad, navidad: true },
+  { href: "/cumpleanos-coruna/", titulo: "Cumpleaños de adultos", texto: "Cena con tu gente y fiesta hasta las tres. Sin montar nada en casa.", foto: FOTOS.cumpleanos },
+  { href: "/cenas-empresa-coruna/", titulo: "Cenas de empresa", texto: "Un plan que funciona para todo el equipo, de 6 a muchos más.", foto: FOTOS.empresas },
+  { href: "/cenas-despedidas-coruna/", titulo: "Despedidas de soltera y soltero", texto: "Cena, show cómico y baile. La parte de la noche, resuelta.", foto: FOTOS.despedidas },
+  { href: "/jubilaciones-coruna/", titulo: "Fiestas de jubilación", texto: "Despedir a un compañero como se merece. Y aniversarios, reencuentros…", foto: FOTOS.jubilaciones },
+  { href: "/eventos-privados-coruna/", titulo: "Fiestas privadas", texto: "Solo tu grupo, cualquier día: en Oza, en otro espacio o en tu local.", foto: FOTOS.privados },
 ].sort((a, b) => (OFERTAS.navidad.destacada ? Number(!!b.navidad) - Number(!!a.navidad) : Number(!!a.navidad) - Number(!!b.navidad)));
 
 export const LEGALES: Enlace[] = [

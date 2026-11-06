@@ -53,7 +53,7 @@ export default function MenusPrecios() {
       <Migas actual="Menús" />
       <Hero
         antetitulo={`Menús · Navidad ${N.anio} y temporada ${T.anio}`}
-        titulo="Menús para Navidad, empresas y celebraciones"
+        titulo="Menús para cenas de Navidad, empresas y celebraciones en A Coruña"
         texto="Lo que se cena, lo que se bebe y lo que cuesta. Primero, la campaña de Navidad que está en marcha; después, las opciones a medida y la cena baile de la próxima temporada."
         foto={FOTOS.navidad}
         ctaPrincipal={{ href: "#navidad", texto: `Menú de Navidad ${N.anio}` }}
@@ -116,7 +116,7 @@ export default function MenusPrecios() {
       {/* 2 · OTRAS OPCIONES: previa consulta */}
       <Seccion id="opciones" arena>
         <div className="max-w-2xl">
-          <Titulo ante="Previa consulta · todo el año" titulo="Catering de pie, menús a medida y otras opciones" texto="Si buscáis otro formato, se prepara a vuestra medida. Cuéntame la idea, la fecha y cuántos sois, y te paso propuesta y presupuesto cerrado por escrito." />
+          <Titulo ante="Previa consulta · todo el año" titulo="Catering de pie en A Coruña, menús a medida y otras opciones" texto="Si buscáis otro formato, se prepara a vuestra medida. Cuéntame la idea, la fecha y cuántos sois, y te paso propuesta y presupuesto cerrado por escrito." />
         </div>
         <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {OPCIONES.map((o) => (

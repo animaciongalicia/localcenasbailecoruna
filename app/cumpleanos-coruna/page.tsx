@@ -11,7 +11,7 @@ const RUTA = "/cumpleanos-coruna/";
 
 export const metadata = meta({
   titulo: "Dónde celebrar un cumpleaños de adultos en A Coruña · Los7pc",
-  descripcion: `Celebra tu cumpleaños (30, 40, 50…) en A Coruña con cena, show cómico y DJ hasta las 3. Con otros grupos o en exclusiva para tus invitados.`,
+  descripcion: `Sitio para celebrar cumpleaños de adultos en A Coruña: 30, 40, 50 o 60 años con cena, show cómico y DJ hasta las 3. Con otros grupos o en exclusiva.`,
   ruta: RUTA,
   imagen: FOTOS.cumpleanos.src,
 });
@@ -29,7 +29,7 @@ export default function Cumpleanos() {
       <Migas actual="Cumpleaños" />
       <Hero
         antetitulo="Cumpleaños de adultos en A Coruña"
-        titulo="Celebra tu cumpleaños en A Coruña con cena, show y baile"
+        titulo="Cumpleaños de adultos en A Coruña, con cena, show y baile"
         texto="Tú pones a la gente. La cena, las risas y la pista de baile ya están montadas. Sin cocinar, sin recoger y sin buscar dónde seguir la fiesta."
         foto={FOTOS.cumpleanosFiesta}
       />

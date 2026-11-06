@@ -8,7 +8,7 @@ import { SEDE } from "@/lib/sitio";
 
 export const metadata = meta({
   titulo: "Cena baile en A Coruña con show y DJ hasta las 3 · Los7pc",
-  descripcion: `Cenas baile para grupos en A Coruña: cena, show cómico y DJ hasta las 3 en el ${SEDE.nombre}. Cumpleaños, empresas, despedidas y más.`,
+  descripcion: `Restaurante de cena baile en A Coruña: cena, show cómico y DJ hasta las 3 en el ${SEDE.nombre}. Para cumpleaños, empresas, despedidas y grupos.`,
   ruta: "/",
   imagen: FOTOS.baile.src,
 });

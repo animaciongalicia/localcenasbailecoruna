@@ -30,6 +30,7 @@ function Esencial() {
         ))}
       </ul>
       <Link href="/reservas/" className="btn-principal mt-7 w-full">Consultar disponibilidad</Link>
+      <Link href="/" className="mt-4 block text-center text-sm font-semibold text-oro underline-offset-4 hover:underline">Cómo es la cena baile en A Coruña</Link>
     </aside>
   );
 }

@@ -11,7 +11,7 @@ const FAQ = FAQ_HOME.filter((q) => !/aparcar/.test(q.p));
 
 export const metadata = meta({
   titulo: "Local de celebraciones en A Coruña con show · Los7pc",
-  descripcion: `Cumpleaños, empresas, Navidad, despedidas, jubilaciones y eventos privados en A Coruña: cena, show cómico y DJ hasta las 3.`,
+  descripcion: `Local de celebraciones en A Coruña para cumpleaños, empresas, Navidad, despedidas y jubilaciones: cena, show cómico y DJ hasta las 3.`,
   ruta: RUTA,
   imagen: FOTOS.brindis.src,
 });
@@ -30,7 +30,7 @@ export default function Celebraciones() {
 
       <Prosa ante="Salón de celebraciones con fiesta" titulo="Por qué funciona para cualquier celebración">
         <p>Da igual que sea el cumpleaños de tu madre, la cena de la oficina o la despedida de tu mejor amigo. <strong>Lo que hace buena una celebración es lo mismo:</strong> comer bien, reírse juntos y acabar la noche sin que nadie tenga que decidir «a dónde vamos ahora».</p>
-        <p>Por eso la noche está montada de principio a fin: cena con bebida, una hora de show cómico que rompe el hielo y DJ con música para distintas generaciones hasta las tres. En el {SEDE.nombre}, compartiendo ambiente con otros grupos, o en exclusiva, el día y en el sitio que elijáis.</p>
+        <p>Si buscas <strong>locales para eventos en Coruña</strong> donde no tengas que montar nada, aquí la noche está hecha de principio a fin: cena con bebida, una hora de show cómico que rompe el hielo y DJ con música para distintas generaciones hasta las tres. En el {SEDE.nombre}, compartiendo ambiente con otros grupos, o en exclusiva, el día y en el sitio que elijáis.</p>
       </Prosa>
 
       <BandaFotos fotos={[FOTOS.cumpleanos, FOTOS.jubilaciones, FOTOS.navidadBrindis]} />

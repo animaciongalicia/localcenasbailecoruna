@@ -68,7 +68,7 @@ export function Titulo({ ante, titulo, texto, as: H = "h2" }: { ante?: string; t
 }
 
 /* ── Qué incluye ────────────────────────────────────────────────────── */
-export function Incluye({ id = "experiencia", titulo = "Una noche completa, sin que tengas que organizar nada" }: { id?: string; titulo?: string }) {
+export function Incluye({ id = "experiencia", titulo = "Qué incluye la cena baile" }: { id?: string; titulo?: string }) {
   const items = [
     { Icono: IconoCena, t: "Cena sentada", d: "Menú completo con bebida durante la cena: vino, sangría, refrescos y cerveza." },
     { Icono: IconoShow, t: "Show cómico", d: "Una hora de humor con el público, de medianoche a la una." },

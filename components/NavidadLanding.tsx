@@ -134,9 +134,10 @@ export default function NavidadLanding({ variante }: { variante: Variante }) {
           </div>
         }
       >
-        <p>Te voy a decir la verdad: la mayoría de las cenas de empresa se parecen. Restaurante de siempre, menú de siempre, el jefe con su discurso y, a la una, el camarero recogiendo sillas mientras el grupo se divide en tres bares.</p>
+        <p>Si estás buscando <strong>cenas de Navidad en Coruña</strong> para tu empresa, te voy a decir la verdad: la mayoría se parecen. Restaurante de siempre, menú de siempre, el jefe con su discurso y, a la una, el camarero recogiendo sillas mientras el grupo se divide en tres bares.</p>
         <p>Y es una pena, <strong>porque la cena de Navidad es la única noche del año en la que el equipo se ve sin el trabajo de por medio</strong>. Es cuando el de administración descubre que el de almacén es un crack en la pista. Cuando el fichaje nuevo deja de serlo.</p>
         <p>Por eso aquí la noche está montada de principio a fin: cenáis en vuestra mesa, os reís una hora con el show y el DJ se encarga del resto hasta las tres. <strong>Nadie tiene que decidir «a dónde vamos ahora».</strong> Tú solo tienes que poner la fecha y el número de personas.</p>
+        <p>¿Lo buscáis para otro momento del año? También organizamos <Link href="/cenas-empresa-coruna/" className="enlace">cenas de empresa en A Coruña</Link> de abril a septiembre y en exclusiva cuando queráis.</p>
       </Prosa>
 
       <BandaFotos fotos={[FOTOS.navidadMesa, FOTOS.navidadBrindis, FOTOS.empresas]} />
@@ -190,7 +191,7 @@ export default function NavidadLanding({ variante }: { variante: Variante }) {
 
       <Seccion>
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-          <Titulo ante="El menú" titulo="Se cena bien. Luego ya se verá." texto="Cocina gallega para grupos y la bebida de la cena incluida. El precio por persona, en la página de Menús." />
+          <Titulo ante="Menú de la cena baile de Navidad" titulo="Se cena bien. Luego ya se verá." texto="Cocina gallega para grupos y la bebida de la cena incluida. El precio por persona, en la página de Menús." />
           <div className="tarjeta p-6 sm:p-8"><ListaMenu /></div>
         </div>
       </Seccion>

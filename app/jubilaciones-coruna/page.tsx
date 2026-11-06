@@ -27,7 +27,7 @@ export default function Celebraciones() {
       />
 
       <Prosa ante="Celebrar una jubilación" titulo="Treinta años de trabajo no se despiden con un café y una tarjeta">
-        <p>Una jubilación es de esas fechas que solo pasan una vez. Y casi siempre la organiza un compañero que no ha hecho esto nunca, con poco tiempo y mucha gente a la que contentar: jefes, compañeros de hoy, compañeros de antes y la familia.</p>
+        <p><strong>Celebrar una jubilación</strong> es de esas cosas que solo pasan una vez. Y casi siempre la organiza un compañero que no ha hecho esto nunca, con poco tiempo y mucha gente a la que contentar: jefes, compañeros de hoy, compañeros de antes y la familia.</p>
         <p><strong>La fórmula que funciona es sencilla:</strong> una buena comida o cena, un momento para las palabras y el regalo, una hora de humor para que todo el mundo se relaje y música para distintas generaciones. Ni discursos eternos ni tardes que se apagan a las seis.</p>
         <p>Podéis uniros a una cena baile con otros grupos en el {SEDE.nombre} o hacerlo en exclusiva, <strong>cualquier día del año, en comida o en cena</strong>, en Oza, en otro espacio o en la propia empresa.</p>
       </Prosa>

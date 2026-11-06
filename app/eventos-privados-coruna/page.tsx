@@ -9,8 +9,8 @@ import { EXCLUSIVO, MENU, SEDE, SITE_URL } from "@/lib/sitio";
 const RUTA = "/eventos-privados-coruna/";
 
 export const metadata = meta({
-  titulo: "Fiestas privadas en A Coruña con cena, DJ y show · Los7pc",
-  descripcion: `Fiesta privada solo para tu grupo: comida o cena, DJ, show y baile. En el ${SEDE.nombre}, en otro espacio o en tu local, cualquier día del año.`,
+  titulo: "Local para fiestas privadas en A Coruña · Los7pc",
+  descripcion: `Local para fiestas privadas en A Coruña: comida o cena, DJ, show y baile solo para tu grupo, en el ${SEDE.nombre}, en otro espacio o en tu local.`,
   ruta: RUTA,
   imagen: FOTOS.privados.src,
 });
@@ -44,7 +44,7 @@ export default function EventosPrivados() {
       <Migas actual="Eventos privados" />
       <Hero
         antetitulo="Eventos privados · A Coruña"
-        titulo="Tu fiesta privada, con cena, DJ y show solo para tu grupo"
+        titulo="Local para fiestas privadas en A Coruña, con cena, DJ y show"
         texto={`La noche que funciona en el ${SEDE.nombre} desde hace temporadas, en exclusiva para vosotros. ${EXCLUSIVO.cuando}: en Oza, en otro espacio o en vuestro propio local.`}
         foto={FOTOS.privados}
         ctaPrincipal={{ href: "/reservas/?modalidad=medida", texto: "Pedir propuesta" }}
@@ -75,7 +75,7 @@ export default function EventosPrivados() {
 
       <Argumentos
         ante="Por qué en exclusiva"
-        titulo="Para cuando la celebración es solo vuestra"
+        titulo="Por qué hacer una fiesta privada en exclusiva"
         texto="Hay fiestas que piden la sala para vosotros: un cumpleaños redondo, una jubilación con discursos o la empresa entera."
         puntos={[
           { t: "Cualquier día del año", d: "No dependes de la temporada de abril a septiembre. Entre semana, fin de semana, mediodía o noche." },
