@@ -63,21 +63,31 @@ export default function Cabecera() {
           <ul className="flex items-center gap-1">
             {NAV.map((item) =>
               item.hijos ? (
-                <li key={item.href} className="relative" ref={ref}>
+                <li
+                  key={item.href}
+                  className="relative flex items-center"
+                  ref={ref}
+                  onMouseEnter={() => setDesplegable(true)}
+                  onMouseLeave={() => setDesplegable(false)}
+                >
+                  <Link href={item.href} aria-current={activo(item.href)} className={`${base} pr-1 ${enCelebraciones ? subrayado : ""}`}>
+                    {item.texto}
+                  </Link>
                   <button
                     type="button"
                     aria-expanded={desplegable}
                     aria-controls="menu-celebraciones"
+                    aria-label="Ver tipos de celebración"
                     onClick={() => setDesplegable((v) => !v)}
-                    className={`${base} ${enCelebraciones ? subrayado : ""}`}
+                    className="flex h-9 w-8 items-center justify-center rounded-full text-tinta hover:bg-arena hover:text-acento"
                   >
-                    {item.texto}
                     <IconoAbajo className={`h-4 w-4 transition-transform ${desplegable ? "rotate-180" : ""}`} />
                   </button>
                   <div
                     id="menu-celebraciones"
-                    className={`absolute left-1/2 top-full mt-3 w-[620px] -translate-x-1/2 rounded-3xl border border-linea bg-white p-3 shadow-2xl ${desplegable ? "block" : "hidden"}`}
+                    className={`absolute left-1/2 top-full w-[620px] -translate-x-1/2 pt-3 ${desplegable ? "block" : "hidden"}`}
                   >
+                    <div className="rounded-3xl border border-linea bg-white p-3 shadow-2xl">
                     <ul className="grid grid-cols-2 gap-1">
                       {item.hijos.map((h) => (
                         <li key={h.href}>
@@ -99,6 +109,7 @@ export default function Cabecera() {
                       Ver todas las celebraciones
                       <IconoFlecha className="h-5 w-5 text-oro" />
                     </Link>
+                    </div>
                   </div>
                 </li>
               ) : item.destacado ? (

@@ -1,20 +1,49 @@
 import Link from "next/link";
+import { SEDE } from "@/lib/sitio";
+import { IconoBaile, IconoCena, IconoShow, IconoUbicacion } from "./Iconos";
 import { Seccion, Titulo } from "./Bloques";
 import { IconoFlecha } from "./Iconos";
 import { postsPorSlug } from "@/lib/noticias";
 
 /* Bloques de contenido editorial: texto que responde dudas reales y posiciona. */
 
-/** Texto largo con titular. Los párrafos admiten **negrita** mínima vía <strong> en el JSX del llamador. */
+/** Tarjeta lateral por defecto: lo esencial de la noche, de un vistazo. */
+function Esencial() {
+  const items = [
+    { Icono: IconoCena, t: "Cena con bebida", d: "Cena sentada; vino, sangría, refrescos y cerveza durante la cena." },
+    { Icono: IconoShow, t: "Show cómico", d: "Una hora de humor con el público, de 00:00 a 01:00." },
+    { Icono: IconoBaile, t: "DJ hasta las 3", d: "Música para distintas generaciones y pista hasta el final." },
+    { Icono: IconoUbicacion, t: SEDE.nombre, d: "Junto a la playa de Oza, con aparcamiento. O en exclusiva donde quieras." },
+  ];
+  return (
+    <aside className="oscuro rounded-3xl bg-noche p-6 text-marfil shadow-xl sm:p-8">
+      <p className="antetitulo">La noche, en corto</p>
+      <ul className="mt-5 space-y-5">
+        {items.map(({ Icono, t, d }) => (
+          <li key={t} className="flex gap-4">
+            <Icono className="h-8 w-8 shrink-0 text-oro" />
+            <span>
+              <span className="block font-semibold text-marfil">{t}</span>
+              <span className="block text-sm leading-relaxed text-marfil/70">{d}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+      <Link href="/reservas/" className="btn-principal mt-7 w-full">Consultar disponibilidad</Link>
+    </aside>
+  );
+}
+
+/** Texto largo con titular. A la derecha, la tarjeta que se pase o, por defecto, lo esencial de la noche. */
 export function Prosa({ id, ante, titulo, children, arena, aside }: { id?: string; ante?: string; titulo: string; children: React.ReactNode; arena?: boolean; aside?: React.ReactNode }) {
   return (
     <Seccion id={id} arena={arena}>
-      <div className={aside ? "grid gap-10 lg:grid-cols-[1.5fr_1fr] lg:items-start" : ""}>
-        <div className="max-w-prosa">
+      <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr] lg:items-start lg:gap-14">
+        <div>
           <Titulo ante={ante} titulo={titulo} />
           <div className="mt-6 space-y-4 text-lg leading-relaxed text-tinta-suave [&_strong]:text-tinta">{children}</div>
         </div>
-        {aside}
+        {aside ?? <Esencial />}
       </div>
     </Seccion>
   );

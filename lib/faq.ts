@@ -110,13 +110,14 @@ export const FAQ_CELEBRACIONES: Pregunta[] = [
 ];
 
 export const FAQ_PRECIOS: Pregunta[] = [
+  { p: `¿Cuánto cuesta la cena de Navidad ${N.anio}?`, r: `${N.precio} € por persona, con cena, bebida durante la cena, show cómico y DJ hasta las 3. Se confirma con una señal de ${N.senal} € por persona; el resto se paga el día del evento.` },
+  { p: "¿Hay catering de pie?", r: "Sí, previa consulta. Es ideal para grupos grandes o eventos de empresa: picoteo variado para moverse, charlar y bailar. Se presupuesta según el número de personas y lo que queráis incluir." },
+  { p: "¿Se puede cambiar el menú?", r: "En las noches con otros grupos el menú es el mismo para todos, con opción vegetariana, vegana y adaptación a alergias. En los eventos en exclusiva, el menú se adapta a vuestro grupo." },
   {
-    p: "¿Cuánto cuesta y qué incluye?",
-    r: `La cena baile con otros grupos de la temporada ${T.anio} (${T.temporada}) cuesta ${T.precio} € por persona, IVA incluido. Incluye cena sentada, bebida durante la cena, show cómico y DJ con baile hasta las 3.`,
+    p: `¿Cuánto cuesta la cena baile de la temporada ${T.anio}?`,
+    r: `La cena baile con otros grupos (${T.temporada}) cuesta ${T.precio} € por persona, IVA incluido. Incluye cena sentada, bebida durante la cena, show cómico y DJ con baile hasta las 3.`,
   },
   copas,
-  { p: "¿El precio lleva IVA?", r: `Sí. Los ${T.precio} € por persona son IVA incluido.` },
-  { p: "¿Cuánto cuesta la cena de Navidad?", r: `Navidad es una campaña aparte: ${N.precio} € por persona en ${N.anio}, con señal de ${N.senal} € por persona para confirmar la mesa.` },
   { p: "¿Y un evento en exclusiva?", r: "Presupuesto personalizado según fecha, número de personas, comida y lugar. Te lo paso cerrado antes de confirmar." },
   dietas,
   consulta,

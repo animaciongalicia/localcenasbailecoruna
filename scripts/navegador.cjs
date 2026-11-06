@@ -69,11 +69,12 @@ const ok = (c, m) => { if (!c) fallos++; console.log(c ? "✓" : "✗", m); };
   await d.goto(BASE + "/", { waitUntil: "load" });
   await d.keyboard.press("Tab"); // salto al contenido
   ok((await d.evaluate(() => document.activeElement?.textContent || "")).includes("Saltar"), "primer Tab: enlace 'Saltar al contenido'");
-  await d.getByRole("button", { name: "Celebraciones" }).focus();
+  await d.getByRole("button", { name: "Ver tipos de celebración" }).focus();
   await d.keyboard.press("Enter");
   ok(await d.locator("#menu-celebraciones").isVisible(), "desplegable Celebraciones operable con teclado");
   await d.keyboard.press("Escape");
   ok(!(await d.locator("#menu-celebraciones").isVisible()), "Escape cierra el desplegable");
+  ok((await d.locator('nav[aria-label="Principal"]').getByRole("link", { name: "Celebraciones", exact: true }).getAttribute("href")) === "/celebraciones-coruna/", "«Celebraciones» del menú lleva a su página");
   await d.getByRole("button", { name: "Rechazar" }).click();
   const gtagCargado = await d.evaluate(() => [...document.scripts].some((s) => s.src.includes("googletagmanager")));
   ok(!gtagCargado, "tras rechazar cookies no se carga Google");
