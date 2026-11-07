@@ -29,7 +29,8 @@ export const FAQ_NAVIDAD: Pregunta[] = [
 ];
 
 function JsonLdEventos() {
-  // Solo noches confirmadas y visibles en la página. Sin precio (los importes viven en /menus-precios/).
+  // Solo noches confirmadas y visibles en la página. El precio va solo en los datos estructurados
+  // (Google pide "offers"); en el texto visible sigue viviendo únicamente en /menus-precios/, donde apunta la oferta.
   const eventos = getConfirmadas().map((f) => {
     const [y, m, d] = f.fecha.split("-").map(Number);
     const fin = new Date(Date.UTC(y, m - 1, d + 1)).toISOString().slice(0, 10);
@@ -45,6 +46,15 @@ function JsonLdEventos() {
       location: { "@type": "Place", name: SEDE.nombre, address: { "@type": "PostalAddress", streetAddress: SEDE.direccion, addressLocality: SEDE.ciudad, addressCountry: "ES" } },
       image: [`${SITE_URL}${FOTOS.navidad.src}`],
       organizer: { "@id": ORG_ID },
+      performer: { "@type": "PerformingGroup", name: "Los7pc · show cómico y DJ" },
+      offers: {
+        "@type": "Offer",
+        price: N.precio,
+        priceCurrency: N.moneda,
+        availability: f.completa ? "https://schema.org/SoldOut" : "https://schema.org/InStock",
+        validFrom: "2026-10-01T00:00:00+02:00",
+        url: `${SITE_URL}/menus-precios/#navidad`,
+      },
       url: `${SITE_URL}${RUTA_NAVIDAD}`,
     };
   });

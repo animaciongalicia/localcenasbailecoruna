@@ -2,7 +2,7 @@ import { FOTOS } from "./fotos";
 import type { Post } from "./noticias";
 
 // Bloque 1 del calendario editorial: Navidad y empresas (noviembre).
-// 2–3 por semana (lunes y jueves), del 9 de noviembre al 17 de diciembre: todo antes de la última noche (19 dic).
+// Acelerado (decisión de Pablo, 7 nov): todo publicado entre el 7 y el 14 de noviembre, en plena campaña de reservas.
 // Cada artículo ataca una búsqueda de cola larga distinta y enlaza a la página de venta
 // con un texto natural, sin competir con su palabra clave principal.
 
@@ -12,7 +12,7 @@ export const POSTS_NAVIDAD: Post[] = [
     titulo: "12 ideas para la cena de empresa de Navidad que no sean «el restaurante de siempre»",
     descripcion: "Ideas para una cena de Navidad de empresa distinta en A Coruña: formatos, detalles y trucos para que el equipo hable de ella hasta enero.",
     categoria: "Empresas",
-    fecha: "2026-11-09",
+    fecha: "2026-11-07",
     lectura: 6,
     foto: FOTOS.navidad,
     bloques: [
@@ -54,7 +54,7 @@ export const POSTS_NAVIDAD: Post[] = [
     titulo: "Juegos para animar una cena de empresa (sin que nadie haga el ridículo)",
     descripcion: "Juegos sencillos para una cena de empresa o de Navidad: rompehielos, juegos de mesa y retos que conectan al equipo sin incomodar a nadie.",
     categoria: "Empresas",
-    fecha: "2026-11-12",
+    fecha: "2026-11-07",
     lectura: 6,
     foto: FOTOS.empresas,
     bloques: [
@@ -92,7 +92,7 @@ export const POSTS_NAVIDAD: Post[] = [
     titulo: "Cómo animar una cena de empresa: 10 trucos de quien lleva 15 años viéndolas",
     descripcion: "Trucos prácticos para que una cena de empresa no se apague a la una: mesas, tiempos, música, discurso y el momento exacto para el baile.",
     categoria: "Empresas",
-    fecha: "2026-11-16",
+    fecha: "2026-11-08",
     lectura: 6,
     foto: FOTOS.fiesta,
     bloques: [
@@ -132,7 +132,7 @@ export const POSTS_NAVIDAD: Post[] = [
     titulo: "¿Comida o cena de empresa? Cómo elegir según tu equipo",
     descripcion: "Ventajas e inconvenientes de la comida y la cena de empresa, y cómo decidir según turnos, familias, presupuesto y ganas de fiesta.",
     categoria: "Empresas",
-    fecha: "2026-11-19",
+    fecha: "2026-11-09",
     lectura: 5,
     foto: FOTOS.menus,
     bloques: [
@@ -167,7 +167,7 @@ export const POSTS_NAVIDAD: Post[] = [
     titulo: "Amigo invisible en la empresa: reglas, presupuesto e ideas de regalo",
     descripcion: "Cómo organizar el amigo invisible de la oficina sin dramas: sorteo, presupuesto, reglas de buen gusto e ideas de regalo que hacen gracia.",
     categoria: "Empresas",
-    fecha: "2026-11-23",
+    fecha: "2026-11-10",
     lectura: 5,
     foto: FOTOS.navidadMesa,
     bloques: [
@@ -202,7 +202,7 @@ export const POSTS_NAVIDAD: Post[] = [
     titulo: "El discurso del jefe en la cena de Navidad: cómo hacerlo corto y que funcione",
     descripcion: "Guía rápida para el discurso de la cena de empresa de Navidad: duración, estructura, qué decir, qué evitar y un ejemplo listo para adaptar.",
     categoria: "Empresas",
-    fecha: "2026-11-26",
+    fecha: "2026-11-10",
     lectura: 5,
     foto: FOTOS.brindis,
     bloques: [
@@ -237,7 +237,7 @@ export const POSTS_NAVIDAD: Post[] = [
     titulo: "Cena de empresa con clientes: cómo convertirla en algo que recuerden",
     descripcion: "Ideas para una cena o evento de agradecimiento con clientes y proveedores: formato, tono, detalles y cómo hacerlo memorable sin que parezca una reunión.",
     categoria: "Empresas",
-    fecha: "2026-11-30",
+    fecha: "2026-11-11",
     lectura: 5,
     foto: FOTOS.navidadBrindis,
     bloques: [
@@ -273,7 +273,7 @@ export const POSTS_NAVIDAD: Post[] = [
     titulo: "Cena de Navidad con amigos en Coruña: cómo organizar a la cuadrilla",
     descripcion: "Cómo organizar la cena de Navidad de la cuadrilla en A Coruña: fecha, sitio, dinero, amigo invisible y cómo conseguir que vengan todos.",
     categoria: "Novedades",
-    fecha: "2026-12-03",
+    fecha: "2026-11-12",
     lectura: 5,
     foto: FOTOS.navidadBrindis,
     bloques: [
@@ -310,7 +310,7 @@ export const POSTS_NAVIDAD: Post[] = [
     titulo: "Qué ponerse para la cena de empresa de Navidad (sin pasarse ni quedarse corto)",
     descripcion: "Guía de dress code para la cena de empresa de Navidad: cómo ir arreglado sin parecer de boda, qué zapatos llevar si hay baile y cómo sobrevivir a la lluvia de Coruña.",
     categoria: "Empresas",
-    fecha: "2026-12-07",
+    fecha: "2026-11-12",
     lectura: 5,
     foto: FOTOS.navidadBrindis,
     bloques: [
@@ -343,7 +343,7 @@ export const POSTS_NAVIDAD: Post[] = [
     titulo: "Cena de Navidad para una empresa pequeña: ideas para equipos de 5 a 15 personas",
     descripcion: "Cómo hacer que la cena de Navidad de un equipo pequeño se viva como una gran fiesta: formato, ambiente, presupuesto e ideas para oficinas, tiendas y despachos.",
     categoria: "Empresas",
-    fecha: "2026-12-10",
+    fecha: "2026-11-13",
     lectura: 5,
     foto: FOTOS.empresas,
     bloques: [
@@ -375,7 +375,7 @@ export const POSTS_NAVIDAD: Post[] = [
     titulo: "Cena de empresa de Navidad a última hora: qué opciones quedan (y cómo no fallar)",
     descripcion: "Si a mediados de diciembre todavía no tenéis cena de empresa, aún hay opciones: noches con hueco, comidas, enero o un formato en exclusiva. Guía rápida.",
     categoria: "Empresas",
-    fecha: "2026-12-14",
+    fecha: "2026-11-14",
     lectura: 5,
     foto: FOTOS.navidadMesa,
     bloques: [
@@ -409,7 +409,7 @@ export const POSTS_NAVIDAD: Post[] = [
     titulo: "Las canciones que siempre suenan en la cena de empresa (y quién las pide)",
     descripcion: "De los clásicos de los 80 al éxito del verano: las canciones que no fallan en una cena de empresa de Navidad y los personajes que las piden al DJ.",
     categoria: "Humor",
-    fecha: "2026-12-17",
+    fecha: "2026-11-14",
     lectura: 5,
     foto: FOTOS.fiesta,
     bloques: [
