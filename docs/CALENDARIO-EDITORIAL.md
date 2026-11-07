@@ -83,6 +83,7 @@ Después de marzo: **2 al mes**.
 
 | Fecha | Artículo | Categoría |
 |---|---|---|
+| 8 nov | Frases, cotilleos y desfases de toda cena de empresa | Humor |
 | 9 nov | Cena de empresa para 50, 80 o 120 personas | Empresas |
 | 11 nov | Cómo conseguir que vaya toda la plantilla | Empresas |
 | 13 nov | Qué tiene que incluir una cena de empresa de Navidad | Empresas |
