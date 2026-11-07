@@ -101,3 +101,5 @@ Las despedidas ya escritas siguen del 26 dic al 12 ene. Ritmo a partir de marzo:
 Los enlaces a artículos aún no publicados se muestran como texto normal hasta su fecha (sin 404).
 
 **Ajuste 7 nov (Pablo):** fuera «cena de empresa en enero», «cena con clientes», «empresa pequeña» y «qué ponerse». «Cena con amigos» reescrito: cómo pasarlo en grande.
+
+**Ajuste 7 nov (2):** nunca dos artículos el mismo día. Navidad: uno al día del 8 al 14 nov; luego 17, 19, 21 y 28 nov (cómo animar, amigo invisible, comida o cena, última hora).

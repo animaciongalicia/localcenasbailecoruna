@@ -2,7 +2,7 @@ import { FOTOS } from "./fotos";
 import type { Post } from "./noticias";
 
 // Bloque 1 del calendario editorial: Navidad y empresas (noviembre).
-// Acelerado (decisión de Pablo, 7 nov): todo publicado entre el 7 y el 14 de noviembre, en plena campaña de reservas.
+// Acelerado (decisión de Pablo, 7 nov): uno al día del 8 al 14 de noviembre y luego cada 2–3 días hasta el 28. Nunca dos el mismo día.
 // Cada artículo ataca una búsqueda de cola larga distinta y enlaza a la página de venta
 // con un texto natural, sin competir con su palabra clave principal.
 
@@ -92,7 +92,7 @@ export const POSTS_NAVIDAD: Post[] = [
     titulo: "Cómo animar una cena de empresa: 10 trucos de quien lleva 15 años viéndolas",
     descripcion: "Trucos prácticos para que una cena de empresa no se apague a la una: mesas, tiempos, música, discurso y el momento exacto para el baile.",
     categoria: "Empresas",
-    fecha: "2026-11-08",
+    fecha: "2026-11-17",
     lectura: 6,
     foto: FOTOS.fiesta,
     bloques: [
@@ -132,7 +132,7 @@ export const POSTS_NAVIDAD: Post[] = [
     titulo: "¿Comida o cena de empresa? Cómo elegir según tu equipo",
     descripcion: "Ventajas e inconvenientes de la comida y la cena de empresa, y cómo decidir según turnos, familias, presupuesto y ganas de fiesta.",
     categoria: "Empresas",
-    fecha: "2026-11-09",
+    fecha: "2026-11-21",
     lectura: 5,
     foto: FOTOS.menus,
     bloques: [
@@ -167,7 +167,7 @@ export const POSTS_NAVIDAD: Post[] = [
     titulo: "Amigo invisible en la empresa: reglas, presupuesto e ideas de regalo",
     descripcion: "Cómo organizar el amigo invisible de la oficina sin dramas: sorteo, presupuesto, reglas de buen gusto e ideas de regalo que hacen gracia.",
     categoria: "Empresas",
-    fecha: "2026-11-10",
+    fecha: "2026-11-19",
     lectura: 5,
     foto: FOTOS.navidadMesa,
     bloques: [
@@ -268,7 +268,7 @@ export const POSTS_NAVIDAD: Post[] = [
     titulo: "Cena de empresa de Navidad a última hora: qué opciones quedan (y cómo no fallar)",
     descripcion: "Si a mediados de diciembre todavía no tenéis cena de empresa, aún hay opciones: noches con hueco, comidas o un formato en exclusiva. Guía rápida.",
     categoria: "Empresas",
-    fecha: "2026-11-14",
+    fecha: "2026-11-28",
     lectura: 5,
     foto: FOTOS.navidadMesa,
     bloques: [
