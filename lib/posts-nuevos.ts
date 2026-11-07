@@ -3,7 +3,7 @@ import type { Post } from "./noticias";
 
 // Bloque 3 del calendario editorial (7 nov 2026).
 // - 3 de Navidad para empresas, la semana del 9 al 13 de noviembre (aceleración en plena campaña).
-// - 4 de públicos nuevos (empresa en enero, reencuentros, clubes y asociaciones, despedida de compañero), de noviembre a diciembre.
+// - 3 de públicos nuevos (reencuentros, clubes y asociaciones, despedida de compañero), de noviembre a diciembre.
 // - 6 de temporada, de enero a mayo, 1–2 al mes, intercalados con los de despedidas.
 // Cada uno ataca una búsqueda distinta y enlaza a la página que vende ese tema, sin pisar su palabra clave.
 
@@ -106,35 +106,6 @@ export const POSTS_NUEVOS: Post[] = [
   },
 
   // ───────────── PÚBLICOS NUEVOS (noviembre–diciembre) ─────────────
-  {
-    slug: "cena-empresa-enero-despues-de-reyes",
-    titulo: "La cena de empresa en enero: por qué cada vez más empresas la pasan a después de Reyes",
-    descripcion: "Celebrar la cena de empresa en enero o febrero: ventajas, cuándo tiene sentido y cómo organizarla en A Coruña para que no parezca «la cena que se nos pasó».",
-    categoria: "Empresas",
-    fecha: "2026-11-18",
-    lectura: 5,
-    foto: FOTOS.brindis,
-    bloques: [
-      { tipo: "p", texto: "Diciembre es una locura. Cierres de año, entregas, compras, tres cenas familiares por semana… y en medio, la cena de empresa. Por eso cada vez más empresas hacen algo que hace diez años habría parecido raro: mover la cena a enero." },
-      { tipo: "p", texto: "No es dejadez. Bien planteada, es una decisión muy inteligente." },
-      { tipo: "h2", texto: "Las ventajas de celebrarla en enero" },
-      { tipo: "lista", items: ["**Va más gente.** Sin competencia con otras cenas, comidas familiares ni viajes.", "**Fechas libres.** En enero eliges día; en diciembre te conformas con el que queda.", "**Mejor ánimo.** La «cuesta de enero» es real. Una noche de fiesta a mitad de mes levanta al equipo cuando más falta hace.", "**Arranque de año.** Sirve para cerrar el anterior y presentar objetivos sin que parezca una reunión."] },
-      { tipo: "h2", texto: "Cuándo tiene sentido (y cuándo no)" },
-      { tipo: "p", texto: "Tiene sentido si diciembre es vuestro mes más fuerte de trabajo (comercio, hostelería, logística), si tenéis mucha plantilla que viaja en Navidad o si el año pasado la mitad no pudo ir." },
-      { tipo: "p", texto: "No tiene tanto sentido si el equipo espera la cena de Navidad como tradición. Ahí, mejor mantenerla y hacer en enero algo distinto." },
-      { tipo: "h2", texto: "Cómo venderla al equipo" },
-      { tipo: "p", texto: "La clave está en el nombre. No es «la cena de Navidad atrasada». Es «la fiesta de inicio de año», «la cena de los Reyes» o, si tenéis humor, «la cena para olvidar la cuesta de enero». Cambia el nombre y cambia la expectativa." },
-      { tipo: "h2", texto: "Qué formato funciona mejor" },
-      { tipo: "p", texto: "En enero lo habitual es organizarla en exclusiva para la empresa: el día que mejor os venga, en comida o en cena, en el Club Náutico de Oza, en otro espacio o incluso en vuestras instalaciones. Es la misma fórmula de cena, show cómico y DJ, pero solo para vuestro equipo. Tienes los detalles en [eventos privados en exclusiva](/eventos-privados-coruna/)." },
-      { tipo: "h2", texto: "Ideas para que tenga identidad propia" },
-      { tipo: "lista", items: ["Un «resumen del año» en dos minutos con fotos del equipo, antes del postre.", "Premios en clave de humor al año que acaba.", "Roscón de Reyes compartido si es antes del 10 de enero, con premio para quien encuentre la figura.", "Un brindis por los objetivos del año: corto, concreto y sin diapositivas."] },
-      { tipo: "h2", texto: "Calendario recomendado" },
-      { tipo: "p", texto: "Si quieres hacerla en enero, reserva en noviembre o principios de diciembre. Parece pronto, pero el DJ y el show son los mismos que en las noches de grupo, y la agenda manda: lo que no se reserva antes, se complica." },
-      { tipo: "cita", texto: "La mejor cena de empresa no es la que cae en la fecha correcta. Es la que hace que el equipo vuelva el lunes con otra cara." },
-      { tipo: "p", texto: "Y si aún estás a tiempo de diciembre, mira primero las [cenas de empresa de Navidad](/cenas-navidad-coruna/): todavía hay noches abiertas." },
-      { tipo: "cta", texto: "¿Te cuadra más enero? Pide fecha y te paso propuesta.", href: "/reservas/?modalidad=medida&celebracion=empresa", boton: "Pedir propuesta" },
-    ],
-  },
   {
     slug: "cena-reencuentro-antiguos-alumnos-coruna",
     titulo: "Cena de reencuentro de antiguos alumnos en Coruña: cómo organizarla (y que vaya alguien)",

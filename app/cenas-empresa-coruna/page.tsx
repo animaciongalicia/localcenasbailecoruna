@@ -93,7 +93,7 @@ export default function Empresas() {
       />
       <Espacio />
       <Faq preguntas={FAQ_EMPRESA} titulo="Lo que suelen preguntar las empresas" />
-      <PostsRelacionados slugs={["como-animar-cena-empresa", "comida-o-cena-de-empresa", "cena-empresa-con-clientes", "organizar-cena-empresa-navidad-coruna"]} />
+      <PostsRelacionados slugs={["como-animar-cena-empresa", "comida-o-cena-de-empresa", "cena-empresa-grupo-grande-coruna", "organizar-cena-empresa-navidad-coruna"]} />
       <Ocasiones excluir={RUTA} />
       <CtaFinal titulo="La cena de empresa que la gente sí quiere repetir" />
       <JsonLdMigas nombre="Cenas de empresa" ruta={RUTA} />

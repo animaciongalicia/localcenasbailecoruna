@@ -86,7 +86,6 @@ Después de marzo: **2 al mes**.
 | 9 nov | Cena de empresa para 50, 80 o 120 personas | Empresas |
 | 11 nov | Cómo conseguir que vaya toda la plantilla | Empresas |
 | 13 nov | Qué tiene que incluir una cena de empresa de Navidad | Empresas |
-| 18 nov | La cena de empresa en enero, después de Reyes | Empresas |
 | 25 nov | Cena de reencuentro de antiguos alumnos | Grupos (nuevo) |
 | 2 dic | Cena de clubes, peñas y asociaciones | Grupos (nuevo) |
 | 9 dic | Despedida de un compañero que se va | Grupos (nuevo) |
@@ -99,3 +98,5 @@ Después de marzo: **2 al mes**.
 
 Las despedidas ya escritas siguen del 26 dic al 12 ene. Ritmo a partir de marzo: 1–2 al mes.
 Los enlaces a artículos aún no publicados se muestran como texto normal hasta su fecha (sin 404).
+
+**Ajuste 7 nov (Pablo):** fuera «cena de empresa en enero», «cena con clientes», «empresa pequeña» y «qué ponerse». «Cena con amigos» reescrito: cómo pasarlo en grande.
