@@ -103,3 +103,5 @@ Los enlaces a artículos aún no publicados se muestran como texto normal hasta 
 **Ajuste 7 nov (Pablo):** fuera «cena de empresa en enero», «cena con clientes», «empresa pequeña» y «qué ponerse». «Cena con amigos» reescrito: cómo pasarlo en grande.
 
 **Ajuste 7 nov (2):** nunca dos artículos el mismo día. Navidad: uno al día del 8 al 14 nov; luego 17, 19, 21 y 28 nov (cómo animar, amigo invisible, comida o cena, última hora).
+
+**Ajuste 7 nov (3):** todo lo de Navidad entre el 8 y el 25 nov; «última hora» pasa al 23 nov.

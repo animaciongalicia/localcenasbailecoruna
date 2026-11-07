@@ -2,7 +2,7 @@ import { FOTOS } from "./fotos";
 import type { Post } from "./noticias";
 
 // Bloque 1 del calendario editorial: Navidad y empresas (noviembre).
-// Acelerado (decisión de Pablo, 7 nov): uno al día del 8 al 14 de noviembre y luego cada 2–3 días hasta el 28. Nunca dos el mismo día.
+// Acelerado (decisión de Pablo, 7 nov): uno al día del 8 al 14 de noviembre y luego cada 2 días hasta el 25. Nunca dos el mismo día.
 // Cada artículo ataca una búsqueda de cola larga distinta y enlaza a la página de venta
 // con un texto natural, sin competir con su palabra clave principal.
 
@@ -268,7 +268,7 @@ export const POSTS_NAVIDAD: Post[] = [
     titulo: "Cena de empresa de Navidad a última hora: qué opciones quedan (y cómo no fallar)",
     descripcion: "Si a mediados de diciembre todavía no tenéis cena de empresa, aún hay opciones: noches con hueco, comidas o un formato en exclusiva. Guía rápida.",
     categoria: "Empresas",
-    fecha: "2026-11-28",
+    fecha: "2026-11-23",
     lectura: 5,
     foto: FOTOS.navidadMesa,
     bloques: [
