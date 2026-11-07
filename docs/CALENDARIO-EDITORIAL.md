@@ -74,3 +74,28 @@ Después de marzo: **2 al mes**.
 - Regalos de jubilación que no son un reloj.
 - Bodas de plata: cómo celebrarlas con los amigos.
 - Reencuentro de antiguos alumnos: cómo organizarlo.
+
+## Actualización 7 nov 2026 (acelerar ahora, suave en temporada)
+
+**Navidad adelantada:** los 12 artículos de Navidad se publican entre el 7 y el 14 de noviembre.
+
+**Nuevos (lib/posts-nuevos.ts):**
+
+| Fecha | Artículo | Categoría |
+|---|---|---|
+| 9 nov | Cena de empresa para 50, 80 o 120 personas | Empresas |
+| 11 nov | Cómo conseguir que vaya toda la plantilla | Empresas |
+| 13 nov | Qué tiene que incluir una cena de empresa de Navidad | Empresas |
+| 18 nov | La cena de empresa en enero, después de Reyes | Empresas |
+| 25 nov | Cena de reencuentro de antiguos alumnos | Grupos (nuevo) |
+| 2 dic | Cena de clubes, peñas y asociaciones | Grupos (nuevo) |
+| 9 dic | Despedida de un compañero que se va | Grupos (nuevo) |
+| 20 ene | Cumpleaños sorpresa para adultos | Cumpleaños |
+| 3 feb | Celebrar los 40 en A Coruña | Cumpleaños |
+| 17 feb | Despedida de soltera tranquila | Despedidas |
+| 3 mar | Ideas de homenaje para una jubilación | Jubilaciones |
+| 14 abr | Cena de fin de curso para profesores | Grupos (nuevo) |
+| 12 may | Cena de empresa de verano | Empresas |
+
+Las despedidas ya escritas siguen del 26 dic al 12 ene. Ritmo a partir de marzo: 1–2 al mes.
+Los enlaces a artículos aún no publicados se muestran como texto normal hasta su fecha (sin 404).

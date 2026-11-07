@@ -7,6 +7,7 @@
 import { FOTOS, type Foto } from "./fotos";
 import { POSTS_NAVIDAD } from "./posts-navidad";
 import { POSTS_DESPEDIDAS } from "./posts-despedidas";
+import { POSTS_NUEVOS } from "./posts-nuevos";
 
 export type Bloque =
   | { tipo: "p"; texto: string }
@@ -19,7 +20,7 @@ export type Post = {
   slug: string;
   titulo: string;
   descripcion: string;
-  categoria: "Empresas" | "Cumpleaños" | "Humor" | "Jubilaciones" | "Despedidas" | "Novedades";
+  categoria: "Empresas" | "Cumpleaños" | "Humor" | "Jubilaciones" | "Despedidas" | "Grupos" | "Novedades";
   fecha: string; // yyyy-mm-dd
   lectura: number; // minutos
   foto?: Foto;
@@ -29,6 +30,7 @@ export type Post = {
 export const POSTS: Post[] = [
   ...POSTS_NAVIDAD,
   ...POSTS_DESPEDIDAS,
+  ...POSTS_NUEVOS,
   {
     slug: "organizar-cena-empresa-navidad-coruna",
     titulo: "Cómo organizar la cena de empresa de Navidad (y no morir en el intento)",
