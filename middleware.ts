@@ -28,6 +28,12 @@ export function middleware(req: NextRequest) {
     return NextResponse.redirect(`${DOMINIO}${destino}${q ? `?${q}` : ""}`, 301);
   }
 
+  // 1b) Red de seguridad: si el subdominio navidad se redirige a nivel de dominio (a la portada),
+  // los anuncios llegan a "/?g=empresas|amigos|instagram". Se mandan a la página de Navidad conservando la query.
+  if (pathname === "/" && esVariante(searchParams.get("g"))) {
+    return NextResponse.redirect(`${DOMINIO}/cenas-navidad-coruna/${search}`, 301);
+  }
+
   // 2) Variantes de titular de Navidad para anuncios: /cenas-navidad-coruna/?g=empresas → HTML estático de la variante.
   if (pathname === "/cenas-navidad-coruna/" && esVariante(searchParams.get("g"))) {
     const url = req.nextUrl.clone();
