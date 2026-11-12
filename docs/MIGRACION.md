@@ -44,8 +44,9 @@ Variantes mal escritas del antiguo «pub-puticlub…» → 410 por prefijo en mi
 ## 12 nov 2026: actividades → páginas de los7pc.com
 
 92 rutas que daban 410 (actividades, alojamiento, limusinas, monólogos y artículos de despedidas) redirigen (301) dentro de la web:
-- Actividades, alojamiento, limusinas, gincanas, humor amarillo, paseos en barco y artículos de despedidas → /cenas-despedidas-coruna/
-- Monólogos → / (la noche incluye show cómico)
+- Actividades de despedida, alojamiento, limusinas, gincanas, paseos en barco y artículos de despedidas → /cenas-despedidas-coruna/
+- Monólogos y humor amarillo → / (la noche incluye show cómico)
+- Tupersex → 410 (contenido adulto, no se asocia a la marca)
 
 Ninguna redirección sale a otro dominio (decisión de Pablo). Siguen en 410: puticlub, strippers, drag, pubs, discotecas, coctelerías y artículos sin relación.
 Lista en `lib/redirecciones-grupo.mjs`; el generador ya no las devuelve a `lib/retiradas.json`.
