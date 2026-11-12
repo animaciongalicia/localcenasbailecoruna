@@ -40,3 +40,12 @@ Redirecciones de seguridad añadidas a mano en `lib/redirecciones-extra.mjs` (el
 archivos por fecha y paginación de WordPress, IDs numéricos, sitemaps de plugins, favicon, páginas sueltas del XML
 (paseos en barco, alojamientos, descargar ofertas, rockit…) y nombres probables (/blog, /navidad, /menus, /precios, /reservar…).
 Variantes mal escritas del antiguo «pub-puticlub…» → 410 por prefijo en middleware.
+
+## 12 nov 2026: actividades → webs del grupo
+
+92 rutas que daban 410 (actividades, alojamiento, limusinas, monólogos y artículos de despedidas) ahora redirigen (301) a la web del grupo que vende eso:
+- Gincanas → www.ginkanas.es · Humor amarillo → www.humoramarillocoruna.com · Paseos en barco → seagalicia.com
+- Monólogos → monologosgalicia.com · Resto de actividades y artículos de despedidas → www.despedidascoruna.es
+
+Siguen en 410: puticlub, strippers, drag, pubs, discotecas, coctelerías y artículos sin relación con el grupo.
+Lista en `lib/redirecciones-grupo.mjs`; el generador ya no las devuelve a `lib/retiradas.json`.

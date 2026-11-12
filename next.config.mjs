@@ -1,5 +1,6 @@
 import { REDIRECCIONES } from "./lib/redirecciones.mjs";
 import { REDIRECCIONES_EXTRA } from "./lib/redirecciones-extra.mjs";
+import { REDIRECCIONES_GRUPO } from "./lib/redirecciones-grupo.mjs";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -12,7 +13,7 @@ const nextConfig = {
     deviceSizes: [360, 480, 640, 828, 1080, 1440, 1920],
   },
   async redirects() {
-    return [...REDIRECCIONES, ...REDIRECCIONES_EXTRA].map(([source, destination]) => ({ source, destination, permanent: true }));
+    return [...REDIRECCIONES, ...REDIRECCIONES_EXTRA, ...REDIRECCIONES_GRUPO].map(([source, destination]) => ({ source, destination, permanent: true }));
   },
   async headers() {
     return [{ source: "/fotos/:path*", headers: [{ key: "Cache-Control", value: "public, max-age=2592000" }] }];

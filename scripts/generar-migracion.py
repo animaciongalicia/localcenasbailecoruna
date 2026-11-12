@@ -59,6 +59,9 @@ DESTINOS = {
 
 # Rutas antiguas que vuelven a existir en la web nueva: ni 301 ni 410.
 REUTILIZADAS = {"/noticias/"}
+# Rutas que redirigen a webs del grupo (lib/redirecciones-grupo.mjs): no deben volver a retiradas.json.
+import re as _re
+GRUPO = set(_re.findall(r'\["([^"]+)", "https', open("lib/redirecciones-grupo.mjs").read()))
 
 # Rutas sin equivalente vistas en Search Console que no están en el XML (se retiran con 410).
 EXTRA_RETIRADAS = [
@@ -96,7 +99,7 @@ def main(xml: str) -> None:
         redir.append((p, dest))
         tabla.append({"url_antigua": p, "codigo": 301, "destino": dest, "motivo": motivo, "validacion": val or "OK con XML y Search Console"})
     for p, r in sorted(publicas.items()):
-        if p == "/" or p in DESTINOS or p in REUTILIZADAS or p.startswith("/noticias/"):
+        if p == "/" or p in DESTINOS or p in REUTILIZADAS or p.rstrip("/") in GRUPO or p.startswith("/noticias/"):
             continue
         retiradas.add(p)
         motivo = "Adjunto de WordPress (página de imagen) sin valor propio" if r["tipo"] == "attachment" else \
