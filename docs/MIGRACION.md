@@ -28,3 +28,15 @@ Cualquier otra URL desconocida da 404.
 ## Comprobado
 `scripts/verificar.mjs` comprueba cada 301 (código y destino, sin cadenas) y cada 410. Última ejecución: todo OK.
 Excepción conocida: una URL antigua escrita **sin** barra final (p. ej. `/tarifa`) hace dos saltos (`/tarifa` → `/tarifa/` → `/menus-precios/`). WordPress siempre usó barra final, así que los enlaces reales no se ven afectados.
+
+## Revisión 12 nov 2026: cero 404 en URLs antiguas
+
+Probadas 912 URLs del sitio antiguo (XML de WordPress, inventario, CSV de Search Console), con y sin barra final:
+- 1.133 respuestas → 410 (retiradas a propósito: puticlub, strippers, adjuntos, wp-*).
+- 120 → 200 (directas o tras una redirección 301).
+- 0 → 404.
+
+Redirecciones de seguridad añadidas a mano en `lib/redirecciones-extra.mjs` (el generador no las toca):
+archivos por fecha y paginación de WordPress, IDs numéricos, sitemaps de plugins, favicon, páginas sueltas del XML
+(paseos en barco, alojamientos, descargar ofertas, rockit…) y nombres probables (/blog, /navidad, /menus, /precios, /reservar…).
+Variantes mal escritas del antiguo «pub-puticlub…» → 410 por prefijo en middleware.
