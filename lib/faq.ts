@@ -22,6 +22,10 @@ const fechas: Pregunta = {
   p: "¿Qué días hay cena baile?",
   r: `La cena baile con otros grupos es ${T.temporada}. No hay un calendario cerrado: las noches se abren según las reservas de los grupos. Escribe con tu fecha y te digo si encaja o qué noches hay cerca. En exclusiva, cualquier día del año.`,
 };
+const conjunta: Pregunta = {
+  p: "¿Qué es una cena conjunta con espectáculo y fiesta?",
+  r: "Es una noche en la que varios grupos (despedidas, cumpleaños, empresas, cuadrillas) cenan en la misma sala, cada uno en su mesa, y comparten el espectáculo y la fiesta. En Los7pc incluye cena sentada con bebida, una hora de show cómico y DJ con baile hasta las 3 en el Club Náutico de Oza. Es la forma más sencilla de tener ambiente aunque seáis un grupo pequeño.",
+};
 const consulta: Pregunta = {
   p: "Si envío la consulta, ¿ya tengo la reserva?",
   r: "Todavía no. La consulta sirve para ver si hay hueco para tu grupo en esa fecha. La reserva queda confirmada cuando recibes las condiciones por escrito y haces el pago de confirmación.",
@@ -58,7 +62,7 @@ const vuelta: Pregunta = {
   r: "Conviene dejarlo resuelto antes: taxis compartidos, un conductor que no bebe o un traslado de grupo. Si sois muchos, pregúntame y te digo opciones.",
 };
 
-export const FAQ_HOME: Pregunta[] = [incluye, cuanto, grupoPequeno, fechas, horario, show, copas, dietas, consulta, aparcamiento];
+export const FAQ_HOME: Pregunta[] = [incluye, conjunta, cuanto, grupoPequeno, fechas, horario, show, copas, dietas, consulta, aparcamiento];
 
 export const FAQ_CUMPLE: Pregunta[] = [
   { p: "¿Dónde celebrar un cumpleaños de adultos en Coruña?", r: `Si quieres cena, risas y baile sin organizar nada, la cena baile del ${SEDE.nombre} está pensada para eso: mesa para tu grupo, show cómico y DJ hasta las 3. Si el cumpleaños es grande, también en exclusiva, el día que quieras.` },
@@ -86,6 +90,7 @@ export const FAQ_EMPRESA: Pregunta[] = [
 ];
 
 export const FAQ_DESPEDIDA: Pregunta[] = [
+  conjunta,
   { p: "¿El show es para el novio o la novia?", r: "Es un show de humor con participación del público. Si queréis que el protagonista tenga su momento, dilo al reservar." },
   { p: "¿Podemos venir disfrazados?", r: "Cuéntanos la idea en la consulta. Lo normal es que cada grupo venga como quiera." },
   { p: "¿Hay más despedidas esa noche?", r: "Es habitual coincidir con otras despedidas, cumpleaños y grupos: es parte de la gracia. Si queréis la noche solo para vosotros, existe la opción en exclusiva." },

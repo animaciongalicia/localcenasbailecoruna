@@ -14,7 +14,7 @@ export function GET() {
 > Cenas baile con show cómico y DJ hasta las 3:00 en A Coruña (Galicia, España). ${MARCA.trayectoria}. Sede actual: ${SEDE.nombre}, ${SEDE.direccion}, ${SEDE.ciudad}. Los7pc organiza la noche en las instalaciones del club.
 
 ## Qué ofrece
-- Cena baile con otros grupos (${T.temporada}): cena sentada, bebida durante la cena (${MENU.bebida.join(", ").toLowerCase()}), show cómico y DJ hasta las 3. ${T.precio} € por persona, IVA incluido (temporada ${T.anio}). Se aceptan grupos pequeños desde 6 personas; cada grupo tiene su mesa.
+- Cena baile con otros grupos, también llamada cena conjunta con espectáculo y fiesta (${T.temporada}): cena sentada, bebida durante la cena (${MENU.bebida.join(", ").toLowerCase()}), show cómico y DJ hasta las 3. ${T.precio} € por persona, IVA incluido (temporada ${T.anio}). Se aceptan grupos pequeños desde 6 personas; cada grupo tiene su mesa.
 - Cenas de empresa de Navidad (${N.temporada}): ${N.precio} € por persona en ${N.anio}.
 - Eventos en exclusiva: ${EXCLUSIVO.cuando.toLowerCase()}, en el ${SEDE.nombre}, en otro espacio o en el local del cliente. Presupuesto personalizado.
 - Menú: ${[...MENU.entrantes, ...MENU.principal, ...MENU.postre].join(", ")}. ${MENU.dietas}

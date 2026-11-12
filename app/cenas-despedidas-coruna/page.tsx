@@ -30,6 +30,7 @@ export default function Despedidas() {
       <Prosa ante="Despedidas en A Coruña" titulo="La noche de la despedida de soltera o de soltero, resuelta">
         <p>Da igual que sea una <strong>despedida de soltera</strong>, una <strong>despedida de soltero</strong> o mixta: tiene dos momentos críticos: dónde cenar todos juntos y dónde seguir después sin perder a la mitad por el camino. <strong>Aquí son el mismo sitio.</strong></p>
         <p>Cenáis en vuestra mesa, el show cómico pone a todo el mundo en modo fiesta y el DJ hace el resto hasta las tres. Y como compartís sala con otras despedidas, cumpleaños y cuadrillas, el ambiente viene hecho desde el primer minuto.</p>
+        <p>Es lo que en Coruña se conoce como <strong>cenas conjuntas con espectáculo y fiesta</strong>: varias despedidas y grupos en la misma sala, cada uno en su mesa, con el mismo show y la misma pista. Vosotros ponéis la novia o el novio; la fiesta ya está montada.</p>
         <p>Más de quince años organizando cenas de despedida en A Coruña dan para saber una cosa: <strong>lo que se recuerda no es el menú, es la noche.</strong></p>
       </Prosa>
 

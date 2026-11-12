@@ -98,7 +98,8 @@ export function DosModalidades({ ejemploConjunta, ejemploMedida, anteConjunta }:
       <div className="mt-10 grid gap-5 md:grid-cols-2">
         <article className="tarjeta flex flex-col p-6 sm:p-8">
           <p className="antetitulo">{anteConjunta ?? `Temporada ${T.temporadaCorta.toLowerCase()}`}</p>
-          <h3 className="mt-2 font-serif text-3xl font-semibold">Con otros grupos</h3>
+          <h3 className="mt-2 font-serif text-3xl font-semibold">Cenas conjuntas con espectáculo y fiesta</h3>
+          <p className="mt-1 text-sm font-semibold uppercase tracking-[0.14em] text-tinta-suave">Con otros grupos</p>
           <p className="mt-3 leading-relaxed text-tinta-suave">
             {ejemploConjunta ?? "Vienes con tu grupo, sea de 6 o de 30. Tenéis vuestra mesa y compartís la noche con otros grupos: más ambiente, más baile."}
           </p>

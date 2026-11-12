@@ -142,7 +142,7 @@ export default function MenusPrecios() {
       <Seccion id="temporada">
         <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-center">
           <div>
-            <Titulo ante={`Próxima temporada · ${T.temporada} ${T.anio}`} titulo="Cena baile con otros grupos" texto="Cumpleaños, despedidas, empresas y cuadrillas compartiendo noche: cada grupo con su mesa, el mismo menú gallego, show cómico y baile hasta las 3." />
+            <Titulo ante={`Próxima temporada · ${T.temporada} ${T.anio}`} titulo="Cenas conjuntas con espectáculo y fiesta" texto="La cena baile con otros grupos. Cumpleaños, despedidas, empresas y cuadrillas compartiendo noche: cada grupo con su mesa, el mismo menú gallego, show cómico y baile hasta las 3." />
             <p className="mt-4 text-tinta-suave">Las noches se abren según las reservas de los grupos. Si ya tenéis fecha para la primavera o el verano, podéis consultarla desde hoy.</p>
           </div>
           <div className="tarjeta grid gap-6 p-6 sm:grid-cols-[auto_1fr] sm:items-center sm:p-8">
