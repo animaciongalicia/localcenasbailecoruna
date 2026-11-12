@@ -61,7 +61,7 @@ DESTINOS = {
 REUTILIZADAS = {"/noticias/"}
 # Rutas que redirigen a webs del grupo (lib/redirecciones-grupo.mjs): no deben volver a retiradas.json.
 import re as _re
-GRUPO = set(_re.findall(r'\["([^"]+)", "https', open("lib/redirecciones-grupo.mjs").read()))
+GRUPO = set(_re.findall(r'\["([^"]+)", "', open("lib/redirecciones-grupo.mjs").read()))
 
 # Rutas sin equivalente vistas en Search Console que no están en el XML (se retiran con 410).
 EXTRA_RETIRADAS = [

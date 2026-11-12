@@ -41,11 +41,11 @@ archivos por fecha y paginación de WordPress, IDs numéricos, sitemaps de plugi
 (paseos en barco, alojamientos, descargar ofertas, rockit…) y nombres probables (/blog, /navidad, /menus, /precios, /reservar…).
 Variantes mal escritas del antiguo «pub-puticlub…» → 410 por prefijo en middleware.
 
-## 12 nov 2026: actividades → webs del grupo
+## 12 nov 2026: actividades → páginas de los7pc.com
 
-92 rutas que daban 410 (actividades, alojamiento, limusinas, monólogos y artículos de despedidas) ahora redirigen (301) a la web del grupo que vende eso:
-- Gincanas → www.ginkanas.es · Humor amarillo → www.humoramarillocoruna.com · Paseos en barco → seagalicia.com
-- Monólogos → monologosgalicia.com · Resto de actividades y artículos de despedidas → www.despedidascoruna.es
+92 rutas que daban 410 (actividades, alojamiento, limusinas, monólogos y artículos de despedidas) redirigen (301) dentro de la web:
+- Actividades, alojamiento, limusinas, gincanas, humor amarillo, paseos en barco y artículos de despedidas → /cenas-despedidas-coruna/
+- Monólogos → / (la noche incluye show cómico)
 
-Siguen en 410: puticlub, strippers, drag, pubs, discotecas, coctelerías y artículos sin relación con el grupo.
+Ninguna redirección sale a otro dominio (decisión de Pablo). Siguen en 410: puticlub, strippers, drag, pubs, discotecas, coctelerías y artículos sin relación.
 Lista en `lib/redirecciones-grupo.mjs`; el generador ya no las devuelve a `lib/retiradas.json`.
